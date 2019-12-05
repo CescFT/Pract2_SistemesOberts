@@ -1,8 +1,7 @@
 package ConnectionToJSP;
 
-import restClients.RoomClient;
+
 import ModelEntities.Habitacio;
-import ModelEntities.User;
 import ServicesSingleton.RoomServiceSingleton;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
