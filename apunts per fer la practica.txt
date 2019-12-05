@@ -1,0 +1,5 @@
+web.xml -> controla el desplegament de la aplicació web (descriptor de desplegament), indiquem que ha de executarse quan hi ha algun error, ...
+
+*.do -> fa matching per extensió. Com que estem fent un front controller (unic punt d'entrada de la app web. En el web.xml, només hi ha un servlet (cat.urv.deim.sob.ControllerServlet) que controla totes les peticions. TOT HA D'ACABAR AMB .do perq aixi tot va a parar al mateix servlet! -> tot ve en el fitxer mvc-setup.json
+
+/.../init.do --> en el mvc-setup.json quan rep un init executara la class que esta posat alli (la * fa referencia a init!)
