@@ -43,8 +43,8 @@ public final class rooms_jsp extends org.apache.jasper.runtime.HttpJspBase
 
  Object o = request.getAttribute("rooms");
     out.println(o);
-      out.write('\n');
-      out.write('\n');
+      out.write("\r\n");
+      out.write("\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
