@@ -40,7 +40,7 @@ public class ControllerServlet extends HttpServlet {
 
         // 1. choose action
         String URI = request.getRequestURI();
-
+        System.out.println(URI);
         // 2. choose related command
         InterficieComuna command = (InterficieComuna) commands.get(URI);
 

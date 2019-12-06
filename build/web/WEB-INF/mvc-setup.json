@@ -1,8 +1,28 @@
 {
   "commands": [
     {
-      "URI": "/rooms",
+      "URI": "/allRooms",
+      "class": "ConnectionToJSP.SearchAllRooms" 
+    },
+    {
+      "URI": "/roomsVallsAsc",
       "class": "ConnectionToJSP.SearchRooms" 
-    }    
+    },
+    {
+        "URI" : "/roomById",
+        "class" : "ConnectionToJSP.SearchRoomById"
+    },
+    {
+        "URI" : "/roomEliminated",
+        "class" : "ConnectionToJSP.DeleteRoom"
+    },
+    {
+        "URI" : "/modifiedRoom",
+        "class" : "ConnectionToJSP.EditRoom"
+    },
+    {
+        "URI" : "/createdRoom",
+        "class" : "ConnectionToJSP.CreateRoom"
+    }
   ]
 }

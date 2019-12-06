@@ -12,7 +12,7 @@ import java.util.*;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
-public class SearchRooms implements InterficieComuna {
+public class EditRoom implements InterficieComuna {
 
     @Override
     public void execute(
@@ -22,14 +22,17 @@ public class SearchRooms implements InterficieComuna {
         
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request
-        Response res = r.getService().find_JSON("Valls", "asc");
-        if(res.getStatus() == 200)
-            request.setAttribute("rooms",  res.readEntity(new GenericType<List<Habitacio>>(){}));
-        else
-            request.setAttribute("rooms", "There was an error."+res.getStatusInfo());
+        Response res = r.getService().findHabitacio(100);
+        
+        Habitacio hab = res.readEntity(Habitacio.class);
+        hab.setPreuMes(125);
+        
+        Response resPut = r.getService().editHabitacio_XML(hab, String.valueOf(100));
+        
+        request.setAttribute("modified", resPut.readEntity(new GenericType<List<Habitacio>>(){}));
 
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
-        context.getRequestDispatcher("/rooms.jsp").forward(request, response);
+        context.getRequestDispatcher("/modifiedRoom.jsp").forward(request, response);
     }
 }

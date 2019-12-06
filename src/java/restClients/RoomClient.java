@@ -33,27 +33,40 @@ public class RoomClient {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("room");
     }
+    
+    public Response findHabitacio(Integer id) throws ClientErrorException{
+        WebTarget resource = webTarget.path(String.valueOf(id));
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get();
+        
+    }
 
     public Response find_XML(String location, String sort) throws ClientErrorException {
         WebTarget resource = webTarget;
+        System.out.println(location+" "+sort);
+        /*resource = resource.queryParam("location", location).queryParam("sort", sort);
+        System.out.println(resource.getUri().toString());
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get();*/
+        
         if (location != null) {
             resource = resource.queryParam("location", location);
         }
         if (sort != null) {
             resource = resource.queryParam("sort", sort);
         }
+        System.out.println(resource.getUri().toString());
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_XML).get();
     }
 
     public Response find_JSON(String location, String sort) throws ClientErrorException {
         WebTarget resource = webTarget;
-        if (location != null) {
-            resource = resource.queryParam("location", location);
-        }
-        if (sort != null) {
-            resource = resource.queryParam("sort", sort);
-        }
+        
+        System.out.println(location+" "+sort);
+        
+        resource = resource.queryParam("location", location).queryParam("sort", sort);
+        System.out.println(resource.getUri().toString());
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get();
+        
+        
     }
 
     public Response editHabitacio_XML(Object requestEntity, String id) throws ClientErrorException {
@@ -73,7 +86,7 @@ public class RoomClient {
     }
 
     public Response remove(String id) throws ClientErrorException {
-        return webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id})).request().delete(Response.class);
+        return webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id})).request().delete();
     }
 
     public void close() {
