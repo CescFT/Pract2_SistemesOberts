@@ -1,4 +1,4 @@
-package ConnectionToJSP;
+package ModelEntities;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

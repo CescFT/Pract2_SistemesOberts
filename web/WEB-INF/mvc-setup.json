@@ -2,27 +2,27 @@
   "commands": [
     {
       "URI": "/allRooms",
-      "class": "ConnectionToJSP.SearchAllRooms" 
+      "class": "ConnectionToJSPRooms.SearchAllRooms" 
     },
     {
       "URI": "/roomsVallsAsc",
-      "class": "ConnectionToJSP.SearchRooms" 
+      "class": "ConnectionToJSPRooms.SearchRooms" 
     },
     {
         "URI" : "/roomById",
-        "class" : "ConnectionToJSP.SearchRoomById"
+        "class" : "ConnectionToJSPRooms.SearchRoomById"
     },
     {
         "URI" : "/roomEliminated",
-        "class" : "ConnectionToJSP.DeleteRoom"
+        "class" : "ConnectionToJSPRooms.DeleteRoom"
     },
     {
         "URI" : "/modifiedRoom",
-        "class" : "ConnectionToJSP.EditRoom"
+        "class" : "ConnectionToJSPRooms.EditRoom"
     },
     {
         "URI" : "/createdRoom",
-        "class" : "ConnectionToJSP.CreateRoom"
+        "class" : "ConnectionToJSPRooms.CreateRoom"
     }
   ]
 }

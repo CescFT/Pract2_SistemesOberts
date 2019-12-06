@@ -1,6 +1,7 @@
-package ConnectionToJSP;
+package ConnectionToJSPRooms;
 
 
+import ModelEntities.InterficieComuna;
 import ModelEntities.Habitacio;
 import ModelEntities.Requeriment;
 import ModelEntities.SexeLlogater;

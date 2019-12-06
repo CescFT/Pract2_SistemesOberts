@@ -1,6 +1,7 @@
-package ConnectionToJSP;
+package ConnectionToJSPRooms;
 
 
+import ModelEntities.InterficieComuna;
 import ModelEntities.Habitacio;
 import ServicesSingleton.RoomServiceSingleton;
 import javax.servlet.http.HttpServletRequest;
