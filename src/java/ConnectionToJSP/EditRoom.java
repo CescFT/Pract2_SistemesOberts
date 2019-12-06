@@ -27,10 +27,13 @@ public class EditRoom implements InterficieComuna {
         Habitacio hab = res.readEntity(Habitacio.class);
         hab.setPreuMes(125);
         
-        Response resPut = r.getService().editHabitacio_XML(hab, String.valueOf(100));
+        Response resPut = r.getService().editHabitacio_JSON(hab, String.valueOf(100));
         
-        request.setAttribute("modified", resPut.readEntity(new GenericType<List<Habitacio>>(){}));
-
+        if(resPut.getStatus() == Response.Status.OK.getStatusCode()){
+            request.setAttribute("modified", resPut.readEntity(Habitacio.class));
+        }else if(resPut.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
+            request.setAttribute("modified", resPut.readEntity(String.class));
+        }
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
         context.getRequestDispatcher("/modifiedRoom.jsp").forward(request, response);

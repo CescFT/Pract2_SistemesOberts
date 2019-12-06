@@ -43,7 +43,12 @@ public class CreateRoom implements InterficieComuna {
         
         Response resposta = r.getService().createHabitacio_JSON(novaHabitacio);
         
-        request.setAttribute("created", resposta.readEntity(new GenericType<List<Habitacio>>(){}));
+        if(resposta.getStatus() == Response.Status.CREATED.getStatusCode()){
+            request.setAttribute("created", resposta.readEntity(Habitacio.class));
+        }else if(resposta.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
+            request.setAttribute("created", resposta.readEntity(Habitacio.class));
+        }
+        
 
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
