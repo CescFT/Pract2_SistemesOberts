@@ -27,7 +27,7 @@ public class RoomClient {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/RESTServicesForPract2SistemesOberts/webresources";
+    private static final String BASE_URI = "http://localhost:8080/RESTServiceForPract2SistemesOberts/webresources/";
 
     public RoomClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
