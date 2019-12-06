@@ -62,8 +62,8 @@ public class AutenticacioClient {
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get();
     }
 
-    public Response authenticationClient() throws ClientErrorException {
-        return webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_FORM_URLENCODED).post(null, Response.class);
+    public Response authenticationClient(Object requestEntity) throws ClientErrorException {
+        return webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON), Response.class);
     }
 
     public Response getTokenOfUsername_XML(String username) throws ClientErrorException {
