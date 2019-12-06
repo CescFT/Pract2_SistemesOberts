@@ -27,7 +27,7 @@ public class TenantClient {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/Pract1_SistemesOberts/webresources";
+    private static final String BASE_URI = "http://localhost:8080/RESTServicesForPract2SistemesOberts/webresources";
 
     public TenantClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
