@@ -5,6 +5,7 @@
         <group>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSP/CreateRoom.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSP/SearchRoomById.java</file>
+            <file>file:/D:/Pract2_SistemesOberts/src/java/restClients/TenantClient.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/restClients/RoomClient.java</file>
             <file>file:/D:/Pract2_SistemesOberts/web/eliminateRoom.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSP/EditRoom.java</file>
@@ -13,6 +14,7 @@
             <file>file:/D:/Pract2_SistemesOberts/web/createRoom.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSP/SearchAllRooms.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSP/DeleteRoom.java</file>
+            <file>file:/D:/Pract2_SistemesOberts/src/java/restClients/AutenticacioClient.java</file>
         </group>
     </open-files>
 </project-private>

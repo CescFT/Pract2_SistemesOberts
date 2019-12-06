@@ -23,10 +23,14 @@ public class SearchRooms implements InterficieComuna {
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request
         Response res = r.getService().find_JSON("Valls", "asc");
-        if(res.getStatus() == 200)
+        
+        if(res.getStatus() == 200){
             request.setAttribute("rooms",  res.readEntity(new GenericType<List<Habitacio>>(){}));
-        else
-            request.setAttribute("rooms", "There was an error."+res.getStatusInfo());
+        }else if (res.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()){
+            request.setAttribute("rooms", res.readEntity(String.class));
+        } else if (res.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
+            request.setAttribute("rooms", res.readEntity(String.class));
+        }
 
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();

@@ -24,7 +24,13 @@ public class DeleteRoom implements InterficieComuna {
         // 1. process the request
         Response res = r.getService().remove(String.valueOf(150));
         
-        request.setAttribute("eliminated", res.readEntity(String.class));
+        if(res.getStatus() == 200){
+            request.setAttribute("eliminated", res.readEntity(String.class));
+        }else if (res.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
+            request.setAttribute("eliminated", res.readEntity(String.class));
+        }
+        
+        
 
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();

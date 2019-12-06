@@ -22,11 +22,14 @@ public class SearchRoomById implements InterficieComuna {
         
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request
-        Response res = r.getService().findHabitacio(150);
-        if(res.getStatus() == 200)
+        Response res = r.getService().findHabitacio(100);
+        
+        if(res.getStatus() == 200){
             request.setAttribute("roomById", res.readEntity(new GenericType<List<Habitacio>>(){}));
-        else
-            request.setAttribute("roomById", "there was an error."+res.getStatusInfo());
+        }else if (res.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()){
+            request.setAttribute("roomById", res.readEntity(String.class));
+        }
+            
 
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
