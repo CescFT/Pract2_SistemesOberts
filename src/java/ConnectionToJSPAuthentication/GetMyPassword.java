@@ -14,7 +14,7 @@ import javax.servlet.ServletContext;
 import java.io.IOException;
 import javax.ws.rs.core.Response;
 
-public class WebClientAuthentication implements InterficieComuna {
+public class GetMyPassword implements InterficieComuna {
 
     @Override
     public void execute(
@@ -23,26 +23,24 @@ public class WebClientAuthentication implements InterficieComuna {
             throws ServletException, IOException {
         
         AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
-        credentialsClient clientWeb = new credentialsClient();
-        
-        clientWeb.setEmail("77792731-S@estudiants.urv.cat");
-        clientWeb.setPassword("prQp8OW6NX8Jul38ZRg1srOdVhZUawrW"); //la password cada cop
-        clientWeb.setUsername("cesc");
         
         
-        Response resposta = autenticacio.getServeiAutenticacio().authenticationClient(clientWeb);
+        
+        Response resposta = autenticacio.getServeiAutenticacio().getMevaContrassenya_JSON("cesc", "cesc-xCzo9VuYixz4sJGNZ3KnFvl7sZWlCUkl");
         
         if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
-            request.setAttribute("authorized", resposta.readEntity(token.class));
-        }else if(resposta.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
-            request.setAttribute("authorized", resposta.readEntity(String.class));
+            request.setAttribute("clientPassword", resposta.readEntity(String.class));
+        }else if(resposta.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()){
+            request.setAttribute("clientPassword", resposta.readEntity(String.class));
         }else if(resposta.getStatus() == Response.Status.NOT_FOUND.getStatusCode()){
-            request.setAttribute("authorized", resposta.readEntity(String.class));
+            request.setAttribute("clientPassword", resposta.readEntity(String.class));
+        }else if(resposta.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
+            request.setAttribute("clientPassword", resposta.readEntity(String.class));
         }
         
 
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
-        context.getRequestDispatcher("/clientWebAuthentication.jsp").forward(request, response);
+        context.getRequestDispatcher("/passwordClientWeb.jsp").forward(request, response);
     }
 }

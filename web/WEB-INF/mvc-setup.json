@@ -31,6 +31,18 @@
     {
         "URI" : "/getTokenOfUsername",
         "class" : "ConnectionToJSPAuthentication.GetTokenOfUsername"
+    },
+    {
+        "URI" : "/getMyPassword",
+        "class" : "ConnectionToJSPAuthentication.GetMyPassword"
+    },
+    {
+        "URI" : "/getClientAutenticated",
+        "class" : "ConnectionToJSPAuthentication.GetClientAuthenticated"
+    },
+    {
+        "URI" : "/allAuthorizedClientWeb",
+        "class" : "ConnectionToJSPAuthentication.GetAllClientWebAuthorized"
     }
   ]
 }
