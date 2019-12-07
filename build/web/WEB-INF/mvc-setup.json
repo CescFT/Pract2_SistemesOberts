@@ -43,6 +43,38 @@
     {
         "URI" : "/allAuthorizedClientWeb",
         "class" : "ConnectionToJSPAuthentication.GetAllClientWebAuthorized"
+    },
+    {
+        "URI" : "/autenticatedTenant",
+        "class" : "ConnectionToJSPTenants.ProcessToken"
+    },
+    {
+        "URI" : "/rentingRoom",
+        "class" : "ConnectionToJSPTenants.RentingRoom"
+    },
+    {
+        "URI" : "/createdNewTenant",
+        "class" : "ConnectionToJSPTenants.CreateTenant"
+    },
+    {
+        "URI": "/editedTenant",
+        "class" : "ConnectionToJSPTenants.EditTenant"
+    },
+    {
+        "URI":"/freeRooms",
+        "class" : "ConnectionToJSPTenants.FreeRoom"
+    },
+    {
+        "URI":"/removedTenant",
+        "class":"ConnectionToJSPTenants.RemoveTenant"
+    },
+    {
+        "URI":"/findTenant",
+        "class":"ConnectionToJSPTenants.SearchTenant"
+    },
+    {
+        "URI":"/allTenants",
+        "class":"ConnectionToJSPTenants.SearchAllTenants"
     }
   ]
 }
