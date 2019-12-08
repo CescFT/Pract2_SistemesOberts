@@ -34,6 +34,14 @@ public class RoomClient {
         webTarget = client.target(BASE_URI).path("room");
     }
     
+    
+    public Response findAllHabtacions(String criterion) throws ClientErrorException{
+        WebTarget resource = webTarget.path("allRooms");
+        resource.path(criterion);
+        resource = resource.queryParam("sort", criterion);
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get();
+    }
+    
     public Response findHabitacio(Integer id) throws ClientErrorException{
         WebTarget resource = webTarget.path(String.valueOf(id));
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get();

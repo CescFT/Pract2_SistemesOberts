@@ -23,13 +23,13 @@ public class SearchAllRooms implements InterficieComuna {
         
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request
-        Response res = r.getService().find_JSON("","ASC"); //nse perque peta.
+        Response res = r.getService().findAllHabtacions("ASC"); //nse perque peta.
                
         //System.out.println(res.readEntity(new GenericType<List<Habitacio>>(){}));
-        if(res.getStatus() == 200)
+        if(res.getStatus() == Response.Status.OK.getStatusCode())
             request.setAttribute("rooms",  res.readEntity(new GenericType<List<Habitacio>>(){}));
         else{
-            if(res.getStatus() == 400){
+            if(res.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()){
                 request.setAttribute("rooms", res.readEntity(String.class));
             }else{
                 request.setAttribute("rooms", "there was an error"+res.getStatusInfo());
