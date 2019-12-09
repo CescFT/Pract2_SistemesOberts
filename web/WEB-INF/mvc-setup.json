@@ -75,6 +75,10 @@
     {
         "URI":"/allTenants",
         "class":"ConnectionToJSPTenants.SearchAllTenants"
+    },
+    {
+        "URI" : "/getToken",
+        "class":"ConnectionToJSPTenants.getTokenAutoritzacio"
     }
   ]
 }

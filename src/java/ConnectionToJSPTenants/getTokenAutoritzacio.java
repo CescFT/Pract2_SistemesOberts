@@ -17,9 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import javax.servlet.ServletContext;
 import java.io.IOException;
+import java.util.List;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
-public class SearchTenant implements InterficieComuna {
+public class getTokenAutoritzacio implements InterficieComuna {
 
     @Override
     public void execute(
@@ -29,19 +31,17 @@ public class SearchTenant implements InterficieComuna {
         
         TenantServiceSingleton tService = TenantServiceSingleton.getInstance();
 
-        Response resposta = tService.getTenantService().find_JSON(String.valueOf(50));
+        Response resposta = tService.getTenantService().getTokenAutoritzacio();
         
         if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
-            request.setAttribute("foundTenant", resposta.readEntity(Llogater.class));
-        }else if(resposta.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()){
-            request.setAttribute("foundTenant", resposta.readEntity(String.class));
-        }else if(resposta.getStatus() == Response.Status.UNAUTHORIZED.getStatusCode()){
-            request.setAttribute("foundTenant", resposta.readEntity(String.class));
+            request.setAttribute("token", resposta.readEntity(token.class));
+        }else if(resposta.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
+            request.setAttribute("token", resposta.readEntity(String.class));
         }
         
 
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
-        context.getRequestDispatcher("/foundTenant.jsp").forward(request, response);
+        context.getRequestDispatcher("/tokenAutoritzacio.jsp").forward(request, response);
     }
 }

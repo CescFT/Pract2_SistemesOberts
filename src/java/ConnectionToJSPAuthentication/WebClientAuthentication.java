@@ -26,7 +26,7 @@ public class WebClientAuthentication implements InterficieComuna {
         credentialsClient clientWeb = new credentialsClient();
         
         clientWeb.setEmail("77792731-S@estudiants.urv.cat");
-        clientWeb.setPassword("EtRLyVEuSgiqY6BEAr7wW26uBAELQgEK"); //la password cada cop
+        clientWeb.setPassword("QbXAHKCwl4YLmcZUFZQ67FUVvy3voVS1"); //la password cada cop
         clientWeb.setUsername("cesc");
         
         

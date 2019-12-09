@@ -33,6 +33,12 @@ public class TenantClient {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("tenant");
     }
+    
+    public Response getTokenAutoritzacio() throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("getTokenAutenticat");
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get();
+    }
 
     public Response rentingRoom_XML(Object requestEntity, String id) throws ClientErrorException {
         return webTarget.path(java.text.MessageFormat.format("{0}/rent", new Object[]{id})).request(javax.ws.rs.core.MediaType.APPLICATION_XML).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML), Response.class);
