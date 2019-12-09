@@ -9,22 +9,24 @@
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPRooms/SearchAllRooms.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPTenants/FreeRoom.java</file>
             <file>file:/D:/Pract2_SistemesOberts/web/createdNewTenant.jsp</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/restClients/TenantClient.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPTenants/ProcessToken.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/restClients/RoomClient.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPTenants/EditTenant.java</file>
             <file>file:/D:/Pract2_SistemesOberts/web/tokenAutoritzacio.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/editedTenant.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPTenants/SearchAllTenants.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/web/tenantRentedRoom.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPTenants/getTokenAutoritzacio.java</file>
+            <file>file:/D:/Pract2_SistemesOberts/web/index.html</file>
+            <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPTenants/RemoveTenant.java</file>
+            <file>file:/D:/Pract2_SistemesOberts/web/foundTenant.jsp</file>
+            <file>file:/D:/Pract2_SistemesOberts/src/java/ModelEntities/ControllerServlet.java</file>
+            <file>file:/D:/Pract2_SistemesOberts/src/java/restClients/TenantClient.java</file>
+            <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPTenants/EditTenant.java</file>
+            <file>file:/D:/Pract2_SistemesOberts/web/tenantRentedRoom.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPTenants/SearchTenant.java</file>
             <file>file:/D:/Pract2_SistemesOberts/web/freeRoom.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/listOfTenants.jsp</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPTenants/RemoveTenant.java</file>
             <file>file:/D:/Pract2_SistemesOberts/web/removedTenant.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/WEB-INF/mvc-setup.json</file>
-            <file>file:/D:/Pract2_SistemesOberts/web/foundTenant.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/rooms.jsp</file>
         </group>
     </open-files>
