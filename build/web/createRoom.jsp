@@ -1,3 +1,4 @@
+<%@ page import = "ModelEntities.*" %>
 <% Object o = request.getAttribute("created");
     out.println(o);%>
     <html>

@@ -1,3 +1,4 @@
+<%@ page import = "ModelEntities.*" %>
 <% Object o = request.getAttribute("authorized");
     out.println(o);%>
     <html>

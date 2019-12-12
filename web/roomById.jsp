@@ -1,4 +1,4 @@
-<%@page import="ModelEntities.Habitacio"%>
+<%@ page import = "ModelEntities.*" %>
 <% Object o = request.getAttribute("roomById");
     %>
 

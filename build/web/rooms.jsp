@@ -1,5 +1,4 @@
-
-
+<%@ page import = "ModelEntities.*" %>
 <% Object o = request.getAttribute("rooms");
     out.println(o);%>
     

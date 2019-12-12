@@ -1,3 +1,4 @@
+<%@ page import = "ModelEntities.*" %>
 <% Object o = request.getAttribute("removedTenant");
     out.println(o);%>
 
