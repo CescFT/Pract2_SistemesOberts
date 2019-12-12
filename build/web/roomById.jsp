@@ -1,61 +1,60 @@
 <%@ page import = "ModelEntities.*" %>
-<% Object o = request.getAttribute("roomById");
-    %>
-
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            
-            * { box-sizing: border-box; }
-    
-            .wrapper {
-                width: 100vw;
-                margin: 10px;      
-                padding-right: 10px;
-            }
-            .row {
-                align-items: center;
-                width: auto;
-                clear: both;
-            }
-            .col {
-                float: left;
-                width: 10%;
-                background: rgb(255,150,150);
-            }
-            
-            .col.span { width: 100%; }
-            .col.span2 { width: 50%; }
-            .col.span3 { width: 41.6%; }
-            .col.span4 { width: 8.3%; }
-        </style>
-    </head>
+    <style>
+        .table td {
+            text-align: center;   
+        }
+        .table th {
+            text-align: center;   
+        }
+    </style>
+
     <body>
-        <div class="wrapper">
-            <div class="row">
-              <div class="col span2">Info Habitació</div>   
-              <div class="col span3">Requeriments</div>
-              <div class="col span4">Llogater</div>
-            </div>
-            <div class="row">
-              <div class="col">ID</div>
-              <div class="col">Descripcio</div>
-              <div class="col">3</div>
-              <div class="col">4</div>
-              <div class="col">5</div>
-              <div class="col">6</div>
-              <div class="col">7</div>
-              <div class="col">8</div>
-              <div class="col">9</div>
-              <div class="col">10</div>
-              <div class="col">11</div>
-              <div class="col">12</div>
-            </div>
-            <div class="row">
-              <div class="col span">13</div>   
-            </div>
-        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th colspan="5">Informacio Habitacio</th>
+                  <th colspan="5">Requeriments</th>
+                  <th scope="col">Llogater</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <td></td>
+                    <td>Descripcio</td>
+                    <td>Adresa</td>
+                    <td>Ciutat</td>
+                    <td>Tipus Habitacio</td>
+                    <td>Preu mes</td>
+                    <td>Sexe Llogater</td>
+                    <td>Preu min</td>
+                    <td>Preu max</td>
+                    <td>Fumador</td>
+                    <td>Mascotes</td>
+                    <td>Nom llogater</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Habitació 1</th>
+                    <td>Descripcio</td>
+                    <td>Adresa</td>
+                    <td>Ciutat</td>
+                    <td>Tipus Habitacio</td>
+                    <td>Preu mes</td>
+                    <td>Sexe Llogater</td>
+                    <td>Preu min</td>
+                    <td>Preu max</td>
+                    <td>Fumador</td>
+                    <td>Mascotes</td>
+                    <td>Nom llogater</td>
+                </tr>
+            </tbody>
+        </table>
     </body>
     <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
          <button type="submit">return to main page.</button>
