@@ -1,6 +1,6 @@
 <%@ page import = "ModelEntities.*" %>
 <% Object o = request.getAttribute("clientWebInfo");
-    out.println(o);%>
+    out.println(o+"prova");%>
 
     <html>
     <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">

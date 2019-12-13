@@ -59,7 +59,7 @@ public class token implements Serializable {
      */
     @Override
     public String toString() {
-        return "token{" + "tokenAutoritzacio=" + tokenAutoritzacio + '}';
+        return tokenAutoritzacio;
     }
 
     /**

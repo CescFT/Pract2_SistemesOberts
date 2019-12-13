@@ -1,6 +1,6 @@
 <%@ page import = "ModelEntities.*" %>
 <% Object o = request.getAttribute("authorizedTenant");
-    out.println(o);%>
+    out.println(o+"yee");%>
 
     <html>
     <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">

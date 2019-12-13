@@ -4,59 +4,76 @@
 <!DOCTYPE html>
 <html>
     <style>
-        .table td {
-            text-align: center;   
+        h1{
+            margin-left: 15px;
         }
-        .table th {
-            text-align: center;   
+        
+        th {
+            background-color: gray;
+            color: white;
+            text-align: center;
+        }
+        
+        td {
+            background-color: darkgrey;
+            text-align: center;
+            vertical-align: middle;
+        }
+       
+        button{
+            margin-top: 20px;
+            margin-left: 15px;
+            width: 200px;
         }
     </style>
 
     <body>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th colspan="5">Informacio Habitacio</th>
-                  <th colspan="5">Requeriments</th>
-                  <th scope="col">Llogater</th>
-                </tr>
-            </thead>
-            <thead>
-                <tr>
-                    <td></td>
-                    <td>Descripcio</td>
-                    <td>Adresa</td>
-                    <td>Ciutat</td>
-                    <td>Tipus Habitacio</td>
-                    <td>Preu mes</td>
-                    <td>Sexe Llogater</td>
-                    <td>Preu min</td>
-                    <td>Preu max</td>
-                    <td>Fumador</td>
-                    <td>Mascotes</td>
-                    <td>Nom llogater</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Habitació 1</th>
-                    <td>Descripcio</td>
-                    <td>Adresa</td>
-                    <td>Ciutat</td>
-                    <td>Tipus Habitacio</td>
-                    <td>Preu mes</td>
-                    <td>Sexe Llogater</td>
-                    <td>Preu min</td>
-                    <td>Preu max</td>
-                    <td>Fumador</td>
-                    <td>Mascotes</td>
-                    <td>Nom llogater</td>
-                </tr>
-            </tbody>
-        </table>
+        <h1> El resultat de la petició és: </h1>
+        <div class="container-fluid">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th rowspan="2">#</th>
+                      <th colspan="5">Informació Habitació</th>
+                      <th colspan="5">Requeriments</th>
+                      <th scope="col">Llogater</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>Descripció</td>
+                        <td>Adreça</td>
+                        <td>Ciutat</td>
+                        <td>Tipus Habitació</td>
+                        <td>Preu mes</td>
+                        <td>Sexe llogater</td>
+                        <td>Preu min</td>
+                        <td>Preu max</td>
+                        <td>Fumador</td>
+                        <td>Mascotes</td>
+                        <td>Nom llogater</td>
+                    </tr>
+                
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="bg-dark">Habitació 1</th>
+                        <td class="table-info">${roomById.descripcio}</td>
+                        <td class="table-info">${roomById.adresa}</td>
+                        <td class="table-info">${roomById.ciutat}</td>
+                        <td class="table-info">${roomById.tipusHabitacio}</td>
+                        <td class="table-info">${roomById.preuMes}</td>
+                        <td class="table-warning">${roomById.requeriment.sexe}</td>
+                        <td class="table-warning">${roomById.requeriment.rangEdatMin}</td>
+                        <td class="table-warning">${roomById.requeriment.rangEdatMax}</td>
+                        <td class="table-warning">${roomById.requeriment.fumador}</td>
+                        <td class="table-warning">${roomById.requeriment.mascotes}</td>
+                        <td class="table-danger">${roomById.llogater.info.nom}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </body>
     <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
-         <button type="submit">return to main page.</button>
+         <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Return</button>
     </form>
 </html>

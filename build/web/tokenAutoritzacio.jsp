@@ -1,6 +1,6 @@
 <%@ page import = "ModelEntities.*" %>
 <% Object o = request.getAttribute("token");
-    out.println(o);%>
+    out.println(o+"ioo");%>
 
     <html>
     <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
