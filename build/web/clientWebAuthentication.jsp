@@ -47,7 +47,7 @@
     </body>
     <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
         <div style="margin-left: 675px">
-         <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Return</button>
+            <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Return</button>
         </div>
     </form>
 </html>
