@@ -23,7 +23,7 @@ public class SearchRooms implements InterficieComuna {
         
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request
-        Response res = r.getService().find_JSON("Valls", "asc");
+        Response res = r.getService().find_JSON("Valls", "asc"); //Response res = r.getService().find_JSON(request.getParameter("location"), request.getParameter("sort"));
         
         if(res.getStatus() == 200){
             request.setAttribute("rooms",  res.readEntity(new GenericType<List<Habitacio>>(){}));
