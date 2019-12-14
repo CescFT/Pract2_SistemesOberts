@@ -1,10 +1,6 @@
 {
   "commands": [
     {
-      "URI": "/allRooms",
-      "class": "ConnectionToJSPRooms.SearchAllRooms" 
-    },
-    {
       "URI": "/roomsResult",
       "class": "ConnectionToJSPRooms.SearchRooms" 
     },
