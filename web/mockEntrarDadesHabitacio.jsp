@@ -4,7 +4,7 @@
     </head>
     <body>
         <h2>Detalls habitacio</h2>  
-        <form method="post" action="roomsVallsAsc.do">
+        <form method="post" action="roomsResult.do">
             <table>
                 <tr>
                     <td>
@@ -27,6 +27,7 @@
                     </td>
                 </tr>
             </table>
+            <input type="submit" value="Send Request">
         </form>
     </body>
 </html>

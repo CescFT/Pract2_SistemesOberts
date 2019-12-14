@@ -5,7 +5,7 @@
       "class": "ConnectionToJSPRooms.SearchAllRooms" 
     },
     {
-      "URI": "/roomsVallsAsc",
+      "URI": "/roomsResult",
       "class": "ConnectionToJSPRooms.SearchRooms" 
     },
     {

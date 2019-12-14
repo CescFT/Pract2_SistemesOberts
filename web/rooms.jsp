@@ -76,6 +76,8 @@
             </table>
         </div>
     </body>
+    
+
     <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
          <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Return</button>
     </form>

@@ -21,17 +21,48 @@ public class SearchRooms implements InterficieComuna {
             HttpServletResponse response)
             throws ServletException, IOException {
         
+        //RoomServiceSingleton r = RoomServiceSingleton.getInstance();
+        // 1. process the request
+        /*Response res;
+        if(request.getParameter("location").equals("") || request.getParameter("location") == null){
+            res=r.getService().findAllHabtacions(request.getParameter("sort"));
+        }else{
+            res = r.getService().find_JSON(request.getParameter("location"), request.getParameter("sort")); //Response res = r.getService().find_JSON(request.getParameter("location"), request.getParameter("sort"));
+        }*/
+        
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request
-        Response res = r.getService().find_JSON("Valls", "asc"); //Response res = r.getService().find_JSON(request.getParameter("location"), request.getParameter("sort"));
+        String location = request.getParameter("location");
+        boolean noLocation=false;
+        if(location.equals("")) noLocation=true;
         
-        if(res.getStatus() == 200){
-            request.setAttribute("rooms",  res.readEntity(new GenericType<List<Habitacio>>(){}));
-        }else if (res.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()){
-            request.setAttribute("rooms", res.readEntity(String.class));
-        } else if (res.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
-            request.setAttribute("rooms", res.readEntity(String.class));
+        String sort = request.getParameter("sort");
+        if(!location.equals("") && !sort.equals("")){
+            Response res = r.getService().find_JSON(location, sort); 
+            if(res.getStatus() == 200){
+                request.setAttribute("rooms",  res.readEntity(new GenericType<List<Habitacio>>(){}));
+            }else if (res.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()){
+                request.setAttribute("rooms", res.readEntity(String.class));
+            } else if (res.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
+                request.setAttribute("rooms", res.readEntity(String.class));
+            }
+        }else if(noLocation){
+            Response res = r.getService().findAllHabtacions(sort); 
+               
+            if(res.getStatus() == Response.Status.OK.getStatusCode())
+                request.setAttribute("rooms",  res.readEntity(new GenericType<List<Habitacio>>(){}));
+            else{
+                if(res.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()){
+                    request.setAttribute("rooms", res.readEntity(String.class));
+                }else{
+                    request.setAttribute("rooms", "there was an error"+res.getStatusInfo());
+                }
+            
+            }
         }
+        //Response res = r.getService().find_JSON(request.getParameter("location"), request.getParameter("sort"));
+        
+        
 
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
