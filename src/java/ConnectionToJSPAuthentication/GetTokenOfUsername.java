@@ -26,7 +26,7 @@ public class GetTokenOfUsername implements InterficieComuna {
         
         
         
-        Response resposta = autenticacio.getServeiAutenticacio().getTokenOfUsername_JSON("cesc");
+        Response resposta = autenticacio.getServeiAutenticacio().getTokenOfUsername_JSON(request.getParameter("username").toLowerCase());
         
         if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
             request.setAttribute("authorizedClient", resposta.readEntity(credentialsClient.class));

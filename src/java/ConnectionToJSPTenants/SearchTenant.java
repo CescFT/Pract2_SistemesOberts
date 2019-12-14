@@ -29,7 +29,7 @@ public class SearchTenant implements InterficieComuna {
         
         TenantServiceSingleton tService = TenantServiceSingleton.getInstance();
 
-        Response resposta = tService.getTenantService().find_JSON(String.valueOf(50));
+        Response resposta = tService.getTenantService().find_JSON(request.getParameter("idTenant"));
         
         if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
             request.setAttribute("foundTenant", resposta.readEntity(Llogater.class));

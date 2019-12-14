@@ -29,7 +29,7 @@ public class FreeRoom implements InterficieComuna {
         
         TenantServiceSingleton tService = TenantServiceSingleton.getInstance();
 
-        Response resposta = tService.getTenantService().alliberarHabitacio(String.valueOf(200));
+        Response resposta = tService.getTenantService().alliberarHabitacio(request.getParameter("idHab"));
         
         if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
             request.setAttribute("roomFree", resposta.readEntity(String.class));

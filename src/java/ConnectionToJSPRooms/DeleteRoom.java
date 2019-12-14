@@ -23,7 +23,7 @@ public class DeleteRoom implements InterficieComuna {
         
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request
-        Response res = r.getService().remove(String.valueOf(150));
+        Response res = r.getService().remove(request.getParameter("idRoom"));
         
         if(res.getStatus() == 200){
             request.setAttribute("eliminated", res.readEntity(String.class));

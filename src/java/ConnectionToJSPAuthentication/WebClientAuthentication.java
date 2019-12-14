@@ -25,9 +25,9 @@ public class WebClientAuthentication implements InterficieComuna {
         AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
         credentialsClient clientWeb = new credentialsClient();
         
-        clientWeb.setEmail("77792731-S@estudiants.urv.cat");
-        clientWeb.setPassword("HoQOZhsOCYome0SD4iZ95Rv4ELm2iYDy"); //la password cada cop
-        clientWeb.setUsername("cesc");
+        clientWeb.setEmail(request.getParameter("email"));
+        clientWeb.setPassword(request.getParameter("passwd")); //la password cada cop
+        clientWeb.setUsername(request.getParameter("username"));
         
         
         Response resposta = autenticacio.getServeiAutenticacio().authenticationClient(clientWeb);

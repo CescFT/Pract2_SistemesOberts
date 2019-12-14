@@ -29,7 +29,7 @@ public class RemoveTenant implements InterficieComuna {
         
         TenantServiceSingleton tService = TenantServiceSingleton.getInstance();
 
-        Response resposta = tService.getTenantService().remove(String.valueOf(50));
+        Response resposta = tService.getTenantService().remove(request.getParameter("idTenant"));
         
         if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
             request.setAttribute("removedTenant", resposta.readEntity(String.class));

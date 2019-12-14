@@ -26,7 +26,7 @@ public class GetClientAuthenticated implements InterficieComuna {
         
         
         
-        Response resposta = autenticacio.getServeiAutenticacio().getClientAutenticate_JSON("cesc");
+        Response resposta = autenticacio.getServeiAutenticacio().getClientAutenticate_JSON(request.getParameter("username"));
         
         if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
             request.setAttribute("clientWebInfo", resposta.readEntity(credentialsClient.class));

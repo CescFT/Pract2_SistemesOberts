@@ -24,7 +24,7 @@ public class ProcessToken implements InterficieComuna {
         TenantServiceSingleton tService = TenantServiceSingleton.getInstance();
            
         token token = new token();
-        token.setTokenAutoritzacio("cesc-FRERR2SNDIj9PNwW1HmbKH04paIsyzTv");
+        token.setTokenAutoritzacio(request.getParameter("token"));
         
         Response resposta = tService.getTenantService().processamentProva_JSON(token);
         

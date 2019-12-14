@@ -26,7 +26,8 @@ public class GetMyPassword implements InterficieComuna {
         
         
         
-        Response resposta = autenticacio.getServeiAutenticacio().getMevaContrassenya_JSON("cesc", "cesc-xCzo9VuYixz4sJGNZ3KnFvl7sZWlCUkl");
+        Response resposta = autenticacio.getServeiAutenticacio().getMevaContrassenya_JSON(request.getParameter("username").toLowerCase(),
+                request.getParameter("token"));
         
         if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
             request.setAttribute("clientPassword", resposta.readEntity(String.class));

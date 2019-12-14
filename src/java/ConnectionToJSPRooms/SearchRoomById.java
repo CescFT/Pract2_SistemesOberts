@@ -23,7 +23,7 @@ public class SearchRoomById implements InterficieComuna {
         
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request
-        Response res = r.getService().findHabitacio(100);
+        Response res = r.getService().findHabitacio(Integer.valueOf(request.getParameter("idRoom")));
         
         if(res.getStatus() == 200){
             request.setAttribute("roomById", res.readEntity(new GenericType<List<Habitacio>>(){}));
