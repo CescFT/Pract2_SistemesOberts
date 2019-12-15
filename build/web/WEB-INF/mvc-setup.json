@@ -21,6 +21,10 @@
         "class" : "ConnectionToJSPRooms.CreateRoom"
     },
     {
+      "URI":"/newUserWeb",
+      "class" :"ConnectionToJSPAuthentication.NewUserAutenticated" 
+    },
+    {
         "URI" : "/authentication",
         "class" : "ConnectionToJSPAuthentication.WebClientAuthentication"
     },

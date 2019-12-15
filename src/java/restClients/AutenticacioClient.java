@@ -34,6 +34,12 @@ public class AutenticacioClient {
         webTarget = client.target(BASE_URI).path("autenticacio");
     }
 
+    public Response createNewClientAutenticated(Object requestEntity) throws ClientErrorException{
+        WebTarget resource =webTarget;
+        resource=resource.path("newClient");
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON), Response.class);  
+    }
+    
     public Response getAllClientsAutoritzats_XML() throws ClientErrorException {
         WebTarget resource = webTarget;
         resource = resource.path("all");
