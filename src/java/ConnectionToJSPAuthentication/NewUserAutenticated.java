@@ -25,19 +25,33 @@ public class NewUserAutenticated implements InterficieComuna {
         AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
         credentialsClient clientWeb = new credentialsClient();
         
-        clientWeb.setEmail("example@example.com");
-        clientWeb.setPassword("12345"); 
-        clientWeb.setUsername("CescFT");
+        String mail = request.getParameter("email");
+        boolean haveMail = mail.equals("") ? false : true;
+        String password = request.getParameter("passwd");
+        boolean havePassword= password.equals("") ? false : true;
+        String username = request.getParameter("username");
+        boolean haveUsername = username.equals("") ? false : true;
         
+        if(!haveMail)
+            request.setAttribute("newUser", "Falta correu electronic.");
+        if(!havePassword)
+            request.setAttribute("newUser", "Falta contrassenya.");
+        if(!haveUsername)
+            request.setAttribute("newUser", "Falta nom usuari.");
         
-        Response resposta = autenticacio.getServeiAutenticacio().createNewClientAutenticated(clientWeb);
+        if(haveMail && havePassword && haveUsername){
+            clientWeb.setEmail(mail);
+            clientWeb.setPassword(password); 
+            clientWeb.setUsername(username);
+
+            Response resposta = autenticacio.getServeiAutenticacio().createNewClientAutenticated(clientWeb);
         
-        if(resposta.getStatus() == Response.Status.CREATED.getStatusCode()){
-            request.setAttribute("newUser", resposta.readEntity(credentialsClient.class));
-        }else if(resposta.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
-            request.setAttribute("newUser", resposta.readEntity(String.class));
+            if(resposta.getStatus() == Response.Status.CREATED.getStatusCode()){
+                request.setAttribute("newUser", resposta.readEntity(credentialsClient.class));
+            }else if(resposta.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
+                request.setAttribute("newUser", resposta.readEntity(String.class));
+            }
         }
-        
 
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
