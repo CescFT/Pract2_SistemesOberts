@@ -17,18 +17,17 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="card card-body">
-                        <form>
+                        <form method="post" action="index.html">
+                            <h3>Informació del client</h3>
                             <div class="form-group">
-                                <h3>Informació de l'usuari:</h3>
                                 <label class="font-weight-bold">Nom d'usuari</label>
-                                <p class="text-left">${authorizedClient.username}</p>
+                                <p <input type="text" name="username" class="form-control"/>${authorizedClient.username}</p>
                             </div>
                             <div class="form-group">
                                 <label class="font-weight-bold">Token</label>
-                                <div class="input-group">
-                                    <p class="text-left">${authorizedClient.tokenAutoritzacio}</p>
-                                </div>
+                                <p <input type="text" name="username" class="form-control"/>${authorizedClient.tokenAutoritzacio}</p>
                             </div>
+                            <input type="submit"  class="btn btn-success" value="Send Request">
                         </form>
                     </div>
                 </div>

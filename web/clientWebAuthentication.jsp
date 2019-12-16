@@ -22,14 +22,14 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="card card-body">
-                        <form>
+                        <form method="post" action="index.html">
+                            <h3> Introdueix les dades per autenticar-te:</h3>
                             <div class="form-group">
-                                <h3> Introdueix les dades per autenticar-te:</h3>
-                                <label>Nom d'usuari</label>
+                                <label class="font-weight-bold">Nom d'usuari</label>
                                 <input type="text" class="form-control"/>
                             </div>
                             <div class="form-group">
-                                <label>Contrasenya</label>
+                                <label class="font-weight-bold">Contrasenya</label>
                                 <div class="input-group">
                                     <input type="password" class="form-control" data-toggle="password"/>
                                     <div class="input-group-append">
@@ -37,6 +37,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="submit" class="btn btn-success" value="OK">
                         </form>
                     </div>
                 </div>

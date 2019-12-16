@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import ModelEntities.*;
 
 public final class EntryDataForRemoveRoomById_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,28 +42,49 @@ public final class EntryDataForRemoveRoomById_jsp extends org.apache.jasper.runt
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
+      out.write("\r\n");
+//MODIFICAR PERQUE ES PUGUI RECUPERAR LES DADES I MODIFICAR PERQUE ENS SURTI EL TOKEN 
+      out.write("\r\n");
+      out.write("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">\r\n");
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
-      out.write("    <head>\r\n");
-      out.write("        <title>ENTRAR DADES HABITACIO!</title>\r\n");
-      out.write("    </head>\r\n");
+      out.write("    <style>\r\n");
+      out.write("        h1{\r\n");
+      out.write("            margin-left: 15px;\r\n");
+      out.write("        }\r\n");
+      out.write("              \r\n");
+      out.write("        button{\r\n");
+      out.write("            margin-top: 20px;\r\n");
+      out.write("            margin-left: 15px;\r\n");
+      out.write("            width: 200px;\r\n");
+      out.write("        }\r\n");
+      out.write("    </style>\r\n");
+      out.write("\r\n");
       out.write("    <body>\r\n");
-      out.write("        <h2>Detalls habitacio</h2>  \r\n");
-      out.write("        <form method=\"post\" action=\"roomEliminated.do\">\r\n");
-      out.write("            <table>\r\n");
-      out.write("                <tr>\r\n");
-      out.write("                    <td>\r\n");
-      out.write("                        ID de la habitacio a eliminar:\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                    <td>\r\n");
-      out.write("                        <input type=\"text\" \r\n");
-      out.write("                               name=\"idRoom\" \r\n");
-      out.write("                         />\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                </tr>\r\n");
-      out.write("            </table>\r\n");
-      out.write("            <input type=\"submit\" value=\"Send Request\">\r\n");
-      out.write("        </form>\r\n");
+      out.write("        <div class=\"container mt-5\">\r\n");
+      out.write("            <div class=\"row\">\r\n");
+      out.write("                <div class=\"col-md-6 offset-md-3\">\r\n");
+      out.write("                    <div class=\"card card-body\">\r\n");
+      out.write("                        <form method=\"post\" action=\"roomEliminated.do\">\r\n");
+      out.write("                            <h3> Introdueix les dades:</h3>\r\n");
+      out.write("                            <div class=\"form-group\">\r\n");
+      out.write("                                <label class=\"font-weight-bold\">ID habitació</label>\r\n");
+      out.write("                                <input type=\"text\" class=\"form-control\"/>\r\n");
+      out.write("                            </div>\r\n");
+      out.write("                            <input type=\"submit\" class=\"btn btn-success\" value=\"OK\">\r\n");
+      out.write("                        </form>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
       out.write("    </body>\r\n");
+      out.write("    <form action=\"http://localhost:8080/Pract2_SistemesOberts/index.html\">\r\n");
+      out.write("        <div style=\"margin-left: 675px\">\r\n");
+      out.write("            <button type=\"submit\" class=\"btn btn-secondary\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"You will be return to the main page.\">Return</button>\r\n");
+      out.write("        </div>\r\n");
+      out.write("    </form>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

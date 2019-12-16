@@ -24,22 +24,21 @@
                         <div class="card card-body">
                             <h3>Introdueix l'informació de l'habitació</h3>
                             <div class="form-group">
-                                <label for="inputDescription">Descripció</label>
+                                <label class="font-weight-bold" for="inputDescription">Descripció</label>
                                 <textarea class="form-control" id="inputDescription" rows="3"></textarea>
                             </div>    
                             <div class="form-group">
-                                <label for="inputAddress">Adreça</label>
+                                <label class="font-weight-bold" for="inputAddress">Adreça</label>
                                 <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                             </div>
                             <div class="form-row">
-                                <div class="form-group">
-                                    <label for="inputCity">Ciutat</label>
+                                <div style="margin-left: 5.4px" class="form-group">
+                                    <label class="font-weight-bold" for="inputCity">Ciutat</label>
                                     <input type="text" class="form-control" id="inputCity">
                                 </div>
-                                <div style="margin-left: 10px; margin-right: 10px; width: 30%" class="form-group">
-                                    <label for="inputType">Tipus habitació</label>
+                                <div style="margin-left: 8px; margin-right: 8px; width: 30%" class="form-group">
+                                    <label class="font-weight-bold" for="inputType">Tipus habitació</label>
                                     <select id="inputType" class="form-control">
-                                    <option selected>Escull...</option>
                                     <option value="1">Simple</option>
                                     <option value="2">Doble</option>
                                     <option value="3">Exterior</option>
@@ -48,35 +47,35 @@
                                     </select>
                                 </div>
                                 <div style="width: 27%" class="form-group">
-                                    <label for="inputPreuMes">Preu mensual</label>
+                                    <label class="font-weight-bold" for="inputPreuMes">Preu mensual</label>
                                     <input type="text" class="form-control" id="inputPreuMes">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group">
-                                    <label for="inputSexe">Sexe llogater</label>
-                                    <select id="inputSexe" class="form-control">
+                                <div style="margin-left: 5.4px; margin-right: 8px; width: 150px" class="form-group">
+                                    <label class="font-weight-bold" for="inputPreuMin">Preu mínim</label>
+                                    <input type="text" class="form-control" id="inputPreuMin" placeholder="">
+                                </div>
+                                <div style="width: 150px" class="form-group">
+                                    <label class="font-weight-bold" for="inputPreuMax">Preu màxim</label>
+                                    <input type="text" class="form-control" id="inputPreuMax">
+                                </div>
+                                <div  style="margin-left: 8px" class="form-group">
+                                    <label class="font-weight-bold" for="inputSexe">Sexe llogater</label>
+                                    <select style="width: 200px" id="inputSexe" class="form-control">
                                     <option selected>Escull...</option>
                                     <option value="1">Home</option>
                                     <option value="2">Dona</option>
                                     <option value="3">Unisex</option>
                                     </select>
                                 </div>
-                                <div style="margin-left: 10px; margin-right: 10px" class="form-group">
-                                    <label for="inputPreuMin">Preu mínim</label>
-                                    <input type="text" class="form-control" id="inputPreuMin" placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputPreuMax">Preu màxim</label>
-                                    <input type="text" class="form-control" id="inputPreuMax">
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputLlogater">ID llogater</label>
+                                <div style="margin-left: 5.4px" class="form-group">
+                                    <label class="font-weight-bold" for="inputLlogater">ID llogater</label>
                                     <input type="text" class="form-control" id="inputLlogater">
                                 </div>
-                                <div style="margin-left: 10px" class="form-group">
+                                <div style="margin-left: 8px" class="form-group">
                                     <div class="card card-body">    
-                                        <label for="inputRequeriment">S'accepten?</label>
+                                        <label class="font-weight-bold" for="inputRequeriment">S'accepten?</label>
                                         <div class="form-check">
                                             <input type="checkbox" class="form-check-input" id="fumador">
                                             <label class="form-check-label" for="fumador">Fumador</label>
@@ -86,7 +85,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
