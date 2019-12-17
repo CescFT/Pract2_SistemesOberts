@@ -11,6 +11,7 @@
             <file>file:/D:/Pract2_SistemesOberts/web/showPassword.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/getInfoClientWeb.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/tokenAutoritzacio.jsp</file>
+            <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPAuthentication/NewUserAutenticated.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/restClients/AutenticacioClient.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPRooms/SearchRooms.java</file>
             <file>file:/D:/Pract2_SistemesOberts/web/tenantAutenticated.jsp</file>
@@ -21,6 +22,7 @@
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPAuthentication/GetAllClientWebAuthorized.java</file>
             <file>file:/D:/Pract2_SistemesOberts/web/removedTenant.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/EntryDataForGetClientAutenticated.jsp</file>
+            <file>file:/D:/Pract2_SistemesOberts/web/WEB-INF/mvc-setup.json</file>
             <file>file:/D:/Pract2_SistemesOberts/web/rooms.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/EntryDataForNewUser.jsp</file>
         </group>
