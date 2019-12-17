@@ -45,12 +45,15 @@ public class NewUserAutenticated implements InterficieComuna {
             clientWeb.setUsername(username);
 
             Response resposta = autenticacio.getServeiAutenticacio().createNewClientAutenticated(clientWeb);
-        
+      
             if(resposta.getStatus() == Response.Status.CREATED.getStatusCode()){
                 request.setAttribute("newUser", resposta.readEntity(credentialsClient.class));
             }else if(resposta.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
                 request.setAttribute("newUser", resposta.readEntity(String.class));
+            }else if(resposta.getStatus() == Response.Status.UNAUTHORIZED.getStatusCode()){
+                request.setAttribute("newUser", resposta.readEntity(String.class));
             }
+            
         }
 
         // 2. produce the view with the web result
