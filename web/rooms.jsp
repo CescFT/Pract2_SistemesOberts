@@ -13,12 +13,14 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <div class="card card-body">                        
-                        <img src="habitacio_triple_5_182.jpg" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
-                        <h2 style="margin-top: 10px">Preu</h2>
-                        <h5>Doble. Adreça. Alquilada?</h5>
-                        <h6>Ciutat</h6>
-                        <p class="text-muted"> Descripció.</p>                                                    
+                    <div class="card card-body">     
+                        <c:forEach items="${rooms}" var="elem">
+                            <img src="habitacio_triple_5_182.jpg" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
+                            <h2 style="margin-top: 10px">${elem.preuMes} ?/mes</h2>
+                            <h5>${elem.tipusHabitacio}. ${elem.adresa}. Alquilada?</h5>
+                            <h6>${elem.ciutat}</h6>
+                            <p class="text-muted"> ${elem.descripcio}.</p>
+                        </c:forEach>
                     </div>
                 </div>
             </div>

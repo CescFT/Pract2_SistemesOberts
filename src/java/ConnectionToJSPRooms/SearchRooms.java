@@ -33,10 +33,13 @@ public class SearchRooms implements InterficieComuna {
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request
         String location = request.getParameter("location").toLowerCase();
+        System.out.println(location);
         boolean noLocation=false;
         if(location.equals("")) noLocation=true;
         
-        String sort = request.getParameter("sort").toLowerCase();
+        //String sort = request.getParameter("sort").toLowerCase();
+        String sort = "desc";
+        //if(sort.equals("")) sort ="desc";
         if(!location.equals("") && !sort.equals("")){
             Response res = r.getService().find_JSON(location, sort); 
             if(res.getStatus() == 200){

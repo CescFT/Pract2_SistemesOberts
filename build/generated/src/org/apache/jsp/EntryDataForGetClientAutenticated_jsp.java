@@ -71,7 +71,7 @@ public final class EntryDataForGetClientAutenticated_jsp extends org.apache.jasp
       out.write("                            <h3> Introdueix les dades:</h3>\r\n");
       out.write("                            <div class=\"form-group\">\r\n");
       out.write("                                <label class=\"font-weight-bold\">Nom d'usuari</label>\r\n");
-      out.write("                                <input type=\"text\" class=\"form-control\"/>\r\n");
+      out.write("                                <input type=\"text\" name=\"username\" class=\"form-control\"/>\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <input type=\"submit\" class=\"btn btn-success\" value=\"OK\">\r\n");
       out.write("                        </form>\r\n");

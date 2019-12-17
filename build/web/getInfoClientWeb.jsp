@@ -22,12 +22,12 @@
                             <h3> Informació del client</h3>
                             <div class="form-group">
                                 <label class="font-weight-bold">Nom d'usuari</label>
-                                <p class="text-left">${clientWebInfo}</p>
+                                <p class="text-left">${clientWebInfo.username}</p>
                             </div>
                             <div class="form-group">
                                 <label class="font-weight-bold">Token</label>
                                 <div class="input-group">
-                                    <p class="text-left">${clientWebInfo}</p>
+                                    <p class="text-left">${clientWebInfo.tokenAutoritzacio}</p>
                                 </div>
                             </div>
                             <input type="submit" class="btn btn-success" value="OK">

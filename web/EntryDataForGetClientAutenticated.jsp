@@ -26,7 +26,7 @@
                             <h3> Introdueix les dades:</h3>
                             <div class="form-group">
                                 <label class="font-weight-bold">Nom d'usuari</label>
-                                <input type="text" class="form-control"/>
+                                <input type="text" name="username" class="form-control"/>
                             </div>
                             <input type="submit" class="btn btn-success" value="OK">
                         </form>
