@@ -1,79 +1,103 @@
 <%@ page import = "ModelEntities.*" %>
-    
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    </head>
     <style>
-        h1{
-            margin-left: 15px;
-        }
-        
-        th {
-            background-color: gray;
-            color: white;
-            text-align: center;
-        }
-        
-        td {
-            background-color: darkgrey;
-            text-align: center;
-            vertical-align: middle;
-        }
-       
         button{
             margin-top: 20px;
-            margin-left: 15px;
+            margin-left: 7px;
             width: 200px;
         }
     </style>
 
     <body>
-        <h1> El resultat de la petició és: </h1>
-        <div class="container-fluid">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                      <th rowspan="2">#</th>
-                      <th colspan="5">Informació Habitació</th>
-                      <th colspan="5">Requeriments</th>
-                      <th scope="col">Llogater</th>
-                    </tr>
-                    
-                    <tr>
-                        <td>Descripció</td>
-                        <td>Adreça</td>
-                        <td>Ciutat</td>
-                        <td>Tipus Habitació</td>
-                        <td>Preu mes</td>
-                        <td>Sexe llogater</td>
-                        <td>Preu min</td>
-                        <td>Preu max</td>
-                        <td>Fumador</td>
-                        <td>Mascotes</td>
-                        <td>Nom llogater</td>
-                    </tr>
-                
-                </thead>
-                <tbody>
-                    <tr>
-                        <th class="bg-dark">Habitació 1</th>
-                        <td class="table-info">${roomById.descripcio}</td>
-                        <td class="table-info">${roomById.adresa}</td>
-                        <td class="table-info">${roomById.ciutat}</td>
-                        <td class="table-info">${roomById.tipusHabitacio}</td>
-                        <td class="table-info">${roomById.preuMes}</td>
-                        <td class="table-warning">${roomById.requeriment.sexe}</td>
-                        <td class="table-warning">${roomById.requeriment.rangEdatMin}</td>
-                        <td class="table-warning">${roomById.requeriment.rangEdatMax}</td>
-                        <td class="table-warning">${roomById.requeriment.fumador}</td>
-                        <td class="table-warning">${roomById.requeriment.mascotes}</td>
-                        <td class="table-danger">${roomById.llogater.info.nom}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card card-body">
+                        <img src="habitacio_triple_5_182.jpg" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
+                        <div class="form-group">
+                            <label class="font-weight-bold" style="margin-top: 10px">Descripció</label>
+                            <p <input type="text" name="username" class="form-control"/>Descripció.</p>
+                        </div>    
+                        <div class="form-group">
+                            <label class="font-weight-bold">Adreça</label>
+                            <p <input type="text" name="username" class="form-control"/> 1234 Main St </p>
+                        </div>
+                        <div class="form-row">
+                            <div class="col col-md-3">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Ciutat</label>
+                                    <p <input type="text" name="username" class="form-control"/>Ciutat</p>
+                                </div>
+                            </div>
+                            <div class="col col-md-4">
+                                <div style="margin-left: 8px; margin-right: 8px;" class="form-group">
+                                    <label class="font-weight-bold">Tipus habitació</label>
+                                    <p <input type="text" name="username" class="form-control"/>Tipus.</p>
+                                </div>
+                            </div>
+                            <div class="col col-md-5">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Preu mensual</label>
+                                    <p <input type="text" name="username" class="form-control"/>Preu.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col col-md-3">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Preu mínim</label>
+                                    <p <input type="text" name="username" class="form-control"/>Preu.</p>
+                                </div>
+                            </div>
+                            <div class="col col-md-4">
+                                <div style="margin-left: 8px; margin-right: 8px;" class="form-group">
+                                    <label class="font-weight-bold">Preu màxim</label>
+                                    <p <input type="text" name="username" class="form-control"/>Preu.</p>
+                                </div>
+                            </div>
+                            <div class="col col-md-5">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Sexe llogater</label>
+                                    <p <input type="text" name="username" class="form-control"/>Sexe.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col col-md-3">
+                                <div class="form-group">
+                                    <label class="font-weight-bold" for="inputLlogater">ID llogater</label>
+                                    <p <input type="text" name="username" class="form-control"/>ID</p>
+                                </div>
+                            </div>
+                            <div class="col col-md-4">
+                                <div style="margin-left: 8px;  margin-right: 8px;" class="form-group">
+                                    <label class="font-weight-bold">Mascotes</label>
+                                    <p <input type="text" name="username" class="form-control"/>Si</p>
+                                </div>
+                            </div>
+                            <div class="col col-md-4">
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Fumadors</label>
+                                    <p <input type="text" name="username" class="form-control"/>Si</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
     <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
+        <div style="margin-left: 675px">
          <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Return</button>
+        </div>
     </form>
 </html>

@@ -45,6 +45,8 @@ public final class EntryDataForAutenticateClientWeb_jsp extends org.apache.jaspe
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\">\r\n");
+      out.write("\r\n");
       out.write("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\" integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\" crossorigin=\"anonymous\">\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
@@ -61,7 +63,7 @@ public final class EntryDataForAutenticateClientWeb_jsp extends org.apache.jaspe
       out.write("            <div class=\"row\">\r\n");
       out.write("                <div class=\"col-md-6 offset-md-3\">\r\n");
       out.write("                    <div class=\"card card-body\">\r\n");
-      out.write("                        <form>\r\n");
+      out.write("                        <form method=\"post\" action=\"authentication.do\">\r\n");
       out.write("                            <h3>Introdueix les dades:</h3>\r\n");
       out.write("                            <div class=\"form-group\">\r\n");
       out.write("                                <label class=\"font-weight-bold\">Nom d'usuari</label>\r\n");
@@ -80,11 +82,14 @@ public final class EntryDataForAutenticateClientWeb_jsp extends org.apache.jaspe
       out.write("                                    </div>\r\n");
       out.write("                                </div>\r\n");
       out.write("                            </div>\r\n");
+      out.write("                            <input type=\"submit\"  class=\"btn btn-success\" value=\"Send Request\">\r\n");
       out.write("                        </form>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
+      out.write("        <script src=\"https://code.jquery.com/jquery-3.3.1.min.js\"></script>\r\n");
+      out.write("        <script src=\"bootstrap-show-password.min.js\"></script>\r\n");
       out.write("    </body>\r\n");
       out.write("    <form action=\"http://localhost:8080/Pract2_SistemesOberts/index.html\">\r\n");
       out.write("        <div style=\"margin-left: 675px\">\r\n");
