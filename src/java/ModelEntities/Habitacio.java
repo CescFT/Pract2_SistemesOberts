@@ -29,6 +29,7 @@ public class Habitacio implements Serializable {
     private float preuMes;
     private Requeriment requeriment;
     private Llogater llogater;
+    private String urlImatge;
 
     /**
      * getter del tipus habitacio
@@ -48,6 +49,22 @@ public class Habitacio implements Serializable {
         this.tipusHabitacio = tipusHabitacio;
     }
 
+    /**
+     * getter de la url de la imatge
+     * @return urlimatge
+     */
+    public String getUrlImatge() {
+        return urlImatge;
+    }
+
+    /**
+     * setter de la url de la imatge
+     * @param urlImatge urlimatge
+     */
+    public void setUrlImatge(String urlImatge) {
+        this.urlImatge = urlImatge;
+    }
+    
     /**
      * getter del llogater
      *
@@ -218,7 +235,7 @@ public class Habitacio implements Serializable {
      */
     @Override
     public String toString() {
-        return "Habitacio{" + "idHabitacio=" + idHabitacio + ", descripcio=" + descripcio + ", adresa=" + adresa + ", ciutat=" + ciutat + ", tipusHabitacio=" + tipusHabitacio + ", preuMes=" + preuMes + ", requeriment=" + requeriment + ", llogater=" + llogater + '}';
+        return "Habitacio{" + "idHabitacio=" + idHabitacio + ", descripcio=" + descripcio + ", adresa=" + adresa + ", ciutat=" + ciutat + ", tipusHabitacio=" + tipusHabitacio + ", preuMes=" + preuMes + ", requeriment=" + requeriment + ", urlImatge=" + urlImatge + ", llogater=" + llogater + '}';
     }
 
 }
