@@ -1,27 +1,12 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<%-- 
+    Document   : header
+    Created on : 18-dic-2019, 10:57:14
+    Author     : Sancho
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
 <html>
-    <head>
-        <title>Main Page</title>
-    </head>
-    <style>
-        body{
-            background-image: url("mijas2.jpg");
-            background-color: #cccccc;
-            height: 500px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-    </style>
     <body>
         <form method="post" action="roomsResult.do" class="form-inline">
             <div class="container mt-5">
