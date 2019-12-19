@@ -14,9 +14,9 @@
         }
     </style>
     <body>
-        <div class="form-group sticky-top" style="background-color: darkred; height: 100px">
-            <div class="row">
-                <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
+        <div class="form-group sticky-top col-sm" style="background-color: darkred; height: 100px">
+            <div class="form-row">
+                <form method="post" action="index.html">
                     <button style="margin-left: 50px; color: white; font-size: x-large" type="submit" class="btn btn-link font-weight-bold" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Cesc Factory</button>
                 </form>
                 <div style="margin-top: 10px">

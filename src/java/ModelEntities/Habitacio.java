@@ -30,7 +30,24 @@ public class Habitacio implements Serializable {
     private Requeriment requeriment;
     private Llogater llogater;
     private String urlImatge;
+    private Boolean ocupada;
 
+    /**
+     * getter habitacio ocupada
+     * @return ocupada
+     */
+    public Boolean getOcupada() {
+        return ocupada;
+    }
+
+    /**
+     * setter habitacio ocupada
+     * @param ocupada ocupada
+     */
+    public void setOcupada(Boolean ocupada) {
+        this.ocupada = ocupada;
+    }
+    
     /**
      * getter del tipus habitacio
      *
@@ -235,7 +252,7 @@ public class Habitacio implements Serializable {
      */
     @Override
     public String toString() {
-        return "Habitacio{" + "idHabitacio=" + idHabitacio + ", descripcio=" + descripcio + ", adresa=" + adresa + ", ciutat=" + ciutat + ", tipusHabitacio=" + tipusHabitacio + ", preuMes=" + preuMes + ", requeriment=" + requeriment + ", urlImatge=" + urlImatge + ", llogater=" + llogater + '}';
+        return "Habitacio{" + "idHabitacio=" + idHabitacio + ", descripcio=" + descripcio + ", adresa=" + adresa + ", ciutat=" + ciutat + ", tipusHabitacio=" + tipusHabitacio + ", preuMes=" + preuMes + ", requeriment=" + requeriment + ", urlImatge=" + urlImatge + ", ocupada=" + ocupada + ", llogater=" + llogater + '}';
     }
 
 }

@@ -19,6 +19,10 @@
         p.false::after{
             content: "No";
         }
+        button.true{
+            cursor: not-allowed;
+            pointer-events: none;
+        }
     </style>
 
     <body>
@@ -79,8 +83,8 @@
                                 <p class="${roomById.requeriment.fumador}"></p>
                             </div>
                             <div class="form-group col-sm offset-md-1">
-                                <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
-                                    <button style="background-color: darkred; color: white" type="submit" class="btn" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Return</button>
+                                <form method="post" action="index.html" class="form-inline">
+                                    <button style="background-color: darkred; color: white" type="submit" class="btn ${roomById.ocupada}" data-toggle="tooltip" data-placement="top">Rent</button>
                                 </form>
                             </div>
                         </div>
