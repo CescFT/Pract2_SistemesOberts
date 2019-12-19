@@ -7,20 +7,25 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <style>
+        button{
+            margin-top: 10px;
+            width: 200px;
+        }
+    </style>
     <body>
-        <form method="post" action="roomsResult.do" class="form-inline">
-            <div class="container mt-5">
-                <div class="col-md-6 offset-md-3">
-                    <div class="row">
-                        <div class="card card-body">
-                            <div class="form-group">
-                                <input style="width: 430px" name="location" class="form-control mr-sm-2" type="search" placeholder="Search by city" aria-label="Search">
-                                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-                            </div>
-                        </div>
-                    </div>
+        <div class="form-group sticky-top" style="background-color: darkred; height: 100px">
+            <div class="row">
+                <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
+                    <button style="margin-left: 50px; color: white; font-size: x-large" type="submit" class="btn btn-link font-weight-bold" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Cesc Factory</button>
+                </form>
+                <div style="margin-top: 10px">
+                    <form method="post" action="roomsResult.do" class="form-inline">
+                        <input style="width: 430px; margin-top: 10px" name="location" class="form-control mr-sm-2" type="search" placeholder="Search by city" aria-label="Search">
+                        <button class="btn btn-success" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>        
     </body>
 </html>

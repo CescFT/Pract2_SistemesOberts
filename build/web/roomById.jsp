@@ -10,84 +10,78 @@
     </head>
     <style>
         button{
-            margin-top: 20px;
-            margin-left: 7px;
+            margin-top: 10px;
             width: 200px;
+        }
+        p.true::after{
+            content:  "Si";
+        }        
+        p.false::after{
+            content: "No";
         }
     </style>
 
     <body>
+        <jsp:include page="header.jsp" />
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-sm-12">
                     <div class="card card-body">
-                        <img src="habitacio_triple_5_182.jpg" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
-                        <div class="form-group">
-                            <label class="font-weight-bold" style="margin-top: 10px">Descripció</label>
-                            <p <input type="text" name="username" class="form-control"/>${roomById.descripcio}</p>
+                        <h1 style="margin-top: 10px; margin-bottom: 25px; margin-left: 131px">Habitació 1</h1>
+                        <img src="${roomById.urlImatge}" class="rounded mx-auto d-block" alt="Responsive image" width="800" height="400"/> 
+                        <div class="row">
+                            <div class="form-group col-sm-10 offset-md-1">
+                                <label class="font-weight-bold" style="margin-top: 30px">Descripció</label>
+                                <p>${roomById.descripcio}</p>
+                            </div>
                         </div>    
-                        <div class="form-group">
-                            <label class="font-weight-bold">Adreça</label>
-                            <p <input type="text" name="username" class="form-control"/>${roomById.adresa}</p>
-                        </div>
-                        <div class="form-row">
-                            <div class="col col-md-3">
-                                <div class="form-group">
-                                    <label class="font-weight-bold">Ciutat</label>
-                                    <p <input type="text" name="username" class="form-control"/>${roomById.ciutat}</p>
-                                </div>
-                            </div>
-                            <div class="col col-md-4">
-                                <div style="margin-left: 8px; margin-right: 8px;" class="form-group">
-                                    <label class="font-weight-bold">Tipus habitació</label>
-                                    <p <input type="text" name="username" class="form-control"/>${roomById.tipusHabitacio}</p>
-                                </div>
-                            </div>
-                            <div class="col col-md-5">
-                                <div class="form-group">
-                                    <label class="font-weight-bold">Preu mensual</label>
-                                    <p <input type="text" name="username" class="form-control"/>${roomById.preuMes}</p>
-                                </div>
+                        <div class="row">
+                            <div class="form-group col-sm-10 offset-md-1">
+                                <label class="font-weight-bold">Adreça</label>
+                                <p>${roomById.adresa}</p>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="col col-md-3">
-                                <div class="form-group">
-                                    <label class="font-weight-bold">Edat mínim</label>
-                                    <p <input type="text" name="username" class="form-control"/>${roomById.requeriment.rangEdatMin}</p>
-                                </div>
+                        <div class="row">
+                            <div class="form-group col-sm offset-md-1">
+                                <label class="font-weight-bold">Ciutat</label>
+                                <p>${roomById.ciutat}</p>
                             </div>
-                            <div class="col col-md-4">
-                                <div style="margin-left: 8px; margin-right: 8px;" class="form-group">
-                                    <label class="font-weight-bold">Edat màxim</label>
-                                    <p <input type="text" name="username" class="form-control"/>${roomById.requeriment.rangEdatMax}</p>
-                                </div>
+                            <div class="form-group col-sm offset-md-1">
+                                <label class="font-weight-bold">Tipus habitació</label>
+                                <p>${roomById.tipusHabitacio}</p>
                             </div>
-                            <div class="col col-md-5">
-                                <div class="form-group">
-                                    <label class="font-weight-bold">Sexe llogater</label>
-                                    <p <input type="text" name="username" class="form-control"/>${roomById.requeriment.sexe}</p>
-                                </div>
+                            <div class="form-group col-sm offset-md-1">
+                                <label class="font-weight-bold">Preu mensual</label>
+                                <p>${roomById.preuMes}</p>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="col col-md-3">
-                                <div class="form-group">
-                                    <label class="font-weight-bold" for="inputLlogater">ID llogater</label>
-                                    <p <input type="text" name="username" class="form-control"/>ID</p>
-                                </div>
+                        <div class="row">
+                            <div class="form-group col-sm offset-md-1">
+                                <label class="font-weight-bold">Edat mínim</label>
+                                <p>${roomById.requeriment.rangEdatMin}</p>
                             </div>
-                            <div class="col col-md-4">
-                                <div style="margin-left: 8px;  margin-right: 8px;" class="form-group">
-                                    <label class="font-weight-bold">Mascotes</label>
-                                    <p <input type="text" name="username" class="form-control"/>${roomById.requeriment.mascotes}</p>
-                                </div>
+                            <div class="form-group col-sm offset-md-1">
+                                <label class="font-weight-bold">Edat màxim</label>
+                                <p>${roomById.requeriment.rangEdatMax}</p>
                             </div>
-                            <div class="col col-md-4">
-                                <div class="form-group">
-                                    <label class="font-weight-bold">Fumadors</label>
-                                    <p <input type="text" name="username" class="form-control"/>${roomById.requeriment.fumador}</p>
-                                </div>
+                            <div class="form-group col-sm offset-md-1">
+                                <label class="font-weight-bold">Sexe llogater</label>
+                                <p>${roomById.requeriment.sexe}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm offset-md-1">
+                                <label class="font-weight-bold">Mascotes</label>
+                                <p class="${roomById.requeriment.mascotes}"></p>
+                            </div>
+                            <div class="form-group col-sm offset-md-1">
+                                <label class="font-weight-bold">Fumadors</label>
+                                <p class="${roomById.requeriment.fumador}"></p>
+                            </div>
+                            <div class="form-group col-sm offset-md-1">
+                                <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
+                                    <button style="background-color: darkred; color: white" type="submit" class="btn" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Return</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -95,9 +89,4 @@
             </div>
         </div>
     </body>
-    <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
-        <div style="margin-left: 675px">
-         <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Return</button>
-        </div>
-    </form>
 </html>

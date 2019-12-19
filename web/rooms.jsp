@@ -35,26 +35,26 @@
         }
     </style>
     <body>
-        <div class=" row mx-1 mt-2">
+        <!--<div class=" row mx-1 mt-2">
             <div class="col-md-10 offset-md-1">
-                <div class="card card-image" style="background-image: url(mijas2.jpg); height: 200px; background-position-y: 800px">
-                <jsp:include page="header.jsp" />
-                </div>
+                <div class="card card-image" style="background-image: url(Images/mijas2.jpg); height: 200px; background-position-y: 800px"-->
+        <jsp:include page="header.jsp" />
+                <!--</div>
             </div>
-        </div>
+        </div>-->
         <form method="post" action="roomById.do" class="form-inline">
             <div class="container mt-3">
                 <div class="row">
                     <c:forEach items="${rooms}" var="elem">
                         <div class="col-md-6 mb-3">
                             <div class="card card-body">
-                                <img src="habitacio_triple_5_182.jpg" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
+                                <img src="${elem.urlImatge}" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
                                 <h2 class="currency" style="margin-top: 10px">${elem.preuMes}</h2>
                                 <div class="row-form"> 
                                     <h5>${elem.tipusHabitacio}. ${elem.adresa}, ${elem.ciutat}</h5>
                                     <h5 class="replaced">${elem.llogater.id}</h5>
                                 </div>
-                                <p class="text-muted"> ${elem.descripcio}.</p>
+                                <p class="text-muted" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> ${elem.descripcio}</p>
                                 <button class="btn btn-success my-2 my-sm-0" type="submit" name="idRoom" value="${elem.idHabitacio}">More details</button>
                             </div>
                         </div>
