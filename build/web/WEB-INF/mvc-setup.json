@@ -21,10 +21,6 @@
         "class" : "ConnectionToJSPRooms.CreateRoom"
     },
     {
-        "URI" : "/modifiedUserWeb",
-        "class" : "ConnectionToJSPAuthentication.ModifyPasswordOfUsername"
-    },
-    {
       "URI":"/newUserWeb",
       "class" :"ConnectionToJSPAuthentication.NewUserAutenticated" 
     },
@@ -79,6 +75,14 @@
     {
         "URI":"/allTenants",
         "class":"ConnectionToJSPTenants.SearchAllTenants"
+    },
+    {
+        "URI":"/login",
+        "class":"EntryData.Login"
+    },
+    {
+        "URI":"/createUser",
+        "class":"EntryData.NewUser"
     }
   ]
 }

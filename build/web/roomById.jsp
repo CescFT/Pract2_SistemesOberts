@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
     </head>
@@ -27,20 +28,17 @@
             white-space:nowrap;
             overflow-x:auto;
         }
-
         #myCarousel .carousel-indicators {
             position: static;
             left: initial;
             width: initial;
             margin-left: initial;
         }
-
         #myCarousel .carousel-indicators > li {
             width: initial;
             height: initial;
             text-indent: initial;
         }
-
         #myCarousel .carousel-indicators > li.active img {
             opacity: 0.7;
         }

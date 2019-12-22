@@ -30,6 +30,24 @@ public class credentialsClient implements Serializable {
 
     
     private token tokenAutoritzacio;
+    
+    private Boolean autenticat;
+
+    /**
+     * getter autenticat
+     * @return cert o fals
+     */
+    public Boolean getAutenticat() {
+        return autenticat;
+    }
+
+    /**
+     * setter autenticat
+     * @param autenticat autenticat
+     */
+    public void setAutenticat(Boolean autenticat) {
+        this.autenticat = autenticat;
+    }
 
     /**
      * Contructor buit
@@ -133,14 +151,14 @@ public class credentialsClient implements Serializable {
         this.password = Base64.getEncoder().encodeToString(password.getBytes());
     }
 
-    /**
+     /**
      * tostring
      *
      * @return string amb les dades de les credencials
      */
     @Override
     public String toString() {
-        return "credentialsClient{" + "username=" + username + ", password=" + password + ", email=" + email + ", tokenAutoritzacio=" + tokenAutoritzacio + '}';
+        return "credentialsClient{" + "username=" + username + ", password=" + password + ", email=" + email + ", tokenAutoritzacio=" + tokenAutoritzacio + ", autenticat=" + autenticat + '}';
     }
 
 }

@@ -14,7 +14,7 @@
         .currency::after {
             content:' \20AC/mes'; 
         }
-        
+
         .replaced:not(:empty) {
             visibility: hidden;
             position: relative;
@@ -28,20 +28,14 @@
             content: "Llogada";
             color: red;
         }
-        
+
         .replaced:empty:after{
             content: "Disponible";
             color: green;
         }
     </style>
     <body>
-        <!--<div class=" row mx-1 mt-2">
-            <div class="col-md-10 offset-md-1">
-                <div class="card card-image" style="background-image: url(Images/mijas2.jpg); height: 200px; background-position-y: 800px"-->
         <jsp:include page="header.jsp" />
-                <!--</div>
-            </div>
-        </div>-->
         <form method="post" action="roomById.do" class="form-inline">
             <div class="container mt-3">
                 <div class="row">
