@@ -6,6 +6,14 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
+        <servlet-name>ValidationServletMail</servlet-name>
+        <servlet-class>ModelEntities.ValidationServletMail</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ValidationServletMail</servlet-name>
+        <url-pattern>/validateMail</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>ValidationServlet</servlet-name>
         <servlet-class>ModelEntities.ValidationServlet</servlet-class>
     </servlet>
