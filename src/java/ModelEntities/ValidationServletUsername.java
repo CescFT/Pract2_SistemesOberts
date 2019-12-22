@@ -9,7 +9,7 @@ import java.util.*;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
-public class ValidationServlet extends HttpServlet {
+public class ValidationServletUsername extends HttpServlet {
     
     private ServletContext context;
     private HashMap accounts = new HashMap();
@@ -40,7 +40,7 @@ public class ValidationServlet extends HttpServlet {
         //  Note that the content type is "text/xml".
         //
         
-        if((targetId != null) && !accounts.containsKey(targetId.trim())) {
+        if((targetId != null) && accounts.containsKey(targetId.trim())) {
             response.setContentType("text/xml");
             response.setHeader("Cache-Control", "no-cache");
             response.getWriter().write("<valid>true</valid>");

@@ -15,7 +15,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ValidationServlet</servlet-name>
-        <servlet-class>ModelEntities.ValidationServlet</servlet-class>
+        <servlet-class>ModelEntities.ValidationServletUsername</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ValidationServlet</servlet-name>
