@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import javax.servlet.ServletContext;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Response;
 
@@ -26,8 +27,8 @@ public class WebClientAuthentication implements InterficieComuna {
         AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
         credentialsClient clientWeb = new credentialsClient();
         
-        clientWeb.setPassword(request.getParameter("passwd")); //la password cada cop
-        clientWeb.setUsername(request.getParameter("id"));
+        clientWeb.setPassword(request.getParameter("passwd")); //aqui sa de posar el nom del parametre que sigui per a aquest .java
+        clientWeb.setUsername(request.getParameter("id"));  //de la mateixa forma aqui
         
         
         Response resposta = autenticacio.getServeiAutenticacio().authenticationClient(clientWeb);
@@ -48,14 +49,15 @@ public class WebClientAuthentication implements InterficieComuna {
         https://es.stackoverflow.com/questions/33250/c%C3%B3mo-puedo-guardar-un-objeto-en-la-sesi%C3%B3n-y-c%C3%B3mo-utilizarlo-en-un-jsp-servle
         De la referer mhaig de quedar amb l'ultima /i amb el loquesigui.do
             */
-        
-        
-        request.setAttribute("authorized",request.getHeader("referer")); //http://localhost:8080/PRac.../.do
+        String paginaAnterior = request.getHeader("referer");
+        String[] elemsPathAnterior= paginaAnterior.split("/"); // http://localhost:8080/Pract2_SistemesOberts/*.do
+        String doAnterior = elemsPathAnterior[elemsPathAnterior.length-1];
+        System.out.println(doAnterior);
         HttpSession sesion = request.getSession();
         sesion.setAttribute("token", token.getTokenAutoritzacio());
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
         context.getRequestDispatcher("/clientWebAuthentication.jsp").forward(request, response);
-        //context.getRequestDispatcher(request.getHeader("referer")).forward(request, response);
+        //context.getRequestDispatcher(soAnterior).forward(request, response);
     }
 }
