@@ -25,9 +25,9 @@ public class NewUserAutenticated implements InterficieComuna {
         AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
         credentialsClient clientWeb = new credentialsClient();
         
-        String mail = request.getParameter("email");
+        String mail = request.getParameter("mail");
         boolean haveMail = mail.equals("") ? false : true;
-        String password = request.getParameter("passwd");
+        String password = request.getParameter("password");
         boolean havePassword= password.equals("") ? false : true;
         String username = request.getParameter("username");
         boolean haveUsername = username.equals("") ? false : true;
@@ -56,8 +56,12 @@ public class NewUserAutenticated implements InterficieComuna {
             
         }
 
+        String paginaAnterior = request.getHeader("referer");
+        String[] elemsPathAnterior= paginaAnterior.split("/"); // http://localhost:8080/Pract2_SistemesOberts/*.do
+        String doAnterior = elemsPathAnterior[elemsPathAnterior.length-1];
+        System.out.println(doAnterior);
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
-        context.getRequestDispatcher("/newUserWeb.jsp").forward(request, response);
+        context.getRequestDispatcher("/"+doAnterior).forward(request, response);
     }
 }
