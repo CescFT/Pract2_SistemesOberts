@@ -27,8 +27,8 @@ public class WebClientAuthentication implements InterficieComuna {
         AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
         credentialsClient clientWeb = new credentialsClient();
         
-        clientWeb.setPassword(request.getParameter("passwd")); //aqui sa de posar el nom del parametre que sigui per a aquest .java
-        clientWeb.setUsername(request.getParameter("id"));  //de la mateixa forma aqui
+        clientWeb.setPassword(request.getParameter("password")); //aqui sa de posar el nom del parametre que sigui per a aquest .java
+        clientWeb.setUsername(request.getParameter("username"));  //de la mateixa forma aqui
         
         
         Response resposta = autenticacio.getServeiAutenticacio().authenticationClient(clientWeb);
@@ -53,11 +53,12 @@ public class WebClientAuthentication implements InterficieComuna {
         String[] elemsPathAnterior= paginaAnterior.split("/"); // http://localhost:8080/Pract2_SistemesOberts/*.do
         String doAnterior = elemsPathAnterior[elemsPathAnterior.length-1];
         System.out.println(doAnterior);
+        System.out.println(token.getTokenAutoritzacio());
         HttpSession sesion = request.getSession();
         sesion.setAttribute("token", token.getTokenAutoritzacio());
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
-        context.getRequestDispatcher("/clientWebAuthentication.jsp").forward(request, response);
+        context.getRequestDispatcher("/"+doAnterior).forward(request, response);
         //context.getRequestDispatcher(soAnterior).forward(request, response);
     }
 }

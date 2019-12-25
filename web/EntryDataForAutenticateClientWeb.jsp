@@ -13,7 +13,9 @@
             width: 200px;
         }
     </style>
-
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
     <body>
         <div class="container mt-5">
             <div class="row">
@@ -31,14 +33,19 @@
                         <div class="form-group">
                             <label class="font-weight-bold">Contrasenya</label>
                             <div class="input-group">
-                                <input type="password" name="passwd"  class="form-control" data-toggle="password"/>
+                                <input type="password" name="passwd" id="passwdId" class="form-control" data-toggle="password"/>
                                 <div class="input-group-append">
                                     <div class="input-group-text"><i class="fa fa-eye"></i></div>
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" id="submit_btn" class="btn btn-success" value="Send Request">
+                        <form name="enviaDadesReal" action="authentication.do" method="post">
+                            <input type="hidden" id="nomUsuariReal" name="username" value="">
+                            <input type="hidden" id="contrassenyaUsuariReal" name="password" value="">
+                            <input type="submit" id="submit_btn" class="btn btn-success" value="Send Request" onclick="functionModifyValues()">
+                        </form>
                         
+                        <%session.getAttribute("token");%>
 
                     </div>
                 </div>
@@ -117,7 +124,13 @@
                                                 }
                                             }
                                         }
-
+                                        
+                                        function functionModifyValues(){
+                                            var nomUsuari = document.getElementById("userid").value;
+                                            var contrassenyaUsuari = document.getElementById("passwdId").value;
+                                            $("#nomUsuariReal").val(nomUsuari);
+                                            $("#contrassenyaUsuariReal").val(contrassenyaUsuari);
+                                        }
 
 
                                         // (5) Funció que mostra si l'usuari és vàlid o invàlid
