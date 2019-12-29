@@ -41,4 +41,34 @@
     <error-page>
         <location>/error.jsp</location>
     </error-page>
+    <error-page>
+        <!--NOT FOUND-->
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <!--NO CONTENT-->
+        <error-code>204</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page> 
+        <!--BAD REQUEST-->
+        <error-code>400</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <!--UNAUTHORIZED-->
+        <error-code>401</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <!--NOT FOUND-->
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <!--PARTIAL CONTENT-->
+        <error-code>206</error-code>
+        <location>/error.jsp</location>
+    </error-page>
 </web-app>
