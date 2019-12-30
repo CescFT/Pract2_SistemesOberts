@@ -32,7 +32,11 @@ public class SearchRooms implements InterficieComuna {
         
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request
-        String location = request.getParameter("location").toLowerCase();
+        String location="";
+        if(request.getParameterMap().containsKey("location")){
+            location = request.getParameter("location").toLowerCase() == null ? "" : request.getParameter("location").toLowerCase();
+        }
+        
         System.out.println(location);
         boolean noLocation=false;
         if(location.equals("")) noLocation=true;

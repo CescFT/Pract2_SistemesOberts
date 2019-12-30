@@ -14,10 +14,7 @@ public class ValidationServletUsername extends HttpServlet {
     private ServletContext context;
     private HashMap accounts = new HashMap();
     
-    
-    // Initialize the "accounts" hashmap. 
-    public void init(ServletConfig config) throws ServletException {
-        this.context = config.getServletContext();
+    private void update(){
         AutenticacioServiceSingleton login = AutenticacioServiceSingleton.getInstance();
         Response res = login.getServeiAutenticacio().getAllClientsAutoritzats_JSON();
         List<credentialsClient> llistatClientsAutenticats = res.readEntity(new GenericType<List<credentialsClient>>(){});
@@ -26,25 +23,39 @@ public class ValidationServletUsername extends HttpServlet {
             accounts.put(c.getUsername(),c.getPassword());
             
         }
+    }
+    // Initialize the "accounts" hashmap. 
+    public void init(ServletConfig config) throws ServletException {
+        this.context = config.getServletContext();
         
+        this.update();
     }
     
     public  void doGet(HttpServletRequest request, HttpServletResponse  response)
     throws IOException, ServletException {
-        this.init();
+        this.update();
+        boolean trobat = false;
         // Extract the data of the input form field whose name is "id"
         String targetId = request.getParameter("id");
+        String passwd = request.getParameter("passwd");
         
         //  Send back either "<valid>true</valid>" or "<valid>false</valid>"
         //  XML message depending on the validity of the data that was entered.
         //  Note that the content type is "text/xml".
         //
         
-        if((targetId != null) && accounts.containsKey(targetId.trim())) {
-            response.setContentType("text/xml");
-            response.setHeader("Cache-Control", "no-cache");
-            response.getWriter().write("<valid>true</valid>");
-        } else {
+        if((targetId != null) && (passwd != null)) {
+            System.out.println(":: contrassenya que tinc: "+accounts.get(targetId.trim()));
+            System.out.println(":: contrassenya que em ve:"+passwd.trim());
+            if (accounts.containsKey(targetId.trim()) && accounts.get(targetId.trim()).equals(passwd.trim())){
+                response.setContentType("text/xml");
+                response.setHeader("Cache-Control", "no-cache");
+                response.getWriter().write("<valid>true</valid>");
+                trobat = true;
+            }
+            
+        } 
+        if(!trobat){
             response.setContentType("text/xml");
             response.setHeader("Cache-Control", "no-cache");
             response.getWriter().write("<valid>false</valid>");
