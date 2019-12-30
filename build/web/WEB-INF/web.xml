@@ -22,6 +22,14 @@
         <url-pattern>/validate</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>ValidationServletUsernameNewUser</servlet-name>
+        <servlet-class>ModelEntities.ValidationServletUsernameNewUser</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ValidationServletUsernameNewUser</servlet-name>
+        <url-pattern>/validateNewUser</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>controller</servlet-name>
         <servlet-class>ModelEntities.ControllerServlet</servlet-class>
         <init-param>
