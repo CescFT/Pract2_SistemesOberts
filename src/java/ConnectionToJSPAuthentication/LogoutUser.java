@@ -14,7 +14,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Response;
 
-public class WebClientAuthentication implements InterficieComuna {
+public class LogoutUser implements InterficieComuna {
 
     @Override
     public void execute(
@@ -24,34 +24,31 @@ public class WebClientAuthentication implements InterficieComuna {
 
         AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
         credentialsClient clientWeb = new credentialsClient();
-        System.out.println(request.getParameter("password"));
-        System.out.println(request.getParameter("username"));
-        clientWeb.setPassword(request.getParameter("password")); //aqui sa de posar el nom del parametre que sigui per a aquest .java
-        clientWeb.setUsername(request.getParameter("username"));  //de la mateixa forma aqui
+        
+        HttpSession sesion = request.getSession();
+        clientWeb.setUsername(sesion.getAttribute("nomUsuari").toString());  //de la mateixa forma aqui
 
-        Response resposta = autenticacio.getServeiAutenticacio().authenticationClient(clientWeb);
-        token token = new token();
+        Response resposta = autenticacio.getServeiAutenticacio().logoutUser(clientWeb);
+        
         if (resposta.getStatus() == Response.Status.OK.getStatusCode()) {
-            token = resposta.readEntity(token.class);
-            request.setAttribute("authorized", token);
+            
             
             String paginaAnterior = request.getParameter("anterior");
             String[] elemsPathAnterior = paginaAnterior.split("/"); // http://localhost:8080/Pract2_SistemesOberts/*.do
             String doAnterior = elemsPathAnterior[elemsPathAnterior.length - 1];
             
             System.out.println(doAnterior);
-            System.out.println(token.getTokenAutoritzacio());
-            HttpSession sesion = request.getSession();
-            sesion.setAttribute("token", token.getTokenAutoritzacio());
-            sesion.setAttribute("nomUsuari", clientWeb.getUsername());
+            
             // 2. produce the view with the web result
             
             response.sendRedirect("/Pract2_SistemesOberts/" + doAnterior);
         } else if (resposta.getStatus() == Response.Status.NO_CONTENT.getStatusCode()) {
-            request.setAttribute("authorized", resposta.readEntity(String.class));
+            request.setAttribute("logout", resposta.readEntity(String.class));
             
-        } else if (resposta.getStatus() == Response.Status.NOT_FOUND.getStatusCode()) {
-            request.setAttribute("authorized", resposta.readEntity(String.class));
+        } else if (resposta.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()) {
+            request.setAttribute("logout", resposta.readEntity(String.class));
+        }else if (resposta.getStatus() == Response.Status.FORBIDDEN.getStatusCode()) {
+            request.setAttribute("logout", resposta.readEntity(String.class));
         }
 
        

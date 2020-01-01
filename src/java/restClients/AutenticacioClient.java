@@ -34,6 +34,11 @@ public class AutenticacioClient {
         webTarget = client.target(BASE_URI).path("autenticacio");
     }
 
+    public Response logoutUser(Object requestEntity) throws ClientErrorException{
+        WebTarget resource = webTarget;
+        resource = resource.path("logoutUser");
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON), Response.class);
+    }
     public Response modifyPasswordOfClient(Object requestEntity) throws ClientErrorException{
         WebTarget resource = webTarget;
         resource = resource.path("modifyPassword");

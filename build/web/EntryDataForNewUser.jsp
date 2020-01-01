@@ -117,7 +117,7 @@
                                             messageUsername = req.responseXML.getElementsByTagName("valid")[0].childNodes[0].nodeValue;
                                             // Crida la funció "setMessageUsingDOM(message)" per mostrar o bé
                                             // "Valid User Id" o bé "Invalid User Id".
-
+                                            
                                             // Si l'usuari introdueix un valor invàlid, no permet a l'usuari
                                             // clicar el botó del formulari.
                                             var submitBtn = document.getElementById("submit_btn");

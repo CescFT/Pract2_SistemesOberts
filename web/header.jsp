@@ -16,17 +16,23 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <style>
-        button{
+        
+        
+        button.btn-success{
             width: 180px;
         }
         button.btn-light{
             width: 150px;
         }
+        p{
+            color : white;
+            
+        }
     </style>
     <body>
         <div class="form-group sticky-top col-sm" style="background-color: darkred; height: 70px">
             <div class="form-row">
-                <form method="post" action="index.html">
+                <form method="post" action="welcome.do">
                     <button style="margin-left: 50px; color: white; font-size: x-large" type="submit" class="btn btn-link font-weight-bold" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Cesc Factory</button>
                 </form>
                 <div style="margin-top: 10px">
@@ -35,15 +41,8 @@
                         <button class="btn btn-success" type="submit">Search</button>
                     </form>
                 </div>
-                <div style="margin-top: 10px; position: absolute; right: 0; margin-right: 200px">
-                    <form method="post" action="login.do" class="form-inline">
-                        <button class="btn btn-secondary" type="submit">Login</button>
-                    </form>
-                </div>
-                <div style="margin-top: 10px; position: absolute; right: 0; margin-right: 10px">
-                    <form method="post" action="createUser.do" class="form-inline">
-                        <button class="btn btn-dark" type="submit">New User</button>
-                    </form>
+                <div class="form-inline" style="position: absolute; right: 0; margin-top: 10px; margin-right: 130px">
+                    <jsp:include page="loginBotons.jsp" />
                 </div>                
             </div>
         </div>
@@ -52,7 +51,6 @@
                 <button type="submit" style="margin-top: 5px; margin-left: 5px" onclick="history.back()" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">
                     <span class="fa fa-chevron-left" style="margin-right: 5px"></span>Return
                 </button>
-                </p>
             </div>
         </div>
     </body>

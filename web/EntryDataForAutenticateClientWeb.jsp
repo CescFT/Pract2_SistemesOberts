@@ -136,7 +136,7 @@
 
                             function setMessageUsingDOM(message) {
                                 var userMessageElement = document.getElementById("userIdMessage");
-                                var messageText;
+                                var messageText="";
                                 if (message == "false") {
                                     userMessageElement.style.color = "red";
                                     messageText = "Usuari o contrasenya incorrectes.";

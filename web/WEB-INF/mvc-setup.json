@@ -83,6 +83,14 @@
     {
         "URI":"/createUser",
         "class":"EntryData.NewUser"
+    },
+    {
+        "URI":"/welcome",
+        "class":"EntryData.Welcome"
+    },
+    {
+        "URI":"/logout",
+        "class":"ConnectionToJSPAuthentication.LogoutUser"
     }
   ]
 }
