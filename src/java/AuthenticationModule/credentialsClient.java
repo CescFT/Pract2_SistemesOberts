@@ -164,7 +164,7 @@ public class credentialsClient implements Serializable {
      */
     @Override
     public String toString() {
-        return "credentialsClient[" + "username=" + username + ", password=" + password + ", email=" + email + ", tokenAutoritzacio=" + tokenAutoritzacio + ", autenticat=" + autenticat + ']';
+        return "credentialsClient[{" + "username:\"" + username + "\", password:\"" + password + "\", email:\"" + email + "\", tokenAutoritzacio:\"" + tokenAutoritzacio + "\", autenticat:" + autenticat + "}]";
     }
 
 }

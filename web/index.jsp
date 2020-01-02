@@ -1,6 +1,6 @@
 <%@ page import = "AuthenticationModule.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %> //https://www.tutorialspoint.com/jsp/jstl_core_if_tag.htm i https://stackoverflow.com/questions/7578420/jstl-continue-break-inside-foreach
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -62,8 +62,7 @@ and open the template in the editor.
             console.log(${clientsWeb[1].autenticat});
             for(c=0; c<${numElems}; c++)
             {
-                console.log(c);
-                console.log("pero pq..."+${clientsWeb[c].username});
+                console.log(${clientsWeb[c].autenticat});
                 
                     
             }
