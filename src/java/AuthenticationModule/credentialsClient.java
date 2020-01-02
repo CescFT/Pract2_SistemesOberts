@@ -132,13 +132,16 @@ public class credentialsClient implements Serializable {
         this.username = username;
     }
 
-    /**
+      /**
      * getter de la password desxifrada
      *
      * @return la password desxifrada
      */
     public String getPassword() {
+               
         byte[] decodedBytes = Base64.getDecoder().decode(password);
+        
+        
         return new String(decodedBytes);
     }
 
@@ -148,7 +151,10 @@ public class credentialsClient implements Serializable {
      * @param password emmagatzema la password xifrada
      */
     public void setPassword(String password) {
-        this.password = Base64.getEncoder().encodeToString(password.getBytes());
+       
+        
+            
+        this.password = Base64.getEncoder().encodeToString(password.getBytes());;
     }
 
      /**
@@ -158,7 +164,7 @@ public class credentialsClient implements Serializable {
      */
     @Override
     public String toString() {
-        return "credentialsClient{" + "username=" + username + ", password=" + password + ", email=" + email + ", tokenAutoritzacio=" + tokenAutoritzacio + ", autenticat=" + autenticat + '}';
+        return "credentialsClient[" + "username=" + username + ", password=" + password + ", email=" + email + ", tokenAutoritzacio=" + tokenAutoritzacio + ", autenticat=" + autenticat + ']';
     }
 
 }

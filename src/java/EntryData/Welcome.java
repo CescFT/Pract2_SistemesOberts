@@ -31,7 +31,10 @@ public class Welcome implements InterficieComuna {
         Response resposta = autenticacio.getServeiAutenticacio().getAllClientsAutoritzats_JSON();
         
         if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
-            request.setAttribute("clientsWeb", resposta.readEntity(new GenericType<List<credentialsClient>>(){}));
+            List<credentialsClient> llistaResultat = resposta.readEntity(new GenericType<List<credentialsClient>>(){});
+            System.out.println(llistaResultat);
+            request.setAttribute("clientsWeb", llistaResultat);
+            request.setAttribute("numElems", llistaResultat.size());
         }else if(resposta.getStatus() == Response.Status.NOT_FOUND.getStatusCode()){
             request.setAttribute("clientsWeb", resposta.readEntity(String.class));
         }
