@@ -42,7 +42,8 @@
                     </form>
                 </div>
                 <div class="form-inline" style="position: absolute; right: 0; margin-top: 10px; margin-right: 130px">
-                    <jsp:include page="loginBotons.jsp" />
+                    <div class="form-inline" id="botons"><jsp:include page="loginBotons.jsp" /></div>
+                    <div class="form-inline" id="text" hidden><jsp:include page="textLogin.jsp" /></div>
                 </div>                
             </div>
         </div>

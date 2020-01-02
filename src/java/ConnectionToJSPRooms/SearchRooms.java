@@ -1,8 +1,10 @@
 package ConnectionToJSPRooms;
 
 
+import AuthenticationModule.credentialsClient;
 import ModelEntities.InterficieComuna;
 import ModelEntities.Habitacio;
+import ServicesSingleton.AutenticacioServiceSingleton;
 import ServicesSingleton.RoomServiceSingleton;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -67,11 +69,18 @@ public class SearchRooms implements InterficieComuna {
             
             }
         }
-        //Response res = r.getService().find_JSON(request.getParameter("location"), request.getParameter("sort"));
         
+        AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
+        Response resposta = autenticacio.getServeiAutenticacio().getAllClientsAutoritzats_JSON();
         
-
-        // 2. produce the view with the web result
+        if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
+            List<credentialsClient> llistaResultat = resposta.readEntity(new GenericType<List<credentialsClient>>(){});
+            System.out.println(llistaResultat);
+            request.setAttribute("clientsWeb", llistaResultat);
+        }else if(resposta.getStatus() == Response.Status.NOT_FOUND.getStatusCode()){
+            request.setAttribute("clientsWeb", resposta.readEntity(String.class));
+        }
+        
         ServletContext context = request.getSession().getServletContext();
         context.getRequestDispatcher("/rooms.jsp").forward(request, response);
     }

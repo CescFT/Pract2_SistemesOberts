@@ -47,36 +47,32 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-                    
+
     </body>
     <script type="text/javascript">
-        
         function setMessageUsingDOM() {
-            var usuariLogin = document.getElementById("botons");
+            var botonsLogin = document.getElementById("botons");
             var textLogin = document.getElementById("text");
-            var trobat = 0;
-            var c=0;
-            
-            console.log(c);
-            console.log(${clientsWeb[0].autenticat});
-            console.log(${clientsWeb[1].autenticat});
-            for(c=0; c<${numElems}; c++)
+            var trobat = false;
+            var messageText = "";
+            var usuariLogin = document.getElementById("usuariLogin");
+            for (var c of ${clientsWeb})
             {
-                console.log(${clientsWeb[c].autenticat});
-                
-                    
+                if (c.autenticat) {
+                    trobat = true;
+                    messageText = "Heu iniciat sessió com: "+c.username;
+                }
             }
-            console.log(trobat);
-            
-            if(trobat){
-                usuariLogin.hidden = true;
+            if (trobat) {
+                botonsLogin.hidden = true;
                 textLogin.hidden = false;
-            }else{
-                usuariLogin.hidden = false;
+            } else {
+                botonsLogin.hidden = false;
                 textLogin.hidden = true;
             }
+            usuariLogin.textContent = messageText;
+            
             
         }
-
     </script>
 </html>

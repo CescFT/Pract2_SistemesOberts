@@ -26,14 +26,15 @@ public class LogoutUser implements InterficieComuna {
         credentialsClient clientWeb = new credentialsClient();
         
         HttpSession sesion = request.getSession();
-        clientWeb.setUsername(sesion.getAttribute("nomUsuari").toString());  //de la mateixa forma aqui
-
+        Object o = sesion.getAttribute("nomUsuari");
+        clientWeb.setUsername(String.valueOf(o));  //de la mateixa forma aqui
+        
         Response resposta = autenticacio.getServeiAutenticacio().logoutUser(clientWeb);
         
         if (resposta.getStatus() == Response.Status.OK.getStatusCode()) {
             
             
-            String paginaAnterior = request.getParameter("anterior");
+            String paginaAnterior = request.getHeader("referer");
             String[] elemsPathAnterior = paginaAnterior.split("/"); // http://localhost:8080/Pract2_SistemesOberts/*.do
             String doAnterior = elemsPathAnterior[elemsPathAnterior.length - 1];
             

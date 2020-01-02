@@ -1,4 +1,5 @@
 <%@ page import = "ModelEntities.*" %>
+<%@ page import = "AuthenticationModule.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -34,7 +35,7 @@
             color: green;
         }
     </style>
-    <body>
+    <body onload="setMessageUsingDOM()">
         <jsp:include page="header.jsp" />
         <form method="post" action="roomById.do" class="form-inline">
             <div class="container mt-3">
@@ -57,5 +58,30 @@
             </div>
         </form>
     </body>
+    <script type="text/javascript">
+        function setMessageUsingDOM() {
+            var botonsLogin = document.getElementById("botons");
+            var textLogin = document.getElementById("text");
+            var trobat = false;
+            var messageText = "";
+            var usuariLogin = document.getElementById("usuariLogin");
+            console.log(${clientsWeb});
+            for (var c of ${clientsWeb})
+            {
+                if (c.autenticat) {
+                    trobat = true;
+                    messageText = "Heu iniciat sessió com: " + c.username;
+                }
+            }
+            if (trobat) {
+                botonsLogin.hidden = true;
+                textLogin.hidden = false;
+            } else {
+                botonsLogin.hidden = false;
+                textLogin.hidden = true;
+            }
+            usuariLogin.textContent = messageText;
+        }
+    </script>
 </html>
 
