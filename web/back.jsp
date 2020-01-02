@@ -11,8 +11,8 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div style="position: absolute; bottom: 0">
-            <button type="submit" onclick="history.back()" class ="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Return</button>
-        </div>
+        <button type="submit" style="margin-top: 5px; margin-left: 5px" onclick="history.back()" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">
+            <span class="fa fa-chevron-left" style="margin-right: 5px"></span>
+        </button>
     </body>
 </html>

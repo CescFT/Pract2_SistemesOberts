@@ -1,37 +1,47 @@
 <%@ page import = "ModelEntities.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
     <style>
-        button{
-            margin-top: 20px;
-            margin-left: 15px;
-            width: 200px;
+        button.btn-light{
+            width: 40px;
+            height: 30px;
+            margin-right: 5px;
+            background-color: transparent;
+            border-color: transparent;
+        }
+        body{
+            background-image: url("Images/mijas2.jpg");
+            background-color: #cccccc;
+            height: 500px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
         }
     </style>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
-        <div class="container mt-5">
+        <div class="container mt-4">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <div class="card card-body">
-
-                        <h3>Introdueix les dades:</h3>
+                    <div class="form-inline"><jsp:include page="loginBotons.jsp" /></div>
+                    <div class="form-group">
+                        <div class="row form-row">
+                            <jsp:include page="back.jsp" />
+                            <h3 style="margin-top: 1px">Introdueix les dades:</h3>
+                        </div>
                         <div id="userIdMessage"></div>
                         <form name="updateAccount" action="validate" method="post">
                             <div class="form-group">
-
                                 <label class="font-weight-bold">Nom d'usuari</label>
                                 <input type="text" name="id" id="userid" onkeyup="validateUserId()" class="form-control"/>
-                                
-
-
                             </div>
                             <div class="form-group">
                                 <label class="font-weight-bold">Contrasenya</label>
@@ -47,12 +57,11 @@
                             <input type="hidden" id="nomUsuariReal" name="username" value="">
                             <input type="hidden" id="contrassenyaUsuariReal" name="password" value="">
                             <input type="hidden" id="paginaAnterior" name="anterior" value="">
-                            <input type="button" id="submit_btn" disabled class="btn btn-success" value="Send Request" onclick="functionModifyValues()">
+                            <input type="button" id="submit_btn" disabled class="btn btn-success form-group" value="Send Request" onclick="functionModifyValues()">
                         </form>
                     </div>
                 </div>
-                <jsp:include page="back.jsp" />
-            </div>
+            </div>  
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="bootstrap-show-password.min.js"></script>
@@ -60,97 +69,95 @@
 
     </body>
     <script type="text/javascript">
-                            var req;
-                            var target;
-                            var isIE;
-                            var message;
-                            var target2;
-                            // (3) CreaciÛ de l'objecte XMLHttpRequest.
-                            function initRequest(url) {
-                                if (window.XMLHttpRequest) {
-                                    req = new XMLHttpRequest();
-                                } else if (window.ActiveXObject) {
-                                    isIE = true;
-                                    req = new ActiveXObject("Microsoft.XMLHTTP");
+                                var req;
+                                var target;
+                                var isIE;
+                                var message;
+                                var target2;
+                                // (3) Creaci√≥ de l'objecte XMLHttpRequest.
+                                function initRequest(url) {
+                                    if (window.XMLHttpRequest) {
+                                        req = new XMLHttpRequest();
+                                    } else if (window.ActiveXObject) {
+                                        isIE = true;
+                                        req = new ActiveXObject("Microsoft.XMLHTTP");
+                                    }
                                 }
-                            }
-                            // (2) Manegador d'events que s'executa cada vegada que l'usuari escriu un car‡cter
-                            // en el camp del formulari identificat com a "userid".  El manegador
-                            // invoca a "initRequest(url)" per instanciar l'objecte XMLHttpRequest
-                            function validateUserId() {
-                                if (!target)
-                                    target = document.getElementById("userid");
-                                if (!target2)
-                                    target2 = document.getElementById("passwdId");
-                                var url = "validate?id=" + escape(target.value);
-                                url += "&passwd=" + escape(target2.value);
-                                // Invoca a initRequest(url) per crear l'objecte XMLHttpRequest
-                                initRequest(url);
-                                // La funciÛ "processRequest" actua com a funciÛ de callback
-                                req.onreadystatechange = processRequest;
-                                req.open("GET", url, true);
-                                req.send(null);
-                            }
-                            // (4) FunciÛ callback que s'invoca de forma asÌncrona pel navegador
-                            // Quan les dades han estat correctament retornades pel servidor.
-                            // (En realitat aquesta funciÛ es crida cada vegada que el valor
-                            // del camp "readyState" de l'objecte XMLHttpRequest canvia.)
-                            // Aquesta funciÛ callback s'ha d'especificar al camp "onreadystatechange"
-                            // de l'objecte XMLHttpRequest.
-                            function processRequest() {
-                                if (req.readyState == 4) {
-                                    if (req.status == 200) {
-                                        message = req.responseXML.getElementsByTagName("valid")[0].childNodes[0].nodeValue;
+                                // (2) Manegador d'events que s'executa cada vegada que l'usuari escriu un car√†cter
+                                // en el camp del formulari identificat com a "userid".  El manegador
+                                // invoca a "initRequest(url)" per instanciar l'objecte XMLHttpRequest
+                                function validateUserId() {
+                                    if (!target)
+                                        target = document.getElementById("userid");
+                                    if (!target2)
+                                        target2 = document.getElementById("passwdId");
+                                    var url = "validate?id=" + escape(target.value);
+                                    url += "&passwd=" + escape(target2.value);
+                                    // Invoca a initRequest(url) per crear l'objecte XMLHttpRequest
+                                    initRequest(url);
+                                    // La funci√≥ "processRequest" actua com a funci√≥ de callback
+                                    req.onreadystatechange = processRequest;
+                                    req.open("GET", url, true);
+                                    req.send(null);
+                                }
+                                // (4) Funci√≥ callback que s'invoca de forma as√≠ncrona pel navegador
+                                // Quan les dades han estat correctament retornades pel servidor.
+                                // (En realitat aquesta funci√≥ es crida cada vegada que el valor
+                                // del camp "readyState" de l'objecte XMLHttpRequest canvia.)
+                                // Aquesta funci√≥ callback s'ha d'especificar al camp "onreadystatechange"
+                                // de l'objecte XMLHttpRequest.
+                                function processRequest() {
+                                    if (req.readyState == 4) {
+                                        if (req.status == 200) {
+                                            message = req.responseXML.getElementsByTagName("valid")[0].childNodes[0].nodeValue;
 
 
-                                        // Si l'usuari introdueix un valor inv‡lid, no permet a l'usuari
-                                        // clicar el botÛ del formulari.
-                                        var userId = document.getElementById("userid").value;
-                                        var passId = document.getElementById("passwdId").value;
-                                        var submitBtn = document.getElementById("submit_btn");
-                                        if (userId === "" || passId === "") {
-                                            submitBtn.disabled = true;
-                                        } else {
-                                            submitBtn.disabled = false;
+                                            // Si l'usuari introdueix un valor inv√†lid, no permet a l'usuari
+                                            // clicar el bot√≥ del formulari.
+                                            var userId = document.getElementById("userid").value;
+                                            var passId = document.getElementById("passwdId").value;
+                                            var submitBtn = document.getElementById("submit_btn");
+                                            if (userId === "" || passId === "") {
+                                                submitBtn.disabled = true;
+                                            } else {
+                                                submitBtn.disabled = false;
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            
-                            
-                          
-                            function functionModifyValues() {
-                                setMessageUsingDOM(message);
-                                if (message == "true") {
-                                    var nomUsuari = document.getElementById("userid").value;
-                                    
-                                    var contrassenyaUsuari = document.getElementById("passwdId").value;
-                                    $("#nomUsuariReal").val(nomUsuari);
-                                    $("#contrassenyaUsuariReal").val(contrassenyaUsuari);
-                                    $("#paginaAnterior").val(document.referrer);
-                                    document.getElementById("form1").submit();
-                                    //window.location = 'http://localhost:8080/Pract2_SistemesOberts/authentication.do?username='+nomUsuari+'&password='+contrassenyaUsuari;
+
+
+
+                                function functionModifyValues() {
+                                    setMessageUsingDOM(message);
+                                    if (message == "true") {
+                                        var nomUsuari = document.getElementById("userid").value;
+
+                                        var contrassenyaUsuari = document.getElementById("passwdId").value;
+                                        $("#nomUsuariReal").val(nomUsuari);
+                                        $("#contrassenyaUsuariReal").val(contrassenyaUsuari);
+                                        $("#paginaAnterior").val(document.referrer);
+                                        document.getElementById("form1").submit();
+                                        //window.location = 'http://localhost:8080/Pract2_SistemesOberts/authentication.do?username='+nomUsuari+'&password='+contrassenyaUsuari;
+                                    }
+
                                 }
 
-                            }
-
-                            function setMessageUsingDOM(message) {
-                                var userMessageElement = document.getElementById("userIdMessage");
-                                var messageText="";
-                                if (message == "false") {
-                                    userMessageElement.style.color = "red";
-                                    messageText = "Usuari o contrasenya incorrectes.";
+                                function setMessageUsingDOM(message) {
+                                    var userMessageElement = document.getElementById("userIdMessage");
+                                    var messageText = "";
+                                    if (message == "false") {
+                                        userMessageElement.style.color = "red";
+                                        messageText = "Usuari o contrasenya incorrectes.";
+                                    }
+                                    var messageBody = document.createTextNode(messageText);
+                                    // if the messageBody element has been created simple replace it otherwise
+                                    // append the new element
+                                    if (userMessageElement.childNodes[0]) {
+                                        userMessageElement.replaceChild(messageBody, userMessageElement.childNodes[0]);
+                                    } else {
+                                        userMessageElement.appendChild(messageBody);
+                                    }
                                 }
-                                var messageBody = document.createTextNode(messageText);
-                                // if the messageBody element has been created simple replace it otherwise
-                                // append the new element
-                                if (userMessageElement.childNodes[0]) {
-                                    userMessageElement.replaceChild(messageBody, userMessageElement.childNodes[0]);
-                                } else {
-                                    userMessageElement.appendChild(messageBody);
-                                }
-                            }
-
-
     </script>
 </html>

@@ -3,21 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPAuthentication/WebClientAuthentication.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/AuthenticationModule/credentialsClient.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/web/index.jsp</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/EntryData/Welcome.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/ModelEntities/ValidationServletUsernameNewUser.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPAuthentication/NewUserAutenticated.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/web/index.html</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/ModelEntities/ValidationServletMail.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPAuthentication/GetAllClientWebAuthorized.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/web/WEB-INF/mvc-setup.json</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/ModelEntities/ValidationServletUsername.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/ModelEntities/ControllerServlet.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/web/rooms.jsp</file>
-            <file>file:/D:/Pract2_SistemesOberts/web/EntryDataForNewUser.jsp</file>
-            <file>file:/D:/Pract2_SistemesOberts/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Sancho/Desktop/URV/4t/Sistemes%20Oberts/Pràctica2/Pract2_SistemesOberts/web/EntryDataForNewUser.jsp</file>
+            <file>file:/C:/Users/Sancho/Desktop/URV/4t/Sistemes%20Oberts/Pràctica2/Pract2_SistemesOberts/web/EntryDataForAutenticateClientWeb.jsp</file>
+            <file>file:/C:/Users/Sancho/Desktop/URV/4t/Sistemes%20Oberts/Pràctica2/Pract2_SistemesOberts/web/back.jsp</file>
+            <file>file:/C:/Users/Sancho/Desktop/URV/4t/Sistemes%20Oberts/Pràctica2/Pract2_SistemesOberts/src/java/EntryData/Login.java</file>
         </group>
     </open-files>
 </project-private>

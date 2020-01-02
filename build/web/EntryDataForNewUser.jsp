@@ -7,45 +7,58 @@
 <!DOCTYPE html>
 <html>
     <style>
-        button{
-            margin-top: 20px;
-            margin-left: 15px;
-            width: 200px;
+        button.btn-light{
+            width: 40px;
+            height: 30px;
+            margin-right: 5px;
+            background-color: transparent;
+            border-color: transparent;
+        }
+        body{
+            background-image: url("Images/mijas2.jpg");
+            background-color: #cccccc;
+            height: 500px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
         }
     </style>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     <body>
-        <div class="container mt-5">
+        <div class="container mt-4">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <div class="card card-body">
-                        <form name="updateAccount" action="validateNewUser" method="post">
+                    <div class="form-inline"><jsp:include page="loginBotons.jsp" /></div>
+                    <div class="form-group">
+                        <div class="row form-row">
+                            <jsp:include page="back.jsp" />
                             <h3>Introdueix les dades:</h3>
-                            <div class="form-group">
+                        </div> 
+                        <div class="form-group">
+                            <label class="font-weight-bold">Nom d'usuari</label>
+                            <div id="userIdMessage"></div>
+                            <input type="text" name="id" id="userid" onkeyup="validateUserId()" class="form-control"/>
 
-                                <label class="font-weight-bold">Nom d'usuari</label>
-                                <div id="userIdMessage"></div>
-                                <input type="text" name="id" id="userid" onkeyup="validateUserId()" class="form-control"/>
+                        </div>
+                        <div class="form-group">
 
-                            </div>
-                            <div class="form-group">
+                            <label class="font-weight-bold">Correu electrònic</label>
+                            <div id="userMailMessage"></div>
+                            <input type="text" name="email" id="mailid" onkeyup="validateUserId()" class="form-control"/>
 
-                                <label class="font-weight-bold">Correu electrònic</label>
-                                <div id="userMailMessage"></div>
-                                <input type="text" name="email" id="mailid" onkeyup="validateUserId()" class="form-control"/>
-
-                            </div>
-                            <div class="form-group">
-                                <label class="font-weight-bold">Contrasenya</label>
-                                <div class="input-group">
-                                    <input type="password" name="passwd" id="passnewUserId" onkeyup="validateUserId()" class="form-control" data-toggle="password"/>
-                                    <div class="input-group-append">
-                                        <div class="input-group-text"><i class="fa fa-eye"></i></div>
-                                    </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold">Contrasenya</label>
+                            <div class="input-group">
+                                <input type="password" name="passwd" id="passnewUserId" onkeyup="validateUserId()" class="form-control" data-toggle="password"/>
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fa fa-eye"></i></div>
                                 </div>
                             </div>
+                        </div>
                         </form>
                         <form id="form2" name="enviaDadesReal" action="newUserWeb.do" method="post">
                             <input type="hidden" id="usrNomReal" name="username" value="">
@@ -60,11 +73,6 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="bootstrap-show-password.min.js"></script>
     </body>
-    <form action="http://localhost:8080/Pract2_SistemesOberts/index.html">
-        <div style="margin-left: 675px">
-            <button type="submit" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">Return</button>
-        </div>
-    </form>
 
     <script type="text/javascript">
                                 var req;
@@ -117,14 +125,14 @@
                                             messageUsername = req.responseXML.getElementsByTagName("valid")[0].childNodes[0].nodeValue;
                                             // Crida la funció "setMessageUsingDOM(message)" per mostrar o bé
                                             // "Valid User Id" o bé "Invalid User Id".
-                                            
+
                                             // Si l'usuari introdueix un valor invàlid, no permet a l'usuari
                                             // clicar el botó del formulari.
                                             var submitBtn = document.getElementById("submit_btn");
-                                            var mail = document.getElementById("malid").value;
+                                            var mail = document.getElementById("mailid").value;
                                             var username = document.getElementById("userid").value;
                                             var passwd = document.getElementById("passnewUserId").value;
-                                            if (mail === "" || username === "" || passwd==="") {
+                                            if (mail === "" || username === "" || passwd === "") {
                                                 submitBtn.disabled = true;
                                             } else {
                                                 submitBtn.disabled = false;

@@ -16,13 +16,12 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <style>
-        
-        
         button.btn-success{
             width: 180px;
         }
         button.btn-light{
-            width: 150px;
+            width: 50px;
+            height: 30px;
         }
         p{
             color : white;
@@ -48,10 +47,8 @@
             </div>
         </div>
         <div class="col-sm" style="background-color: darkred; height: 50px; position: fixed; bottom: 0; z-index: 2">
-            <div class="row">
-                <button type="submit" style="margin-top: 5px; margin-left: 5px" onclick="history.back()" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">
-                    <span class="fa fa-chevron-left" style="margin-right: 5px"></span>Return
-                </button>
+            <div class="row" style="margin-left: 5px">
+                <jsp:include page="back.jsp" />
             </div>
         </div>
     </body>

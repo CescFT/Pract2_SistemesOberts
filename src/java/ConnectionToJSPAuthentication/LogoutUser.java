@@ -26,10 +26,14 @@ public class LogoutUser implements InterficieComuna {
         credentialsClient clientWeb = new credentialsClient();
         
         HttpSession sesion = request.getSession();
-        Object o = sesion.getAttribute("nomUsuari");
-        clientWeb.setUsername(String.valueOf(o));  //de la mateixa forma aqui
+        
+        clientWeb.setUsername(String.valueOf(sesion.getAttribute("nomUsuari")));
+        clientWeb.setPassword(String.valueOf(sesion.getAttribute("contrassenyaUsuari")));
+        System.out.println(clientWeb);
+        
         
         Response resposta = autenticacio.getServeiAutenticacio().logoutUser(clientWeb);
+        
         
         if (resposta.getStatus() == Response.Status.OK.getStatusCode()) {
             
@@ -51,7 +55,6 @@ public class LogoutUser implements InterficieComuna {
         }else if (resposta.getStatus() == Response.Status.FORBIDDEN.getStatusCode()) {
             request.setAttribute("logout", resposta.readEntity(String.class));
         }
-
        
          
         

@@ -44,6 +44,7 @@ public class WebClientAuthentication implements InterficieComuna {
             HttpSession sesion = request.getSession();
             sesion.setAttribute("token", token.getTokenAutoritzacio());
             sesion.setAttribute("nomUsuari", clientWeb.getUsername());
+            sesion.setAttribute("contrassenyaUsuari", clientWeb.getPassword());
             // 2. produce the view with the web result
             
             response.sendRedirect("/Pract2_SistemesOberts/" + doAnterior);
