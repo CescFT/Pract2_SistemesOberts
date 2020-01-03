@@ -40,6 +40,12 @@ public class TenantClient {
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get();
     }
 
+    public Response nouDia(Object requestEntity) throws ClientErrorException{
+        WebTarget resource = webTarget;
+        resource = resource.path("nouDia");
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_JSON), Response.class);
+        
+    }
     public Response rentingRoom_XML(Object requestEntity, String id) throws ClientErrorException {
         return webTarget.path(java.text.MessageFormat.format("{0}/rent", new Object[]{id})).request(javax.ws.rs.core.MediaType.APPLICATION_XML).post(javax.ws.rs.client.Entity.entity(requestEntity, javax.ws.rs.core.MediaType.APPLICATION_XML), Response.class);
     }

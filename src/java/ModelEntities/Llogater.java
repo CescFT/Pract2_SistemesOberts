@@ -28,6 +28,23 @@ public class Llogater implements Serializable {
     @Embedded
     private InformacioLlogater info;
 
+    private Integer numLlogades;
+
+    /**
+     * getter de habitacionsLlogades
+     * @return num habitacions
+     */
+    public Integer getNumLlogades() {
+        return numLlogades;
+    }
+    /**
+     * setter de habitacions llogades
+     * @param numLlogades 
+     */
+    public void setNumLlogades(Integer numLlogades) {
+        this.numLlogades = numLlogades;
+    }
+    
     /**
      * getter del identificador
      *

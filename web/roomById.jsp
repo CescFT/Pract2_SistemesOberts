@@ -10,6 +10,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
     </head>
     <style>
+        p.popup{
+            margin-left: 5px;
+        }
         label.rent{
             background-color: darkred;
             color: white;
@@ -137,13 +140,57 @@
                                             <div class="input-group-prepend">
                                                 <label class="input-group-text rent">Llogater</label>
                                             </div>
-                                            <select class="custom-select" style="margin-right: 35px" id="showTenants">
-                                                <option selected>Choose...</option>
+                                            <select class="custom-select" style="margin-right: 35px" name="tenant" id="showTenants">
+                                                <option value="null" selected>Choose...</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row form-row">
-                                        <button id="rentBtn" style="background-color: darkred; color: white" onclick="showOk()" type="submit" disabled class="btn rent" data-toggle="tooltip" data-placement="top">Rent</button>
+                                        <button id="rentBtn" style="background-color: darkred; color: white" type="button" disabled class="btn rent" data-toggle="modal" data-placement="top" data-target="#exampleModal">Rent</button>
+                                    </div>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Vols confirmar el lloguer?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="col col-sm">
+                                                        <div class="row row-form">
+                                                            <h3 class="font-weight-bold">${roomById.nomHabitacio}</h3>
+                                                        </div>
+                                                        <div class="row row-form">
+                                                            <label class="font-weight-bold">Descripció</label>
+                                                            <p>${roomById.descripcio}</p>
+                                                        </div>
+                                                        <div class="row row-form">
+                                                            <label class="font-weight-bold">Adreça:</label>
+                                                            <p class="popup">${roomById.adresa}</p>
+                                                        </div>
+
+                                                        <div class="row row-form">
+                                                            <label class="font-weight-bold">Ciutat:</label>
+                                                            <p class="popup">${roomById.ciutat}</p>
+                                                        </div>
+                                                        <div class="row row-form">
+                                                            <label class="font-weight-bold">Tipus habitació:</label>
+                                                            <p class="popup">${roomById.tipusHabitacio}</p>
+                                                        </div>
+                                                        <div class="row row-form">
+                                                            <label class="font-weight-bold">Preu mensual:</label>
+                                                            <p class="popup">${roomById.preuMes}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-success" onclick="showOk()">Confirm</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -253,57 +300,47 @@
         </div>
     </body>
     <script type="text/javascript">
-                                            function setMessageUsingDOM() {
-                                                var botonsLogin = document.getElementById("botons");
-                                                var textLogin = document.getElementById("text");
-                                                var tenant = document.getElementById("divTen")
-                                                var dropdown = document.getElementById("showTenants");
-                                                var trobat = false;
-                                                var messageText = "";
-                                                var usuariLogin = document.getElementById("usuariLogin");
-                                                for (var c of ${clientsWeb})
-                                                {
-                                                    if (c.autenticat) {
-                                                        trobat = true;
-                                                        messageText = "Heu iniciat sessió com: " + c.username;
-                                                    }
-                                                }
-                                                if (trobat) {
-                                                    botonsLogin.hidden = true;
-                                                    textLogin.hidden = false;
-                                                } else {
-                                                    botonsLogin.hidden = false;
-                                                    textLogin.hidden = true;
-                                                }
-                                                usuariLogin.textContent = messageText;
+        function setMessageUsingDOM() {
+            var botonsLogin = document.getElementById("botons");
+            var textLogin = document.getElementById("text");
+            var tenant = document.getElementById("divTen")
+            var dropdown = document.getElementById("showTenants");
+            var trobat = false;
+            var messageText = "";
+            var usuariLogin = document.getElementById("usuariLogin");
+            for (var c of ${clientsWeb})
+            {
+                if (c.autenticat) {
+                    trobat = true;
+                    messageText = "Heu iniciat sessió com: " + c.username;
+                }
+            }
+            if (trobat) {
+                botonsLogin.hidden = true;
+                textLogin.hidden = false;
+            } else {
+                botonsLogin.hidden = false;
+                textLogin.hidden = true;
+            }
+            usuariLogin.textContent = messageText;
 
-                                                var rent = document.getElementById("rentBtn");
+            var rent = document.getElementById("rentBtn");
 
-                                                if (!${roomById.ocupada} && (trobat)) {
-                                                    rent.disabled = false;
-                                                    tenant.hidden = false;
-                                                    for (var t of ${tenants}) {
-                                                        dropdown.innerHTML += `<option value=` + t.id + `>` + t.info.nom + `</option>`;
-                                                    }
-                                                } else {
-                                                    rent.disabled = true;
-                                                }
-
-                                            }
-
-
+            if (!${roomById.ocupada} && (trobat)) {
+                rent.disabled = false;
+                tenant.hidden = false;
+                for (var t of ${tenants}) {
+                    dropdown.innerHTML += `<option value=` + t.id + `>` + t.info.nom + `</option>`;
+                }
+            } else {
+                rent.disabled = true;
+                tenant.hidden = true;
+            }
+        }
+        function showOk() {
+            if (document.getElementById("showTenants").value !== "null") {
+                document.getElementById("rent").submit();
+            }
+        }
     </script>
-    <!--function showOk() {
-                                            console.log('<%= session.getAttribute("nomUsuari")%>');
-                                            if ('<%= session.getAttribute("nomUsuari")%>' === 'null') {
-                                                window.location.href = 'http://localhost:8080/Pract2_SistemesOberts/login.do';
-                                            } else {
-                                                var left = (screen.width / 2) - (500 / 2);
-                                                var top = (screen.height / 2) - (500 / 2);
-                                                document.getElementById("rent").submit();
-                                                return window.open('http://localhost:8080/Pract2_SistemesOberts/rentigRoom.do', 'Rent Confirmation', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + 500 + ', height=' + 500 + ', top=' + top + ', left=' + left);
-    
-                                            }
-    
-                                        }-->
 </html>

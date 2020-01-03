@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import javax.servlet.ServletContext;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.GenericType;
@@ -25,6 +27,13 @@ public class Welcome implements InterficieComuna {
             HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
+        
+        HttpSession sesio = request.getSession();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDate localDate = LocalDate.now();
+        
+        
+        sesio.setAttribute("dia", dtf.format(localDate));
         
         AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
 

@@ -1,96 +1,96 @@
 {
-  "commands": [
-    {
-      "URI": "/roomsResult",
-      "class": "ConnectionToJSPRooms.SearchRooms" 
-    },
-    {
-        "URI" : "/roomById",
-        "class" : "ConnectionToJSPRooms.SearchRoomById"
-    },
-    {
-        "URI" : "/roomEliminated",
-        "class" : "ConnectionToJSPRooms.DeleteRoom"
-    },
-    {
-        "URI" : "/modifiedRoom",
-        "class" : "ConnectionToJSPRooms.EditRoom"
-    },
-    {
-        "URI" : "/createdRoom",
-        "class" : "ConnectionToJSPRooms.CreateRoom"
-    },
-    {
-      "URI":"/newUserWeb",
-      "class" :"ConnectionToJSPAuthentication.NewUserAutenticated" 
-    },
-    {
-        "URI" : "/authentication",
-        "class" : "ConnectionToJSPAuthentication.WebClientAuthentication"
-    },
-    {
-        "URI" : "/getTokenOfUsername",
-        "class" : "ConnectionToJSPAuthentication.GetTokenOfUsername"
-    },
-    {
-        "URI" : "/getMyPassword",
-        "class" : "ConnectionToJSPAuthentication.GetMyPassword"
-    },
-    {
-        "URI" : "/getClientAutenticated",
-        "class" : "ConnectionToJSPAuthentication.GetClientAuthenticated"
-    },
-    {
-        "URI" : "/allAuthorizedClientWeb",
-        "class" : "ConnectionToJSPAuthentication.GetAllClientWebAuthorized"
-    },
-    {
-        "URI" : "/autenticatedTenant",
-        "class" : "ConnectionToJSPTenants.ProcessToken"
-    },
-    {
-        "URI" : "/rentingRoom",
-        "class" : "ConnectionToJSPTenants.RentingRoom"
-    },
-    {
-        "URI" : "/createdNewTenant",
-        "class" : "ConnectionToJSPTenants.CreateTenant"
-    },
-    {
-        "URI": "/editedTenant",
-        "class" : "ConnectionToJSPTenants.EditTenant"
-    },
-    {
-        "URI":"/freeRooms",
-        "class" : "ConnectionToJSPTenants.FreeRoom"
-    },
-    {
-        "URI":"/removedTenant",
-        "class":"ConnectionToJSPTenants.RemoveTenant"
-    },
-    {
-        "URI":"/findTenant",
-        "class":"ConnectionToJSPTenants.SearchTenant"
-    },
-    {
-        "URI":"/allTenants",
-        "class":"ConnectionToJSPTenants.SearchAllTenants"
-    },
-    {
-        "URI":"/login",
-        "class":"EntryData.Login"
-    },
-    {
-        "URI":"/createUser",
-        "class":"EntryData.NewUser"
-    },
-    {
-        "URI":"/welcome",
-        "class":"EntryData.Welcome"
-    },
-    {
-        "URI":"/logout",
-        "class":"ConnectionToJSPAuthentication.LogoutUser"
-    }
-  ]
+    "commands": [
+        {
+            "URI": "/roomsResult",
+            "class": "ConnectionToJSPRooms.SearchRooms" 
+        },
+        {
+            "URI": "/roomById",
+            "class": "ConnectionToJSPRooms.SearchRoomById"
+        },
+        {
+            "URI": "/roomEliminated",
+            "class": "ConnectionToJSPRooms.DeleteRoom"
+        },
+        {
+            "URI": "/modifiedRoom",
+            "class": "ConnectionToJSPRooms.EditRoom"
+        },
+        {
+            "URI": "/createdRoom",
+            "class": "ConnectionToJSPRooms.CreateRoom"
+        },
+        {
+            "URI": "/newUserWeb",
+            "class": "ConnectionToJSPAuthentication.NewUserAutenticated" 
+        },
+        {
+            "URI": "/authentication",
+            "class": "ConnectionToJSPAuthentication.WebClientAuthentication"
+        },
+        {
+            "URI": "/getTokenOfUsername",
+            "class": "ConnectionToJSPAuthentication.GetTokenOfUsername"
+        },
+        {
+            "URI": "/getMyPassword",
+            "class": "ConnectionToJSPAuthentication.GetMyPassword"
+        },
+        {
+            "URI": "/getClientAutenticated",
+            "class": "ConnectionToJSPAuthentication.GetClientAuthenticated"
+        },
+        {
+            "URI": "/allAuthorizedClientWeb",
+            "class": "ConnectionToJSPAuthentication.GetAllClientWebAuthorized"
+        },
+        {
+            "URI": "/autenticatedTenant",
+            "class": "ConnectionToJSPTenants.ProcessToken"
+        },
+        {
+            "URI": "/rentingRoom",
+            "class": "ConnectionToJSPTenants.RentingRoom"
+        },
+        {
+            "URI": "/createdNewTenant",
+            "class": "ConnectionToJSPTenants.CreateTenant"
+        },
+        {
+            "URI": "/editedTenant",
+            "class": "ConnectionToJSPTenants.EditTenant"
+        },
+        {
+            "URI": "/freeRooms",
+            "class": "ConnectionToJSPTenants.FreeRoom"
+        },
+        {
+            "URI": "/removedTenant",
+            "class": "ConnectionToJSPTenants.RemoveTenant"
+        },
+        {
+            "URI": "/findTenant",
+            "class": "ConnectionToJSPTenants.SearchTenant"
+        },
+        {
+            "URI": "/allTenants",
+            "class": "ConnectionToJSPTenants.SearchAllTenants"
+        },
+        {
+            "URI": "/login",
+            "class": "EntryData.Login"
+        },
+        {
+            "URI": "/createUser",
+            "class": "EntryData.NewUser"
+        },
+        {
+            "URI": "/welcome",
+            "class": "EntryData.Welcome"
+        },
+        {
+            "URI": "/logout",
+            "class": "ConnectionToJSPAuthentication.LogoutUser"
+        }
+    ]
 }

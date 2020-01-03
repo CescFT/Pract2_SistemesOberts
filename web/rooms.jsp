@@ -45,24 +45,30 @@
         <jsp:include page="header.jsp" />
         <div class="container mt-3">
             <div class="row">
-                <c:forEach items="${rooms}" var="elem">
-                    <div class="col-md-6 mb-3">
-                        <div class="card card-body">
-                            <img src="${elem.urlImatge}" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
-                            <h2 class="currency" style="margin-top: 10px">${elem.preuMes}</h2>
-                            <div class="row-form"> 
-                                <h5>${elem.tipusHabitacio}. ${elem.adresa}, ${elem.ciutat}</h5>
-                                <h5 class="replaced">${elem.llogater.id}</h5>
-                            </div>
-                            <p class="text-muted" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> ${elem.descripcio}</p>
+                <c:choose>
+                    <c:when test = "${rooms != null}">
+                        <c:forEach items="${rooms}" var="elem">
+                            <div class="col-md-6 mb-3">
+                                <div class="card card-body">
+                                    <h2>${elem.nomHabitacio}</h2>
+                                    <img src="${elem.urlImatge}" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
+                                    <h2 class="currency" style="margin-top: 10px">${elem.preuMes}</h2>
+                                    <div class="row-form"> 
+                                        <h5>${elem.tipusHabitacio}. ${elem.adresa}, ${elem.ciutat}</h5>
+                                        <h5 class="replaced">${elem.llogater.id}</h5>
+                                    </div>
+                                    <p class="text-muted" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> ${elem.descripcio}</p>
 
-                            <form id="formRoom" method="post" action="roomById.do" class="form-inline">
-                                <input type="hidden" id="roomId" name="room" value="">
-                                <button class="btn btn-success my-2 my-sm-0" id="habId" type="submit" name="idRoom" onclick="saveID()" value="${elem.idHabitacio}">More details</button>
-                            </form>
-                        </div>
-                    </div>
-                </c:forEach>
+                                    <form id="formRoom" method="post" action="roomById.do" class="form-inline">
+                                        <input type="hidden" id="roomId" name="room" value="">
+                                        <button class="btn btn-success my-2 my-sm-0" id="habId" type="submit" name="idRoom" onclick="saveID()" value="${elem.idHabitacio}">More details</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </c:forEach> 
+                    </c:when>
+                    <c:otherwise> <div class="card card-body"><div class="col" style="text-align: center"><h2> No s'han trobat habitacions. </h2> </div></div></c:otherwise>
+                </c:choose>
             </div>
         </div>
 

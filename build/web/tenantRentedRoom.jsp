@@ -1,3 +1,1 @@
-<html>
-    <a>Hola</a>
-</html>
+<META http-equiv="refresh" content="0;URL=roomById.do">
