@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <p class="form-inline font-weight-bold">Encara no has iniciat sessio?</p>
+        <p class="form-inline font-weight-bold white">Encara no has iniciat sessio?</p>
         <div class="row form-row">
             
             <form method="post" action="login.do" class="form-inline">

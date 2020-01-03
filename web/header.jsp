@@ -23,9 +23,8 @@
             width: 50px;
             height: 30px;
         }
-        p{
+        p.white{
             color : white;
-            
         }
     </style>
     <body>
@@ -46,10 +45,6 @@
                 </div>                
             </div>
         </div>
-        <div class="col-sm" style="background-color: darkred; height: 50px; position: fixed; bottom: 0; z-index: 2">
-            <div class="row" style="margin-left: 5px">
-                <jsp:include page="back.jsp" />
-            </div>
-        </div>
+        
     </body>
 </html>

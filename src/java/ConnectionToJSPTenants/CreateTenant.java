@@ -9,7 +9,7 @@ import ModelEntities.Llogater;
 import ModelEntities.Requeriment;
 import ModelEntities.SexeLlogater;
 import ModelEntities.TipusHabitacio;
-import ModelEntities.informacioLlogater;
+import ModelEntities.InformacioLlogater;
 
 import ServicesSingleton.TenantServiceSingleton;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +32,7 @@ public class CreateTenant implements InterficieComuna {
         Llogater nouLlogater = new Llogater();
         
         nouLlogater.setId(Long.valueOf(60));
-        informacioLlogater infoLlogaterNou = new informacioLlogater();
+        InformacioLlogater infoLlogaterNou = new InformacioLlogater();
         infoLlogaterNou.setCognom("Perez");
         infoLlogaterNou.setDni("44485962-V");
         infoLlogaterNou.setEdat(22);

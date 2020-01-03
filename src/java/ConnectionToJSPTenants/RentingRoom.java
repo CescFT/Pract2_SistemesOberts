@@ -28,19 +28,19 @@ public class RentingRoom implements InterficieComuna {
         TenantServiceSingleton tService = TenantServiceSingleton.getInstance();
            
         Habitacio habToRent = new Habitacio();
-        habToRent.setAdresa("Avda. Catalunya 2");
-        habToRent.setCiutat("Vallmoll");
-        habToRent.setDescripcio("Es una mica cara.");
-        habToRent.setIdHabitacio(Long.valueOf(300));
-        habToRent.setPreuMes(Float.valueOf(120));
+        habToRent.setAdresa(request.getParameter("adre"));
+        habToRent.setCiutat(request.getParameter("ciutat"));
+        habToRent.setDescripcio(request.getParameter("des"));
+        habToRent.setIdHabitacio(Long.valueOf(request.getParameter("id")));
+        habToRent.setPreuMes(Float.valueOf(request.getParameter("preu")));
         Requeriment reqHabToRent = new Requeriment();
-        reqHabToRent.setFumador(true);
-        reqHabToRent.setMascotes(true);
-        reqHabToRent.setRangEdatMax(99);
-        reqHabToRent.setRangEdatMin(10);
-        reqHabToRent.setSexe(SexeLlogater.UNISEX);
+        reqHabToRent.setFumador(Boolean.valueOf(request.getParameter("fuma")));
+        reqHabToRent.setMascotes(Boolean.valueOf(request.getParameter("masco")));
+        reqHabToRent.setRangEdatMax(Integer.valueOf(request.getParameter("max")));
+        reqHabToRent.setRangEdatMin(Integer.valueOf(request.getParameter("min")));
+        reqHabToRent.setSexe(SexeLlogater.valueOf(request.getParameter("sexe")));
         habToRent.setRequeriment(reqHabToRent);
-        habToRent.setTipusHabitacio(TipusHabitacio.INTERIOR);
+        habToRent.setTipusHabitacio(TipusHabitacio.valueOf(request.getParameter("tipu")));
         
         
         

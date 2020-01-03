@@ -8,10 +8,16 @@
 <html>
     <head>
         <!-- Link Bootstrap JS and JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <style>
+        body {
+            background-image: url('Images/landscape.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
         .currency::after {
             content:' \20AC/mes'; 
         }
@@ -37,26 +43,29 @@
     </style>
     <body onload="setMessageUsingDOM()">
         <jsp:include page="header.jsp" />
-        <form method="post" action="roomById.do" class="form-inline">
-            <div class="container mt-3">
-                <div class="row">
-                    <c:forEach items="${rooms}" var="elem">
-                        <div class="col-md-6 mb-3">
-                            <div class="card card-body">
-                                <img src="${elem.urlImatge}" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
-                                <h2 class="currency" style="margin-top: 10px">${elem.preuMes}</h2>
-                                <div class="row-form"> 
-                                    <h5>${elem.tipusHabitacio}. ${elem.adresa}, ${elem.ciutat}</h5>
-                                    <h5 class="replaced">${elem.llogater.id}</h5>
-                                </div>
-                                <p class="text-muted" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> ${elem.descripcio}</p>
-                                <button class="btn btn-success my-2 my-sm-0" type="submit" name="idRoom" value="${elem.idHabitacio}">More details</button>
+        <div class="container mt-3">
+            <div class="row">
+                <c:forEach items="${rooms}" var="elem">
+                    <div class="col-md-6 mb-3">
+                        <div class="card card-body">
+                            <img src="${elem.urlImatge}" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
+                            <h2 class="currency" style="margin-top: 10px">${elem.preuMes}</h2>
+                            <div class="row-form"> 
+                                <h5>${elem.tipusHabitacio}. ${elem.adresa}, ${elem.ciutat}</h5>
+                                <h5 class="replaced">${elem.llogater.id}</h5>
                             </div>
+                            <p class="text-muted" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> ${elem.descripcio}</p>
+
+                            <form id="formRoom" method="post" action="roomById.do" class="form-inline">
+                                <input type="hidden" id="roomId" name="room" value="">
+                                <button class="btn btn-success my-2 my-sm-0" id="habId" type="submit" name="idRoom" onclick="saveID()" value="${elem.idHabitacio}">More details</button>
+                            </form>
                         </div>
-                    </c:forEach>
-                </div>
+                    </div>
+                </c:forEach>
             </div>
-        </form>
+        </div>
+
     </body>
     <script type="text/javascript">
         function setMessageUsingDOM() {
@@ -65,7 +74,6 @@
             var trobat = false;
             var messageText = "";
             var usuariLogin = document.getElementById("usuariLogin");
-            console.log(${clientsWeb});
             for (var c of ${clientsWeb})
             {
                 if (c.autenticat) {
@@ -81,6 +89,12 @@
                 textLogin.hidden = true;
             }
             usuariLogin.textContent = messageText;
+        }
+
+        function saveId() {
+            var idHab = document.getElementById("habId").value;
+            $("#roomId").val(idHab);
+            document.getElementById("formRoom").submit();
         }
     </script>
 </html>

@@ -26,7 +26,7 @@ public class Llogater implements Serializable {
     private Long id;
 
     @Embedded
-    private informacioLlogater info;
+    private InformacioLlogater info;
 
     /**
      * getter del identificador
@@ -51,7 +51,7 @@ public class Llogater implements Serializable {
      *
      * @return informacio del llogater
      */
-    public informacioLlogater getInfo() {
+    public InformacioLlogater getInfo() {
         return info;
     }
 
@@ -60,7 +60,7 @@ public class Llogater implements Serializable {
      *
      * @param info informacio del llogater
      */
-    public void setInfo(informacioLlogater info) {
+    public void setInfo(InformacioLlogater info) {
         this.info = info;
     }
 
@@ -101,7 +101,7 @@ public class Llogater implements Serializable {
      */
     @Override
     public String toString() {
-        return "Llogater{" + "id=" + id + ", info=" + info + '}';
+        return "{" + "id:\"" + id + "\", info:" + info + "}";
     }
 
 }

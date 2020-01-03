@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
  * @author Aleix Sancho Pujals
  */
 @Embeddable
-public class informacioLlogater implements Serializable {
+public class InformacioLlogater implements Serializable {
 
     @Column(name = "NOM_LLOGATER")
     @Size(max = 500)
@@ -170,7 +170,7 @@ public class informacioLlogater implements Serializable {
      */
     @Override
     public String toString() {
-        return "informacioLlogater{" + "nom=" + nom + ", cognom=" + cognom + ", edat=" + edat + ", fumador=" + fumador + ", teMascotes=" + teMascotes + ", sexe=" + sexe + '}';
+        return "{" + "nom:\"" + nom + "\", cognom:\"" + cognom + "\", edat:\"" + edat + "\", fumador:\"" + fumador + "\", teMascotes:\"" + teMascotes + "\", sexe:\"" + sexe + "\"}";
     }
 
 }

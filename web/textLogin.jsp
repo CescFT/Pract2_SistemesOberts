@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <p id="usuariLogin" class="form-inline font-weight-bold">ei</p>
+        <p id="usuariLogin" class="form-inline font-weight-bold white">ei</p>
 
         <div class="row form-row">
 

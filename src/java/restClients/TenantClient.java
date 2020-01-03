@@ -101,6 +101,12 @@ public class TenantClient {
     public Response remove(String id) throws ClientErrorException {
         return webTarget.path(java.text.MessageFormat.format("{0}", new Object[]{id})).request().delete(Response.class);
     }
+    
+    public Response removeToken() throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("eliminarToken");
+        return resource.request().delete(Response.class);
+    }
 
     public void close() {
         client.close();

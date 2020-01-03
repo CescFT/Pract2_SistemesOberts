@@ -9,7 +9,7 @@ import ModelEntities.Llogater;
 import ModelEntities.Requeriment;
 import ModelEntities.SexeLlogater;
 import ModelEntities.TipusHabitacio;
-import ModelEntities.informacioLlogater;
+import ModelEntities.InformacioLlogater;
 
 import ServicesSingleton.TenantServiceSingleton;
 import javax.servlet.http.HttpServletRequest;

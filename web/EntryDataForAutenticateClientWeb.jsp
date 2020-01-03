@@ -1,4 +1,4 @@
-<%@ page import = "ModelEntities.*" %>
+    <%@ page import = "ModelEntities.*" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,7 +30,7 @@
     <body>
         <div class="container mt-4">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-5 offset-md-3">
                     <div class="form-inline"><jsp:include page="loginBotons.jsp" /></div>
                     <div class="form-group">
                         <div class="row form-row">
@@ -40,13 +40,11 @@
                         <div id="userIdMessage"></div>
                         <form name="updateAccount" action="validate" method="post">
                             <div class="form-group">
-                                <label class="font-weight-bold">Nom d'usuari</label>
-                                <input type="text" name="id" id="userid" onkeyup="validateUserId()" class="form-control"/>
+                                <input type="text" name="id" id="userid" onkeyup="validateUserId()" placeholder="Username" class="form-control"/>
                             </div>
                             <div class="form-group">
-                                <label class="font-weight-bold">Contrasenya</label>
                                 <div class="input-group">
-                                    <input type="password" name="passwd" id="passwdId" onkeyup="validateUserId()" class="form-control" data-toggle="password"/>
+                                    <input type="password" name="passwd" id="passwdId" onkeyup="validateUserId()" placeholder="Password" class="form-control" data-toggle="password"/>
                                     <div class="input-group-append">
                                         <div class="input-group-text"><i class="fa fa-eye"></i></div>
                                     </div>

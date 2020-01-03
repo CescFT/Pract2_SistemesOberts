@@ -11,8 +11,17 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <button type="submit" style="margin-top: 5px; margin-left: 5px" onclick="history.back()" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">
+        <button type="submit" style="margin-top: 5px" onclick="reloadWeb()" class="btn btn-light" data-toggle="tooltip" data-placement="top" title="You will be return to the main page.">
             <span class="fa fa-chevron-left" style="margin-right: 5px"></span>
         </button>
     </body>
+    <script text="text/javascript">
+        function reloadWeb() {
+            if(((document.referrer === 'http://localhost:8080/Pract2_SistemesOberts/login.do') || (document.referrer === 'http://localhost:8080/Pract2_SistemesOberts/createUser.do')) && (window.location.href === 'http://localhost:8080/Pract2_SistemesOberts/roomById.do')){
+                window.location.href = 'http://localhost:8080/Pract2_SistemesOberts/roomsResult.do';
+            }else{
+                history.back(window.location.reload());
+            }
+        }
+    </script>
 </html>
