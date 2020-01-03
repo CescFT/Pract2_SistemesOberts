@@ -19,6 +19,14 @@ import javax.ws.rs.core.Response;
 
 public class SearchRoomById implements InterficieComuna {
 
+    private String majusPrimeraLletra(String a){
+        char[] aArray = a.toCharArray();
+        String primeraLletra = String.valueOf(aArray[0]).toUpperCase();
+        String resultat = a.replace(a.substring(0), primeraLletra);
+        resultat = resultat + a.substring(1, a.length());
+        return resultat;
+    }
+    
     @Override
     public void execute(
             HttpServletRequest request,
@@ -38,8 +46,11 @@ public class SearchRoomById implements InterficieComuna {
         }
 
         if (res.getStatus() == 200) {
-            request.setAttribute("roomById", res.readEntity(new GenericType<List<Habitacio>>() {
-            }));
+           Habitacio habitacioEscollida = res.readEntity(Habitacio.class);
+           String ciutatOk = this.majusPrimeraLletra(habitacioEscollida.getCiutat());
+           habitacioEscollida.setCiutat(ciutatOk);
+           
+            request.setAttribute("roomById", habitacioEscollida);
         } else if (res.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()) {
             request.setAttribute("roomById", res.readEntity(String.class));
         }

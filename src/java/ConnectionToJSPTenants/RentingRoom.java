@@ -51,8 +51,10 @@ public class RentingRoom implements InterficieComuna {
 
         HttpSession sessio = request.getSession();
         String diaSessio = String.valueOf(sessio.getAttribute("dia"));
-
-        Response res = tService.getTenantService().find_JSON(request.getParameter("idTenant"));
+           
+        String idLlogater = request.getParameter("tenant");
+        Response res = tService.getTenantService().find_JSON(idLlogater);
+        request.setAttribute("idPassat",idLlogater);
         boolean potLlogar = true;
         if (res.getStatus() == Response.Status.OK.getStatusCode()) {
             Llogater llogater = res.readEntity(Llogater.class);
@@ -60,7 +62,8 @@ public class RentingRoom implements InterficieComuna {
                     tService.getTenantService().nouDia(llogater);
                     sessio.setAttribute("dia", diaActual);
             }
-            potLlogar = llogater.getNumLlogades() < 3 ? true : false;
+            System.out.println("numero de llogades: "+llogater.getNumLlogades());
+            potLlogar = llogater.getNumLlogades() <= 2;
             request.setAttribute("foundTenant", llogater);
         } else if (res.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()) {
             request.setAttribute("foundTenant", res.readEntity(String.class));
