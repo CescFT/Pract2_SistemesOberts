@@ -12,11 +12,13 @@
             <file>file:/D:/Pract2_SistemesOberts/src/java/restClients/RoomClient.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPRooms/SearchRooms.java</file>
             <file>file:/D:/Pract2_SistemesOberts/web/index.html</file>
+            <file>file:/D:/Pract2_SistemesOberts/web/header.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/EntryDataForAutenticateClientWeb.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/roomById.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPAuthentication/GetAllClientWebAuthorized.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ModelEntities/ValidationServletUsername.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ModelEntities/ControllerServlet.java</file>
+            <file>file:/D:/Pract2_SistemesOberts/src/java/ModelEntities/ValidationServletCiutat.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/EntryData/Welcome.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ModelEntities/ValidationServletUsernameNewUser.java</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/restClients/TenantClient.java</file>
@@ -24,7 +26,6 @@
             <file>file:/D:/Pract2_SistemesOberts/src/java/restClients/AutenticacioClient.java</file>
             <file>file:/D:/Pract2_SistemesOberts/web/tenantRentedRoom.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/src/java/ConnectionToJSPAuthentication/LogoutUser.java</file>
-            <file>file:/D:/Pract2_SistemesOberts/src/java/ModelEntities/ValidationServletMail.java</file>
             <file>file:/D:/Pract2_SistemesOberts/web/WEB-INF/mvc-setup.json</file>
             <file>file:/D:/Pract2_SistemesOberts/web/rooms.jsp</file>
             <file>file:/D:/Pract2_SistemesOberts/web/EntryDataForNewUser.jsp</file>
