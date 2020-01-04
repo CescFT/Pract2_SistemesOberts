@@ -7,7 +7,7 @@
     </servlet>
     <servlet>
         <servlet-name>ValidationServletMail</servlet-name>
-        <servlet-class>ModelEntities.ValidationServletMail</servlet-class>
+        <servlet-class>ModelEntities.ValidationServletCiutat</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ValidationServletMail</servlet-name>
@@ -43,7 +43,6 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
     <error-page>
@@ -59,7 +58,7 @@
         <error-code>204</error-code>
         <location>/error.jsp</location>
     </error-page>
-    <error-page> 
+    <error-page>
         <!--BAD REQUEST-->
         <error-code>400</error-code>
         <location>/error.jsp</location>

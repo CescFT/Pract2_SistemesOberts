@@ -2,6 +2,7 @@ package ModelEntities;
 
 import AuthenticationModule.credentialsClient;
 import ServicesSingleton.AutenticacioServiceSingleton;
+import ServicesSingleton.RoomServiceSingleton;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -11,71 +12,63 @@ import java.util.regex.Pattern;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
-public class ValidationServletMail extends HttpServlet {
+public class ValidationServletCiutat extends HttpServlet {
     
     private ServletContext context;
-    private HashMap accounts = new HashMap();
-    private static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
-    Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+    private HashMap ciutats = new HashMap();
+    
     private void update(){
-         AutenticacioServiceSingleton login = AutenticacioServiceSingleton.getInstance();
-        Response res = login.getServeiAutenticacio().getAllClientsAutoritzats_JSON();
-        List<credentialsClient> llistatClientsAutenticats = res.readEntity(new GenericType<List<credentialsClient>>(){});
-        for(credentialsClient c : llistatClientsAutenticats)
+        RoomServiceSingleton r = RoomServiceSingleton.getInstance();
+        Response res = r.getService().findAllHabtacions("desc"); 
+        List<Habitacio> llistatHabitacionsDisp = res.readEntity(new GenericType<List<Habitacio>>(){});
+        for(Habitacio hab : llistatHabitacionsDisp)
         {
-            accounts.put(c.getEmail(),c.getUsername());
+            ciutats.put(hab.getNomHabitacio(),hab.getCiutat());
             
         }
     }
-    // Initialize the "accounts" hashmap. 
+    // Initialize the "ciutats" hashmap. 
     public void init(ServletConfig config) throws ServletException {
-        this.context = config.getServletContext();
+       this.context = config.getServletContext();
        this.update();
         
     }
     
-    private boolean validateMail(String email){
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);
-        return matcher.find();
-    }
+    
+    
     
     public  void doGet(HttpServletRequest request, HttpServletResponse  response)
     throws IOException, ServletException {
         this.update();
         // Extract the data of the input form field whose name is "id"
-        String targetId = request.getParameter("email");
+        String targetId = request.getParameter("ciutat");
         
         //  Send back either "<valid>true</valid>" or "<valid>false</valid>"
         //  XML message depending on the validity of the data that was entered.
         //  Note that the content type is "text/xml".
         //
         
-        if((targetId != null) && !accounts.containsKey(targetId.trim())) {
-            if(validateMail(targetId.trim())){
-                response.setContentType("text/xml");
-                response.setHeader("Cache-Control", "no-cache");
-                response.getWriter().write("<valid>true</valid>");
-            }else{
-                response.setContentType("text/xml");
-                response.setHeader("Cache-Control", "no-cache");
-                response.getWriter().write("<valid>false</valid>");
+        if(targetId != null){
+            for(Object ciutat : ciutats.values()){
+                if(String.valueOf(ciutat).contains(targetId.trim())){
+                    response.setContentType("text/xml");
+                    response.setHeader("Cache-Control", "no-cache");
+                    response.getWriter().write("<valid>+"+String.valueOf(ciutat)+"</valid>");
+                }
             }
-        } else {
             response.setContentType("text/xml");
             response.setHeader("Cache-Control", "no-cache");
             response.getWriter().write("<valid>false</valid>");
         }
-        
-                
-        
+
     }
     
     /*public  void doPost(HttpServletRequest request, HttpServletResponse  response)
     throws IOException, ServletException {
         
         String targetId = request.getParameter("passwdUser");
-        if ((targetId != null) && !accounts.containsKey(targetId.trim())) {
-            accounts.put(targetId.trim(), "account data");
+        if ((targetId != null) && !ciutats.containsKey(targetId.trim())) {
+            ciutats.put(targetId.trim(), "account data");
             request.setAttribute("targetId", targetId);
             context.getRequestDispatcher("/success.jsp").forward(request, response);
         } else {
