@@ -49,18 +49,33 @@ public class ValidationServletCiutat extends HttpServlet {
         //
         
         if(targetId != null){
+            List<String> ciutatsTrobades = new ArrayList<String>();
             for(Object ciutat : ciutats.values()){
                 if(String.valueOf(ciutat).contains(targetId.trim())){
-                    response.setContentType("text/xml");
-                    response.setHeader("Cache-Control", "no-cache");
-                    response.getWriter().write("<valid>+"+String.valueOf(ciutat)+"</valid>");
+                    ciutatsTrobades.add(String.valueOf(ciutat));
                 }
             }
-            response.setContentType("text/xml");
-            response.setHeader("Cache-Control", "no-cache");
-            response.getWriter().write("<valid>false</valid>");
+            
+            if(!ciutatsTrobades.isEmpty())
+            {
+                String ciutats = "";
+                for(String ciutat : ciutatsTrobades)
+                {
+                    ciutats+=ciutat+";";
+                }
+                response.setContentType("text/xml");
+                response.setHeader("Cache-Control", "no-cache");
+                response.getWriter().write("<valid>"+ciutats+"</valid>");
+            }else{
+                response.setContentType("text/xml");
+                response.setHeader("Cache-Control", "no-cache");
+                response.getWriter().write("<valid>false</valid>");
+            }
+        }else{
+                response.setContentType("text/xml");
+                response.setHeader("Cache-Control", "no-cache");
+                response.getWriter().write("<valid>false</valid>");
         }
-
     }
     
     /*public  void doPost(HttpServletRequest request, HttpServletResponse  response)
