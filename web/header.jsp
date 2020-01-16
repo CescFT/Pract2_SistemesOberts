@@ -35,9 +35,10 @@
                 </form>
                 <div style="margin-top: 10px">
                     <form method="post" action="roomsResult.do" class="form-inline">
-                        <input style="width: 430px; margin-left: 20px" name="location" class="form-control mr-sm-2" type="search" placeholder="Search by city" aria-label="Search">
+                        <input id="cityEntryData" onkeyup="validateUserId()" style="width: 430px; margin-left: 20px" name="location" class="form-control mr-sm-2" type="search" placeholder="Search by city" aria-label="Search">
                         <button class="btn btn-success" type="submit">Search</button>
                     </form>
+                    <div id="suggerenciesCiutats"></div>
                 </div>
                 <div class="form-inline" style="position: absolute; right: 0; margin-top: 10px; margin-right: 130px">
                     <div class="form-inline" id="botons"><jsp:include page="loginBotons.jsp" /></div>
@@ -51,6 +52,7 @@
         var req;
         var target;
         var isIE;
+        var message;
 
 // (3) Creació de l'objecte XMLHttpRequest.
         function initRequest(url) {
@@ -67,7 +69,7 @@
 // invoca a "initRequest(url)" per instanciar l'objecte XMLHttpRequest
         function validateUserId() {
             if (!target)
-                target = document.getElementById("lloc on busquem");
+                target = document.getElementById("cityEntryData");
             var url = "validateCiutat?ciutat=" + escape(target.value);
 
             // Invoca a initRequest(url) per crear l'objecte XMLHttpRequest
@@ -90,18 +92,12 @@
                 if (req.status == 200) {
 
                     // Extreu "true" or "false" de les dades retornades pel servidor.
-                    var message = req.responseXML.getElementsByTagName("valid")[0].childNodes[0].nodeValue;
+                    message = req.responseXML.getElementsByTagName("valid")[0].childNodes[0].nodeValue;
                     // Crida la funció "setMessageUsingDOM(message)" per mostrar o bé
                     // "Valid User Id" o bé "Invalid User Id".
-                    setMessageUsingDOM(message);
-                    // Si l'usuari introdueix un valor invàlid, no permet a l'usuari
-                    // clicar el botó del formulari.
-                    var submitBtn = document.getElementById("submit_btn");
-                    if (message == "false") {
-                        submitBtn.disabled = true;
-                    } else {
-                        submitBtn.disabled = false;
-                    }
+                    
+                        setMessageUsingDOMCerca(message);
+                    
                 }
             }
         }
@@ -109,16 +105,19 @@
 
 // (5) Funció que mostra si l'usuari és vàlid o invàlid
 // per mitjà de l'element "userIdMessage".
-        function setMessageUsingDOM(message) {
-            var userMessageElement = document.getElementById("userIdMessage");
+        function setMessageUsingDOMCerca(message) {
+            var userMessageElement = document.getElementById("suggerenciesCiutats");
             var messageText;
-            if (message == "false") {
-                userMessageElement.style.color = "red";
-                messageText = "Invalid User Id";
-            } else {
+            if (message != "false") {
                 userMessageElement.style.color = "green";
-                messageText = "Valid User Id";
+                messageText = "Potser voldras dir: "+message;
+            }else if(message === " "){
+                messageText= "";
+            }else{
+                userMessageElement.style.color="red";
+                messageText = "No hi ha suggerencies.";
             }
+            
             var messageBody = document.createTextNode(messageText);
             // if the messageBody element has been created simple replace it otherwise
             // append the new element
@@ -128,14 +127,6 @@
                 userMessageElement.appendChild(messageBody);
             }
         }
-
-        function disableSubmitBtn() {
-            var submitBtn = document.getElementById("submit_btn");
-            submitBtn.disabled = true;
-        }
-
-
-
-
+        
     </script>
 </html>
