@@ -1,13 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * SINGLETON DEL SERVEI DEL LLOGATER
  */
 package ServicesSingleton;
 import restClients.TenantClient;
 /**
  *
- * @author Cesc
+ * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
  */
 public class TenantServiceSingleton {
     
@@ -15,12 +13,23 @@ public class TenantServiceSingleton {
     
     private TenantClient tenantClientService;
     
+    /**
+     * Constructor privat que genera el client
+     */
     private TenantServiceSingleton(){tenantClientService = new TenantClient();}
     
+    /**
+    * Mètode static que permet recuperar la instància
+    * @return instància
+    */
     public static TenantServiceSingleton getInstance(){
         return tenantService;
     }
     
+    /**
+     * Mètode que recupera el client REST
+     * @return client
+     */
     public TenantClient getTenantService(){
         return tenantClientService;
     }

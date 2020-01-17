@@ -10,24 +10,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Cesc Ferré Tarrés
  * @author Aleix Sancho Pujals
  */
-@Entity
 @XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "tenant.findAll", query = "SELECT r FROM Llogater r")
-    ,
-    @NamedQuery(name = "tenant.information", query = "SELECT r FROM Llogater r WHERE r.id = :id"), //@NamedQuery(name="tenant.updateInfo", query="SELECT r FROM Llogater r WHERE r.id = :id"),
-//@NamedQuery(name="tenant.deleteInfo", query="SELECT r FROM Llogater r WHERE r.id = :id")
-})
 public class Llogater implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Llogater_Gen")
     private Long id;
-
-    @Embedded
     private InformacioLlogater info;
-
     private Integer numLlogades;
 
     /**

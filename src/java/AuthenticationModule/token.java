@@ -1,8 +1,6 @@
 package AuthenticationModule;
 
-
 import java.io.Serializable;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -11,7 +9,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Cesc Ferré Tarrés
  * @author Aleix Sancho Pujals
  */
-
 @XmlRootElement
 public class token implements Serializable {
 

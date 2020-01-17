@@ -10,6 +10,10 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonValue;
 
+/**
+ * Servlet principal que rep totes les peticions que tenen per extensió el .do
+ * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
+ */
 public class ControllerServlet extends HttpServlet {
 
      private final Map<String, InterficieComuna> commands = new HashMap<>();
@@ -32,6 +36,13 @@ public class ControllerServlet extends HttpServlet {
         }
     }
 
+    /**
+     * Mètode que permet processar un command
+     * @param request peticio HTTP
+     * @param response resposta HTTP
+     * @throws ServletException error en el servlet
+     * @throws IOException error d'entrada o sortida
+     */
     protected void processCommand(
             HttpServletRequest request,
             HttpServletResponse response)

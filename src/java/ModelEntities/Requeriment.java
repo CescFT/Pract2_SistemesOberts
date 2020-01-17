@@ -9,17 +9,12 @@ import java.io.Serializable;
  * @author Cesc Ferré Tarrés
  * @author Aleix Sancho Pujals
  */
-@Embeddable
 public class Requeriment implements Serializable {
 
-    @Enumerated(EnumType.STRING)
     private SexeLlogater sexe;
-
     private int rangEdatMin;
     private int rangEdatMax;
-
     private Boolean fumador;
-
     private Boolean mascotes;
 
     /**

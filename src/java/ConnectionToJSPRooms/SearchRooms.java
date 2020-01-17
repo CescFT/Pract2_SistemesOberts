@@ -4,7 +4,6 @@ package ConnectionToJSPRooms;
 import AuthenticationModule.credentialsClient;
 import ModelEntities.InterficieComuna;
 import ModelEntities.Habitacio;
-import ModelEntities.TipusHabitacio;
 import ServicesSingleton.AutenticacioServiceSingleton;
 import ServicesSingleton.RoomServiceSingleton;
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +15,17 @@ import java.util.*;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
+/**
+ * Classe Java que permet cercar totes les habitacions
+ * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
+ */
 public class SearchRooms implements InterficieComuna {
 
+    /**
+     * Mètode privat que permet formatejar el nom de la ciutat
+     * @param a ciutat
+     * @return string de la ciutat formatejada
+     */
     private String majusPrimeraLletra(String a){
         char[] aArray = a.toCharArray();
         String primeraLletra = String.valueOf(aArray[0]).toUpperCase();
@@ -31,14 +39,7 @@ public class SearchRooms implements InterficieComuna {
             HttpServletResponse response)
             throws ServletException, IOException {
         
-        //RoomServiceSingleton r = RoomServiceSingleton.getInstance();
-        // 1. process the request
-        /*Response res;
-        if(request.getParameter("location").equals("") || request.getParameter("location") == null){
-            res=r.getService().findAllHabtacions(request.getParameter("sort"));
-        }else{
-            res = r.getService().find_JSON(request.getParameter("location"), request.getParameter("sort")); //Response res = r.getService().find_JSON(request.getParameter("location"), request.getParameter("sort"));
-        }*/
+        
         
         RoomServiceSingleton r = RoomServiceSingleton.getInstance();
         // 1. process the request

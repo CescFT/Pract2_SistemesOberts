@@ -1,12 +1,8 @@
 package ModelEntities;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import javax.validation.constraints.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import ModelEntities.Llogater;
-import ModelEntities.Requeriment;
-import ModelEntities.TipusHabitacio;
+
 
 /**
  * Classe entitat que representa una habitacio i emmagatzema les dades que es
@@ -17,7 +13,6 @@ import ModelEntities.TipusHabitacio;
  */
 
 @XmlRootElement
-
 public class Habitacio implements Serializable {
 
     private static final long serialVersionUID = 1L;

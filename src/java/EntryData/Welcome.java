@@ -1,12 +1,8 @@
 package EntryData;
 
 
-
-import ConnectionToJSPAuthentication.*;
 import AuthenticationModule.credentialsClient;
-import AuthenticationModule.token;
 import ModelEntities.InterficieComuna;
-
 import ServicesSingleton.AutenticacioServiceSingleton;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +16,11 @@ import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
+/**
+ * Classe Java que permet que la classe principal també sigui un .do. 
+ * Carrega elements que es necessiten per a la sessió establerta.
+ * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
+ */
 public class Welcome implements InterficieComuna {
 
     @Override

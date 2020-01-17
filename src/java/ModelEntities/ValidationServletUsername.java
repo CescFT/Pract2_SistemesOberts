@@ -9,11 +9,18 @@ import java.util.*;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
+/**
+ * Servlet que serveix per a validar el nom d'usuari, per a verificar que el login va bé.
+ * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
+ */
 public class ValidationServletUsername extends HttpServlet {
     
     private ServletContext context;
     private HashMap accounts = new HashMap();
     
+    /**
+     * Mètode que permet la connexió amb la base de dades i updatejar la informació.
+     */
     private void update(){
         AutenticacioServiceSingleton login = AutenticacioServiceSingleton.getInstance();
         Response res = login.getServeiAutenticacio().getAllClientsAutoritzats_JSON();
@@ -24,13 +31,15 @@ public class ValidationServletUsername extends HttpServlet {
             
         }
     }
-    // Initialize the "accounts" hashmap. 
+    
+    @Override
     public void init(ServletConfig config) throws ServletException {
         this.context = config.getServletContext();
         
         this.update();
     }
     
+    @Override
     public  void doGet(HttpServletRequest request, HttpServletResponse  response)
     throws IOException, ServletException {
         this.update();
@@ -60,24 +69,7 @@ public class ValidationServletUsername extends HttpServlet {
             response.setHeader("Cache-Control", "no-cache");
             response.getWriter().write("<valid>false</valid>");
         }
-        
-                
-        
     }
-    
-    /*public  void doPost(HttpServletRequest request, HttpServletResponse  response)
-    throws IOException, ServletException {
-        
-        String targetId = request.getParameter("passwdUser");
-        if ((targetId != null) && !accounts.containsKey(targetId.trim())) {
-            accounts.put(targetId.trim(), "account data");
-            request.setAttribute("targetId", targetId);
-            context.getRequestDispatcher("/success.jsp").forward(request, response);
-        } else {
-            context.getRequestDispatcher("/error.jsp").forward(request, response);
-        }
-    }*/
-    
 }
 
 

@@ -1,11 +1,7 @@
 package ModelEntities;
 
-import javax.persistence.Embeddable;
+
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.validation.constraints.Size;
 
 /**
  * Classe embedded que conte la informació per a un llogater
@@ -13,28 +9,16 @@ import javax.validation.constraints.Size;
  * @author Cesc Ferré Tarrés
  * @author Aleix Sancho Pujals
  */
-@Embeddable
+
 public class InformacioLlogater implements Serializable {
 
-    @Column(name = "NOM_LLOGATER")
-    @Size(max = 500)
+    
     private String nom;
-    @Column(name = "COGNOM_LLOGATER")
-    @Size(max = 500)
     private String cognom;
-
-    @Column(name = "NIF")
-    @Size(max = 500)
     private String dni;
-
-    @Column(name = "EDAT_LLOGATER")
     private int edat;
-
     private boolean fumador;
-
     private boolean teMascotes;
-
-    @Enumerated(EnumType.STRING)
     private SexeLlogater sexe;
 
     /**

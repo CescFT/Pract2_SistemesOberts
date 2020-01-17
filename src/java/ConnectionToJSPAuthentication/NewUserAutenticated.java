@@ -1,11 +1,7 @@
 package ConnectionToJSPAuthentication;
 
-
-
 import AuthenticationModule.credentialsClient;
-import AuthenticationModule.token;
 import ModelEntities.InterficieComuna;
-
 import ServicesSingleton.AutenticacioServiceSingleton;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +10,10 @@ import javax.servlet.ServletContext;
 import java.io.IOException;
 import javax.ws.rs.core.Response;
 
+/**
+ * Classe Java que permet generar un nou usuari autenticat (registrar-se)
+ * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
+ */
 public class NewUserAutenticated implements InterficieComuna {
 
     @Override

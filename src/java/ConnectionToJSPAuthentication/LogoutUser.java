@@ -1,22 +1,20 @@
 package ConnectionToJSPAuthentication;
 
 import AuthenticationModule.credentialsClient;
-import AuthenticationModule.token;
 import ModelEntities.InterficieComuna;
-import ModelEntities.Llogater;
-
 import ServicesSingleton.AutenticacioServiceSingleton;
 import ServicesSingleton.TenantServiceSingleton;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
-import javax.servlet.ServletContext;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.http.HttpSession;
-import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
+/**
+ * Classe Java que permet fer logout d'un usuari que ha fet login
+ * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
+ */
 public class LogoutUser implements InterficieComuna {
 
     @Override

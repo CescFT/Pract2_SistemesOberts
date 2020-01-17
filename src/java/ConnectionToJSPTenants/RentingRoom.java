@@ -1,7 +1,6 @@
 package ConnectionToJSPTenants;
 
-import AuthenticationModule.credentialsClient;
-import AuthenticationModule.token;
+
 import ModelEntities.Habitacio;
 import ModelEntities.InterficieComuna;
 import ModelEntities.Llogater;
@@ -20,6 +19,10 @@ import java.time.format.DateTimeFormatter;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.Response;
 
+/**
+ * Classe Java que permet llogar una habitació
+ * @authors Francesc Ferré Tarrés i Aleix Sancho
+ */
 public class RentingRoom implements InterficieComuna {
 
     @Override

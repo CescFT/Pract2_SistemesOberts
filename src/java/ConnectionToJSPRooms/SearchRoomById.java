@@ -17,8 +17,17 @@ import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
+/**
+ * Classe que permet recuperar la informació d'una habitació en específic
+ * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
+ */
 public class SearchRoomById implements InterficieComuna {
 
+    /**
+     * Mètode privat que permet formatejar el nom de la ciutat
+     * @param a ciutat
+     * @return string de la ciutat formatejada
+     */
     private String majusPrimeraLletra(String a){
         char[] aArray = a.toCharArray();
         String primeraLletra = String.valueOf(aArray[0]).toUpperCase();

@@ -1,13 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * SINGLETON DEL SERVEI DE LES HABITACIONS
  */
 package ServicesSingleton;
 import restClients.RoomClient;
 /**
  *
- * @author Cesc
+ * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
  */
 
 public class RoomServiceSingleton {
@@ -16,14 +14,25 @@ public class RoomServiceSingleton {
     
     private RoomClient roomClient;
     
+    /**
+     * Constructor privat que genera el client
+     */
     private RoomServiceSingleton(){
         roomClient = new RoomClient();
     }
     
+    /**
+     * Mètode static que permet recuperar la instància
+     * @return instància
+     */
     public static RoomServiceSingleton getInstance(){
         return roomClientService;
     }
     
+    /**
+     * Mètode que recupera el client REST
+     * @return client
+     */
     public RoomClient getService(){
         return roomClient;
     }

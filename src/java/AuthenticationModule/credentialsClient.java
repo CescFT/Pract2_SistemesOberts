@@ -1,10 +1,7 @@
 package AuthenticationModule;
 
 import java.io.Serializable;
-
 import java.util.Base64;
-
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -15,22 +12,14 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Cesc Ferré Tarrés
  * @author Aleix Sancho Pujals
  */
-
 @XmlRootElement
 public class credentialsClient implements Serializable {
 
     
     private String username;
-
-    
     private String password;
-
-    
     private String email;
-
-    
     private token tokenAutoritzacio;
-    
     private Boolean autenticat;
 
     /**
