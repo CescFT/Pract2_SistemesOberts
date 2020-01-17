@@ -17,11 +17,16 @@
     </body>
     <script text="text/javascript">
         function reloadWeb() {
-            if(((document.referrer === 'http://localhost:8080/Pract2_SistemesOberts/login.do') || (document.referrer === 'http://localhost:8080/Pract2_SistemesOberts/createUser.do')) && (window.location.href === 'http://localhost:8080/Pract2_SistemesOberts/roomById.do')){
+            if (((document.referrer === 'http://localhost:8080/Pract2_SistemesOberts/login.do') || (document.referrer === 'http://localhost:8080/Pract2_SistemesOberts/createUser.do')) && (window.location.href === 'http://localhost:8080/Pract2_SistemesOberts/roomById.do')) {
                 window.location.href = 'http://localhost:8080/Pract2_SistemesOberts/roomsResult.do';
-            }else{
+            } else if ((document.referrer === 'http://localhost:8080/Pract2_SistemesOberts/rentingRoom.do') && (window.location.href === 'http://localhost:8080/Pract2_SistemesOberts/roomById.do')) {
+                window.location.href = 'http://localhost:8080/Pract2_SistemesOberts/roomsResult.do';
+            } else if ((window.location.href === 'http://localhost:8080/Pract2_SistemesOberts/login.do') || (window.location.href === 'http://localhost:8080/Pract2_SistemesOberts/createUser.do')){
                 history.back(window.location.reload());
+            } else {
+                location.replace(document.referrer);
             }
+            
         }
     </script>
 </html>

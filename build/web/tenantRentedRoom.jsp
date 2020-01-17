@@ -1,1 +1,3 @@
-<META http-equiv="refresh" content="0;URL=roomById.do">
+<script text="text/javascript">
+    location.replace(document.referrer);
+</script>

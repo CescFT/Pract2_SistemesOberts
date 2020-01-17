@@ -300,47 +300,56 @@
         </div>
     </body>
     <script type="text/javascript">
-        function setMessageUsingDOM() {
-            var botonsLogin = document.getElementById("botons");
-            var textLogin = document.getElementById("text");
-            var tenant = document.getElementById("divTen")
-            var dropdown = document.getElementById("showTenants");
-            var trobat = false;
-            var messageText = "";
-            var usuariLogin = document.getElementById("usuariLogin");
-            for (var c of ${clientsWeb})
-            {
-                if (c.autenticat) {
-                    trobat = true;
-                    messageText = "Heu iniciat sessió com: " + c.username;
-                }
-            }
-            if (trobat) {
-                botonsLogin.hidden = true;
-                textLogin.hidden = false;
-            } else {
-                botonsLogin.hidden = false;
-                textLogin.hidden = true;
-            }
-            usuariLogin.textContent = messageText;
+                                                            function setMessageUsingDOM() {
+                                                                var botonsLogin = document.getElementById("botons");
+                                                                var textLogin = document.getElementById("text");
+                                                                var tenant = document.getElementById("divTen")
+                                                                var dropdown = document.getElementById("showTenants");
+                                                                var trobat = false;
+                                                                var messageText = "";
+                                                                var usuariLogin = document.getElementById("usuariLogin");
+                                                                for (var c of ${clientsWeb})
+                                                                {
+                                                                    if (c.autenticat) {
+                                                                        trobat = true;
+                                                                        messageText = "Heu iniciat sessió com: " + c.username;
+                                                                    }
+                                                                }
+                                                                if (trobat) {
+                                                                    botonsLogin.hidden = true;
+                                                                    textLogin.hidden = false;
+                                                                } else {
+                                                                    botonsLogin.hidden = false;
+                                                                    textLogin.hidden = true;
+                                                                }
+                                                                usuariLogin.textContent = messageText;
 
-            var rent = document.getElementById("rentBtn");
+                                                                var rent = document.getElementById("rentBtn");
 
-            if (!${roomById.ocupada} && (trobat)) {
-                rent.disabled = false;
-                tenant.hidden = false;
-                for (var t of ${tenants}) {
-                    dropdown.innerHTML += `<option value=` + t.id + `>` + t.info.nom + `</option>`;
-                }
-            } else {
-                rent.disabled = true;
-                tenant.hidden = true;
-            }
-        }
-        function showOk() {
-            if (document.getElementById("showTenants").value !== "null") {
-                document.getElementById("rent").submit();
-            }
-        }
+                                                                if (!${roomById.ocupada} && (trobat)) {
+                                                                    var algunLlogater = false;
+                                                                    for (var t of ${tenants}) {
+                                                                        if (t.numLlogades < 3) {
+                                                                            algunLlogater = true;
+                                                                            dropdown.innerHTML += `<option value=` + t.id + `>` + t.info.nom + " " + t.info.cognom + `</option>`;
+                                                                        }
+                                                                    }
+                                                                    console.log(algunLlogater);
+                                                                    if (algunLlogater) {
+                                                                        rent.disabled = false;
+                                                                        tenant.hidden = false;
+                                                                    }else{
+                                                                        dropdown.innerHTML += `<option value= "noTeant"> "No available tenants." </option>`;
+                                                                    }
+                                                                } else {
+                                                                    rent.disabled = true;
+                                                                    tenant.hidden = true;
+                                                                }
+                                                            }
+                                                            function showOk() {
+                                                                if (document.getElementById("showTenants").value !== "null") {
+                                                                    document.getElementById("rent").submit();
+                                                                }
+                                                            }
     </script>
 </html>
