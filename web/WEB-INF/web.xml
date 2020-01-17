@@ -6,14 +6,6 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>ValidationServletCiutat</servlet-name>
-        <servlet-class>ModelEntities.ValidationServletCiutat</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ValidationServletCiutat</servlet-name>
-        <url-pattern>/validateCiutat</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>ValidationServlet</servlet-name>
         <servlet-class>ModelEntities.ValidationServletUsername</servlet-class>
     </servlet>
