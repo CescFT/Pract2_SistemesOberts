@@ -91,6 +91,10 @@
         {
             "URI": "/logout",
             "class": "ConnectionToJSPAuthentication.LogoutUser"
+        },
+        {
+            "URI": "/infoClient",
+            "class": "ConnectionToJSPAuthentication.InfoClientWeb"
         }
     ]
 }

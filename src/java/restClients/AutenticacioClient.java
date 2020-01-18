@@ -36,6 +36,20 @@ public class AutenticacioClient {
     }
 
     /**
+     * Mètode per a obtenir la informació d'un client web especific
+     * @param client nom usuari
+     * @return info client
+     * @throws ClientErrorException error al connectar-se
+     */
+    public Response getInfoClientWeb(String client) throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("infoClientWeb");
+        resource = resource.queryParam("client", client);
+        
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get();
+    }
+    
+    /**
      * Mètode per a cridar al logout de la API REST
      * @param requestEntity client
      * @return logout client
