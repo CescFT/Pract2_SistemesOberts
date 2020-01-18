@@ -15,6 +15,7 @@ import javax.ws.rs.core.Response;
 
 /**
  * Classe Java que permet trobar la informació d'un client web autenticat
+ *
  * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
  */
 public class InfoClientWeb implements InterficieComuna {
@@ -25,8 +26,7 @@ public class InfoClientWeb implements InterficieComuna {
             HttpServletResponse response)
             throws ServletException, IOException {
 
-       AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
-        
+        AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
 
         HttpSession sesion = request.getSession();
         Response resposta = autenticacio.getServeiAutenticacio().getInfoClientWeb(String.valueOf(sesion.getAttribute("nomUsuari")));

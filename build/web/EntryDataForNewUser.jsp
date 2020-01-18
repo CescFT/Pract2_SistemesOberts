@@ -1,4 +1,10 @@
-<%@ page import = "ModelEntities.*" %>
+<%-- 
+    Document   : EntryDataForNewUser.jsp
+    Created on : 14-dic-2019, 16:40:24
+    Author     : Francesc Ferr√© and Aleix Sancho
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -6,28 +12,119 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <!DOCTYPE html>
 <html>
-    <style>
-        button.btn-light{
-            width: 40px;
-            height: 30px;
-            margin-right: 5px;
-            background-color: transparent;
-            border-color: transparent;
-        }
-        body{
-            background-image: url("Images/mijas2.jpg");
-            background-color: #cccccc;
-            height: 500px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-    </style>
     <head>
+        <title>CESC FACTORY - New User</title>
+        <link rel="stylesheet" type="text/css" href="Styles/rooms.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="bootstrap-show-password.min.js"></script>
+        <script type="text/javascript">
+            var req;
+            var target;
+            var targetMail;
+            var isIE;
+            var messageUsername;
+
+            // (3) Creaci√≥ de l'objecte XMLHttpRequest.
+            function initRequest(url) {
+                if (window.XMLHttpRequest) {
+                    req = new XMLHttpRequest();
+                } else if (window.ActiveXObject) {
+                    isIE = true;
+                    req = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            }
+
+
+            // (2) Manegador d'events que s'executa cada vegada que l'usuari escriu un car√†cter
+            // en el camp del formulari identificat com a "userid".  El manegador
+            // invoca a "initRequest(url)" per instanciar l'objecte XMLHttpRequest
+            function validateUserId() {
+                if (!target)
+                    target = document.getElementById("userid");
+                if (!targetMail)
+                    targetMail = document.getElementById("mailid");
+                var url = "validateNewUser?id=" + escape(target.value);
+                url += "&email=" + escape(targetMail.value);
+                // Invoca a initRequest(url) per crear l'objecte XMLHttpRequest
+                initRequest(url);
+                // La funci√≥ "processRequest" actua com a funci√≥ de callback
+                req.onreadystatechange = processRequest;
+                req.open("GET", url, true);
+                req.send(null);
+            }
+
+
+
+            // (4) Funci√≥ callback que s'invoca de forma as√≠ncrona pel navegador
+            // Quan les dades han estat correctament retornades pel servidor.
+            // (En realitat aquesta funci√≥ es crida cada vegada que el valor
+            // del camp "readyState" de l'objecte XMLHttpRequest canvia.)
+            // Aquesta funci√≥ callback s'ha d'especificar al camp "onreadystatechange"
+            // de l'objecte XMLHttpRequest.
+            function processRequest() {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        // Extreu "true" or "false" de les dades retornades pel servidor.
+                        messageUsername = req.responseXML.getElementsByTagName("valid")[0].childNodes[0].nodeValue;
+                        // Crida la funci√≥ "setMessageUsingDOM(message)" per mostrar o b√©
+                        // "Valid User Id" o b√© "Invalid User Id".
+
+                        // Si l'usuari introdueix un valor inv√†lid, no permet a l'usuari
+                        // clicar el bot√≥ del formulari.
+                        var submitBtn = document.getElementById("submit_btn");
+                        var mail = document.getElementById("mailid").value;
+                        var username = document.getElementById("userid").value;
+                        var passwd = document.getElementById("passnewUserId").value;
+                        if (mail === "" || username === "" || passwd === "") {
+                            submitBtn.disabled = true;
+                        } else {
+                            submitBtn.disabled = false;
+                        }
+                    }
+                }
+            }
+
+            function functionModifyValues() {
+                setMessageUsingDOM(messageUsername);
+
+                if (messageUsername == "true") {
+                    var nomUsuari = document.getElementById("userid").value;
+                    var contrassenyaUsuari = document.getElementById("passnewUserId").value;
+                    var email = document.getElementById("mailid").value;
+                    $("#usrNomReal").val(nomUsuari);
+                    $("#usrMailReal").val(email);
+                    $("#usrPasswordReal").val(contrassenyaUsuari);
+                    document.getElementById("form2").submit();
+                }
+
+            }
+
+            // (5) Funci√≥ que mostra si l'usuari √©s v√†lid o inv√†lid
+            // per mitj√† de l'element "userIdMessage".
+            function setMessageUsingDOM(messageUsername) {
+                var userMessageElement = document.getElementById("userIdMessage");
+                var messageText;
+                if (messageUsername == "false") {
+                    userMessageElement.style.color = "red";
+                    messageText = "No s'ha pogut crear un usuari amb aquestes caracteristiques";
+                }
+                var messageBody = document.createTextNode(messageText);
+                // if the messageBody element has been created simple replace it otherwise
+                // append the new element
+                if (userMessageElement.childNodes[0]) {
+                    userMessageElement.replaceChild(messageBody, userMessageElement.childNodes[0]);
+                } else {
+                    userMessageElement.appendChild(messageBody);
+                }
+            }
+            function disableSubmitBtn() {
+                var submitBtn = document.getElementById("submit_btn");
+                submitBtn.disabled = true;
+            }
+        </script>
     </head>
-    <body>
+    <body class="bodyLogin">
         <div class="container mt-4">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -45,7 +142,7 @@
                         </div>
                         <div class="form-group">
 
-                            <label class="font-weight-bold">Correu electrÚnic</label>
+                            <label class="font-weight-bold">Correu electr√≤nic</label>
                             <div id="userMailMessage"></div>
                             <input type="text" name="email" id="mailid" onkeyup="validateUserId()" class="form-control"/>
 
@@ -70,113 +167,5 @@
                 </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="bootstrap-show-password.min.js"></script>
     </body>
-
-    <script type="text/javascript">
-                                var req;
-                                var target;
-                                var targetMail;
-                                var isIE;
-                                var messageUsername;
-
-                                // (3) CreaciÛ de l'objecte XMLHttpRequest.
-                                function initRequest(url) {
-                                    if (window.XMLHttpRequest) {
-                                        req = new XMLHttpRequest();
-                                    } else if (window.ActiveXObject) {
-                                        isIE = true;
-                                        req = new ActiveXObject("Microsoft.XMLHTTP");
-                                    }
-                                }
-
-
-                                // (2) Manegador d'events que s'executa cada vegada que l'usuari escriu un car‡cter
-                                // en el camp del formulari identificat com a "userid".  El manegador
-                                // invoca a "initRequest(url)" per instanciar l'objecte XMLHttpRequest
-                                function validateUserId() {
-                                    if (!target)
-                                        target = document.getElementById("userid");
-                                    if (!targetMail)
-                                        targetMail = document.getElementById("mailid");
-                                    var url = "validateNewUser?id=" + escape(target.value);
-                                    url += "&email=" + escape(targetMail.value);
-                                    // Invoca a initRequest(url) per crear l'objecte XMLHttpRequest
-                                    initRequest(url);
-                                    // La funciÛ "processRequest" actua com a funciÛ de callback
-                                    req.onreadystatechange = processRequest;
-                                    req.open("GET", url, true);
-                                    req.send(null);
-                                }
-
-
-
-                                // (4) FunciÛ callback que s'invoca de forma asÌncrona pel navegador
-                                // Quan les dades han estat correctament retornades pel servidor.
-                                // (En realitat aquesta funciÛ es crida cada vegada que el valor
-                                // del camp "readyState" de l'objecte XMLHttpRequest canvia.)
-                                // Aquesta funciÛ callback s'ha d'especificar al camp "onreadystatechange"
-                                // de l'objecte XMLHttpRequest.
-                                function processRequest() {
-                                    if (req.readyState == 4) {
-                                        if (req.status == 200) {
-                                            // Extreu "true" or "false" de les dades retornades pel servidor.
-                                            messageUsername = req.responseXML.getElementsByTagName("valid")[0].childNodes[0].nodeValue;
-                                            // Crida la funciÛ "setMessageUsingDOM(message)" per mostrar o bÈ
-                                            // "Valid User Id" o bÈ "Invalid User Id".
-
-                                            // Si l'usuari introdueix un valor inv‡lid, no permet a l'usuari
-                                            // clicar el botÛ del formulari.
-                                            var submitBtn = document.getElementById("submit_btn");
-                                            var mail = document.getElementById("mailid").value;
-                                            var username = document.getElementById("userid").value;
-                                            var passwd = document.getElementById("passnewUserId").value;
-                                            if (mail === "" || username === "" || passwd === "") {
-                                                submitBtn.disabled = true;
-                                            } else {
-                                                submitBtn.disabled = false;
-                                            }
-                                        }
-                                    }
-                                }
-
-                                function functionModifyValues() {
-                                    setMessageUsingDOM(messageUsername);
-
-                                    if (messageUsername == "true") {
-                                        var nomUsuari = document.getElementById("userid").value;
-                                        var contrassenyaUsuari = document.getElementById("passnewUserId").value;
-                                        var email = document.getElementById("mailid").value;
-                                        $("#usrNomReal").val(nomUsuari);
-                                        $("#usrMailReal").val(email);
-                                        $("#usrPasswordReal").val(contrassenyaUsuari);
-                                        document.getElementById("form2").submit();
-                                    }
-
-                                }
-
-                                // (5) FunciÛ que mostra si l'usuari Ès v‡lid o inv‡lid
-                                // per mitj‡ de l'element "userIdMessage".
-                                function setMessageUsingDOM(messageUsername) {
-                                    var userMessageElement = document.getElementById("userIdMessage");
-                                    var messageText;
-                                    if (messageUsername == "false") {
-                                        userMessageElement.style.color = "red";
-                                        messageText = "No s'ha pogut crear un usuari amb aquestes caracteristiques";
-                                    }
-                                    var messageBody = document.createTextNode(messageText);
-                                    // if the messageBody element has been created simple replace it otherwise
-                                    // append the new element
-                                    if (userMessageElement.childNodes[0]) {
-                                        userMessageElement.replaceChild(messageBody, userMessageElement.childNodes[0]);
-                                    } else {
-                                        userMessageElement.appendChild(messageBody);
-                                    }
-                                }
-                                function disableSubmitBtn() {
-                                    var submitBtn = document.getElementById("submit_btn");
-                                    submitBtn.disabled = true;
-                                }
-    </script>
 </html>

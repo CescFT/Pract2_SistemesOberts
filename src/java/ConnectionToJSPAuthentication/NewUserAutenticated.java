@@ -12,6 +12,7 @@ import javax.ws.rs.core.Response;
 
 /**
  * Classe Java que permet generar un nou usuari autenticat (registrar-se)
+ *
  * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
  */
 public class NewUserAutenticated implements InterficieComuna {
@@ -21,47 +22,49 @@ public class NewUserAutenticated implements InterficieComuna {
             HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
         credentialsClient clientWeb = new credentialsClient();
-        
+
         String mail = request.getParameter("mail");
         boolean haveMail = mail.equals("") ? false : true;
         String password = request.getParameter("password");
-        boolean havePassword= password.equals("") ? false : true;
+        boolean havePassword = password.equals("") ? false : true;
         String username = request.getParameter("username");
         boolean haveUsername = username.equals("") ? false : true;
-        
-        if(!haveMail)
+
+        if (!haveMail) {
             request.setAttribute("newUser", "Falta correu electronic.");
-        if(!havePassword)
+        }
+        if (!havePassword) {
             request.setAttribute("newUser", "Falta contrassenya.");
-        if(!haveUsername)
+        }
+        if (!haveUsername) {
             request.setAttribute("newUser", "Falta nom usuari.");
-        
-        if(haveMail && havePassword && haveUsername){
+        }
+
+        if (haveMail && havePassword && haveUsername) {
             clientWeb.setEmail(mail);
-            clientWeb.setPassword(password); 
+            clientWeb.setPassword(password);
             clientWeb.setUsername(username);
 
             Response resposta = autenticacio.getServeiAutenticacio().createNewClientAutenticated(clientWeb);
-      
-            if(resposta.getStatus() == Response.Status.CREATED.getStatusCode()){
+
+            if (resposta.getStatus() == Response.Status.CREATED.getStatusCode()) {
                 request.setAttribute("newUser", resposta.readEntity(credentialsClient.class));
-            }else if(resposta.getStatus() == Response.Status.NO_CONTENT.getStatusCode()){
+                String paginaAnterior = request.getHeader("referer");
+                String[] elemsPathAnterior = paginaAnterior.split("/"); // http://localhost:8080/Pract2_SistemesOberts/*.do
+                String doAnterior = elemsPathAnterior[elemsPathAnterior.length - 1];
+                System.out.println("..-..-...-." + doAnterior);
+                // 2. produce the view with the web result
+                response.sendRedirect("/Pract2_SistemesOberts/welcome.do");
+            } else if (resposta.getStatus() == Response.Status.NO_CONTENT.getStatusCode()) {
                 request.setAttribute("newUser", resposta.readEntity(String.class));
-            }else if(resposta.getStatus() == Response.Status.UNAUTHORIZED.getStatusCode()){
+            } else if (resposta.getStatus() == Response.Status.UNAUTHORIZED.getStatusCode()) {
                 request.setAttribute("newUser", resposta.readEntity(String.class));
             }
-            
+
         }
 
-        String paginaAnterior = request.getHeader("referer");
-        String[] elemsPathAnterior= paginaAnterior.split("/"); // http://localhost:8080/Pract2_SistemesOberts/*.do
-        String doAnterior = elemsPathAnterior[elemsPathAnterior.length-1];
-        System.out.println(doAnterior);
-        // 2. produce the view with the web result
-        ServletContext context = request.getSession().getServletContext();
-        context.getRequestDispatcher("/"+doAnterior).forward(request, response);
     }
 }

@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 
 /**
  * Classe Java que permet fer un login
+ *
  * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
  */
 public class WebClientAuthentication implements InterficieComuna {

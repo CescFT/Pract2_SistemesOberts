@@ -1,7 +1,11 @@
-<%@ page import = "AuthenticationModule.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%-- 
+    Document   : index.jsp
+    Created on : 18-dic-2019, 10:58:14
+    Author     : Francesc FerrÃ© and Aleix Sancho
+--%>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
@@ -14,23 +18,37 @@ and open the template in the editor.
 
 <html>
     <head>
-        <title>Main Page</title>
+        <title>CESC FACTORY - Main Page</title>
+        <script type="text/javascript">
+            function setMessageUsingDOM() {
+                var botonsLogin = document.getElementById("botons");
+                var textLogin = document.getElementById("text");
+                var trobat = false;
+                var messageText = "";
+                var userLogin = document.getElementById("usuariLogin");
+                var mUsername = document.getElementById("modalUsername");
+                var mEmail = document.getElementById("modalEmail");
+                for (var c of ${clientsWeb})
+                {
+                    if (c.autenticat) {
+                        trobat = true;
+                        messageText = "Welcome " + c.username;
+                        mUsername.textContent = c.username;
+                        mEmail.textContent = c.email;
+                    }
+                }
+                if (trobat) {
+                    botonsLogin.hidden = true;
+                    textLogin.hidden = false;
+                } else {
+                    botonsLogin.hidden = false;
+                    textLogin.hidden = true;
+                }
+                userLogin.textContent = messageText;
+            }
+        </script>
     </head>
-    <style>
-        body{
-            background-image: url("Images/mijas2.jpg");
-            background-color: #cccccc;
-            height: 500px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-        p{
-            margin-top: 17px;
-        }
-    </style>
-    <body onload="setMessageUsingDOM()">
+    <body class="bodyLogin" onload="setMessageUsingDOM()">
         <div class="container mt-3">
             <div class="col-md-6 offset-md-3">
                 <div class="row">
@@ -39,7 +57,7 @@ and open the template in the editor.
                     <form method="post" action="roomsResult.do" class="form-inline">
                         <div class="card card-body">
                             <div class="form-group">
-                                <input style="width: 430px" name="location" class="form-control mr-sm-2" type="search" placeholder="Search by city" aria-label="Search">
+                                <input id="searchCity" name="location" class="form-control mr-sm-2" type="search" placeholder="Search by city" aria-label="Search">
                                 <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
                             </div>
                             <div id="sugerimentIndex"></div>
@@ -48,32 +66,5 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-
     </body>
-    <script type="text/javascript">
-        function setMessageUsingDOM() {
-            var botonsLogin = document.getElementById("botons");
-            var textLogin = document.getElementById("text");
-            var trobat = false;
-            var messageText = "";
-            var usuariLogin = document.getElementById("usuariLogin");
-            for (var c of ${clientsWeb})
-            {
-                if (c.autenticat) {
-                    trobat = true;
-                    messageText = "Heu iniciat sessió com: "+c.username;
-                }
-            }
-            if (trobat) {
-                botonsLogin.hidden = true;
-                textLogin.hidden = false;
-            } else {
-                botonsLogin.hidden = false;
-                textLogin.hidden = true;
-            }
-            usuariLogin.textContent = messageText;
-            
-            
-        }
-    </script>
 </html>

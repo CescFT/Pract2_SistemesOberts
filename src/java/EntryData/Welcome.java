@@ -1,6 +1,5 @@
 package EntryData;
 
-
 import AuthenticationModule.credentialsClient;
 import ModelEntities.InterficieComuna;
 import ServicesSingleton.AutenticacioServiceSingleton;
@@ -17,8 +16,9 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
 /**
- * Classe Java que permet que la classe principal també sigui un .do. 
- * Carrega elements que es necessiten per a la sessió establerta.
+ * Classe Java que permet que la classe principal també sigui un .do. Carrega
+ * elements que es necessiten per a la sessió establerta.
+ *
  * @authors Francesc Ferré Tarrés i Aleix Sancho Pujals
  */
 public class Welcome implements InterficieComuna {
@@ -28,26 +28,38 @@ public class Welcome implements InterficieComuna {
             HttpServletRequest request,
             HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession sesio = request.getSession();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate localDate = LocalDate.now();
-        
-        
+
         sesio.setAttribute("dia", dtf.format(localDate));
-        
+
         AutenticacioServiceSingleton autenticacio = AutenticacioServiceSingleton.getInstance();
 
         Response resposta = autenticacio.getServeiAutenticacio().getAllClientsAutoritzats_JSON();
-        
-        if(resposta.getStatus() == Response.Status.OK.getStatusCode()){
-            List<credentialsClient> llistaResultat = resposta.readEntity(new GenericType<List<credentialsClient>>(){});
+
+        if (resposta.getStatus() == Response.Status.OK.getStatusCode()) {
+            List<credentialsClient> llistaResultat = resposta.readEntity(new GenericType<List<credentialsClient>>() {
+            });
             System.out.println(llistaResultat);
             request.setAttribute("clientsWeb", llistaResultat);
-        }else if(resposta.getStatus() == Response.Status.NOT_FOUND.getStatusCode()){
+        } else if (resposta.getStatus() == Response.Status.NOT_FOUND.getStatusCode()) {
             request.setAttribute("clientsWeb", resposta.readEntity(String.class));
         }
-        
+
+        if (String.valueOf(sesio.getAttribute("nomUsuari")) != null) {
+            resposta = autenticacio.getServeiAutenticacio().getInfoClientWeb(String.valueOf(sesio.getAttribute("nomUsuari")));
+
+            if (resposta.getStatus() == Response.Status.OK.getStatusCode()) {
+                request.setAttribute("user", resposta.readEntity(credentialsClient.class));
+            } else if (resposta.getStatus() == Response.Status.BAD_REQUEST.getStatusCode()) {
+                request.setAttribute("user", resposta.readEntity(String.class));
+            } else if (resposta.getStatus() == Response.Status.NOT_FOUND.getStatusCode()) {
+                request.setAttribute("user", resposta.readEntity(String.class));
+            }
+        }
+
         // 2. produce the view with the web result
         ServletContext context = request.getSession().getServletContext();
         context.getRequestDispatcher("/index.jsp").forward(request, response);

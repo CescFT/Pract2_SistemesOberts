@@ -9,18 +9,6 @@
             "class": "ConnectionToJSPRooms.SearchRoomById"
         },
         {
-            "URI": "/roomEliminated",
-            "class": "ConnectionToJSPRooms.DeleteRoom"
-        },
-        {
-            "URI": "/modifiedRoom",
-            "class": "ConnectionToJSPRooms.EditRoom"
-        },
-        {
-            "URI": "/createdRoom",
-            "class": "ConnectionToJSPRooms.CreateRoom"
-        },
-        {
             "URI": "/newUserWeb",
             "class": "ConnectionToJSPAuthentication.NewUserAutenticated" 
         },
@@ -29,52 +17,16 @@
             "class": "ConnectionToJSPAuthentication.WebClientAuthentication"
         },
         {
-            "URI": "/getTokenOfUsername",
-            "class": "ConnectionToJSPAuthentication.GetTokenOfUsername"
+            "URI": "/logout",
+            "class": "ConnectionToJSPAuthentication.LogoutUser"
         },
         {
-            "URI": "/getMyPassword",
-            "class": "ConnectionToJSPAuthentication.GetMyPassword"
-        },
-        {
-            "URI": "/getClientAutenticated",
-            "class": "ConnectionToJSPAuthentication.GetClientAuthenticated"
-        },
-        {
-            "URI": "/allAuthorizedClientWeb",
-            "class": "ConnectionToJSPAuthentication.GetAllClientWebAuthorized"
-        },
-        {
-            "URI": "/autenticatedTenant",
-            "class": "ConnectionToJSPTenants.ProcessToken"
+            "URI": "/infoClient",
+            "class": "ConnectionToJSPAuthentication.InfoClientWeb"
         },
         {
             "URI": "/rentingRoom",
             "class": "ConnectionToJSPTenants.RentingRoom"
-        },
-        {
-            "URI": "/createdNewTenant",
-            "class": "ConnectionToJSPTenants.CreateTenant"
-        },
-        {
-            "URI": "/editedTenant",
-            "class": "ConnectionToJSPTenants.EditTenant"
-        },
-        {
-            "URI": "/freeRooms",
-            "class": "ConnectionToJSPTenants.FreeRoom"
-        },
-        {
-            "URI": "/removedTenant",
-            "class": "ConnectionToJSPTenants.RemoveTenant"
-        },
-        {
-            "URI": "/findTenant",
-            "class": "ConnectionToJSPTenants.SearchTenant"
-        },
-        {
-            "URI": "/allTenants",
-            "class": "ConnectionToJSPTenants.SearchAllTenants"
         },
         {
             "URI": "/login",
@@ -87,14 +39,6 @@
         {
             "URI": "/welcome",
             "class": "EntryData.Welcome"
-        },
-        {
-            "URI": "/logout",
-            "class": "ConnectionToJSPAuthentication.LogoutUser"
-        },
-        {
-            "URI": "/infoClient",
-            "class": "ConnectionToJSPAuthentication.InfoClientWeb"
         }
     ]
 }

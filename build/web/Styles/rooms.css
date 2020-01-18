@@ -1,0 +1,190 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18-ene-2020, 13:32:12
+    Author     : Sancho
+*/
+
+body#rooms, body#roomsId {
+    background-image: url('//localhost:8080/Pract2_SistemesOberts/Images/landscape.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+body.bodyLogin{
+    background-image: url('//localhost:8080/Pract2_SistemesOberts/Images/mijas2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.currency::after {
+    content:' \20AC/mes'; 
+}
+
+.replaced:not(:empty) {
+    visibility: hidden;
+    position: relative;
+}
+
+.replaced:not(:empty):after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "Llogada";
+    color: red;
+}
+
+.replaced:empty:after{
+    content: "Disponible";
+    color: green;
+}
+
+h2#preuMes{
+    margin-top: 10px;
+}
+
+p#descripcio{
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+p#indexP{
+    margin-left: 5px;
+}
+
+div#noHab{
+    text-align: center;
+}
+
+button#usuariLogin{
+    color: black;
+}
+
+button#logOut{
+    margin-left: 30px;
+}
+
+button#loginButton {
+    margin-left: 30px;
+}
+
+input#searchCity{
+    width: 430px;
+}
+
+input#searchText{
+    width: 430px; 
+    margin-left: 20px;
+}
+
+button#searchCity2{
+    width: 180px;
+}
+
+button#returnMain{
+    margin-left: 50px; 
+    color: white; 
+    font-size: x-large;
+}
+
+div#headerRed{
+    background-color: darkred; 
+    height: 70px;
+}
+
+div#searchInput {
+    margin-top: 10px;
+}
+
+button#searchText{
+    width: 430px;
+    margin-left: 20px;
+}
+
+div#buttonsUser{
+    position: absolute; 
+    right: 0; 
+    margin-top: 10px; 
+    margin-right: 130px;
+}
+
+button#returnMain2{
+    margin-top: 5px;
+    width: 40px;
+    height: 30px;
+    margin-right: 5px;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+span#arrowBack{
+    margin-right: 5px;
+}
+
+h3#putData{
+    margin-top: 1px;
+}
+
+#myCarousel .list-inline {
+    white-space:nowrap;
+    overflow-x:auto;
+}
+#myCarousel .carousel-indicators {
+    position: static;
+    left: initial;
+    width: initial;
+    margin-left: initial;
+}
+#myCarousel .carousel-indicators > li {
+    width: initial;
+    height: initial;
+    text-indent: initial;
+}
+#myCarousel .carousel-indicators > li.active img {
+    opacity: 0.7;
+}
+
+p.true::after{
+    content:  "Si";
+} 
+
+p.false::after{
+    content: "No";
+}
+
+button#rentBtn{
+    margin-top: 10px;
+    width: 200px;
+    background-color: darkred; 
+    color: white;
+}
+
+p.popup{
+    margin-left: 5px;
+}
+
+label#labelLlogater{
+    background-color: darkred;
+    color: white;
+}
+
+h1#idNomHab{
+    margin-top: 10px; 
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+label#labelDescripcio{
+    margin-top: 30px;
+}
+
+select#showTenants{
+    margin-right: 35px;
+}
