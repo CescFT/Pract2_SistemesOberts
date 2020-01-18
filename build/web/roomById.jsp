@@ -229,22 +229,22 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100" src="${roomById.urlImatge}" alt="First slide">
+                                    <img class="d-block w-100" src="${roomById.urlImatge}/1.jpeg" alt="First slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="${roomById.urlImatge}" alt="Second slide">
+                                    <img class="d-block w-100" src="${roomById.urlImatge}/2.jpeg" alt="Second slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="${roomById.urlImatge}" alt="Third slide">
+                                    <img class="d-block w-100" src="${roomById.urlImatge}/3.jpeg" alt="Third slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="${roomById.urlImatge}" alt="Fourth slide">
+                                    <img class="d-block w-100" src="${roomById.urlImatge}/4.jpeg" alt="Fourth slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="${roomById.urlImatge}" alt="Fifth slide">
+                                    <img class="d-block w-100" src="${roomById.urlImatge}/5.jpeg" alt="Fifth slide">
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100" src="${roomById.urlImatge}" alt="Sixth slide">
+                                    <img class="d-block w-100" src="${roomById.urlImatge}/6.jpeg" alt="Sixth slide">
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -261,44 +261,44 @@
                                 <div class="row no-margin mt-5">
 
                                     <figure class="col">
-                                        <a href="${roomById.urlImatge}" data-size="1600x1067">
-                                            <img alt="picture" src="${roomById.urlImatge}"
+                                        <a href="${roomById.urlImatge}/1.jpeg" data-size="1600x1067">
+                                            <img alt="picture" src="${roomById.urlImatge}/1.jpeg"
                                                  class="img-fluid">
                                         </a>
                                     </figure>
 
                                     <figure class="col">
-                                        <a href="${roomById.urlImatge}" data-size="1600x1067">
-                                            <img alt="picture" src="${roomById.urlImatge}"
+                                        <a href="${roomById.urlImatge}/2.jpeg" data-size="1600x1067">
+                                            <img alt="picture" src="${roomById.urlImatge}/2.jpeg"
                                                  class="img-fluid" />
                                         </a>
                                     </figure>
 
                                     <figure class="col">
-                                        <a href="${roomById.urlImatge}" data-size="1600x1067">
-                                            <img alt="picture" src="${roomById.urlImatge}"
+                                        <a href="${roomById.urlImatge}/3.jpeg" data-size="1600x1067">
+                                            <img alt="picture" src="${roomById.urlImatge}/3.jpeg"
                                                  class="img-fluid" />
                                         </a>
                                     </figure>
                                 </div>
                                 <div class="row no-margin mt-2">
                                     <figure class="col">
-                                        <a href="${roomById.urlImatge}" data-size="1600x1067">
-                                            <img alt="picture" src="${roomById.urlImatge}"
+                                        <a href="${roomById.urlImatge}/4.jpeg" data-size="1600x1067">
+                                            <img alt="picture" src="${roomById.urlImatge}/4.jpeg"
                                                  class="img-fluid" />
                                         </a>
                                     </figure>
 
                                     <figure class="col">
-                                        <a href="${roomById.urlImatge}" data-size="1600x1067">
-                                            <img alt="picture" src="${roomById.urlImatge}"
+                                        <a href="${roomById.urlImatge}/5.jpeg" data-size="1600x1067">
+                                            <img alt="picture" src="${roomById.urlImatge}/5.jpeg"
                                                  class="img-fluid" />
                                         </a>
                                     </figure>
 
                                     <figure class="col">
-                                        <a href="${roomById.urlImatge}" data-size="1600x1067">
-                                            <img alt="picture" src="${roomById.urlImatge}"
+                                        <a href="${roomById.urlImatge}/6.jpeg" data-size="1600x1067">
+                                            <img alt="picture" src="${roomById.urlImatge}/6.jpeg"
                                                  class="img-fluid" />
                                         </a>
                                     </figure>

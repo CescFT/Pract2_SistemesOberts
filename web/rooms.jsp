@@ -1,16 +1,16 @@
 <%-- 
     Document   : roomById.jsp
     Created on : 30-nov-2019, 10:04:38
-    Author     : Francesc FerrÃ© and Aleix Sancho
+    Author     : Francesc Ferré and Aleix Sancho
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>CESC FACTORY - Rooms</title>
         <script type="text/javascript">
             function saveId() {
@@ -30,7 +30,7 @@
                             <div class="col-md-6 mb-3">
                                 <div class="card card-body">
                                     <h2>${elem.nomHabitacio}</h2>
-                                    <img src="${elem.urlImatge}" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
+                                    <img src="${elem.urlImatge}/1.jpeg" class="rounded mx-auto d-block" alt="Responsive image" width="500" height="300"/> 
                                     <h2 id="preuMes" class="currency">${elem.preuMes}</h2>
                                     <div class="row-form"> 
                                         <h5>${elem.tipusHabitacio}. ${elem.adresa}, ${elem.ciutat}</h5>

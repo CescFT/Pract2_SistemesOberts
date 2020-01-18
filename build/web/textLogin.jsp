@@ -44,14 +44,14 @@
                         <div class="modal-body">
                             <div class="col col-sm">
                                 <div class="row row-form">
-                                    <div class="form-group col-sm offset-md-1">
-                                        <label class="font-weight-bold col-md-2">Username</label>
+                                    <div class="form-group col-sm">
+                                        <label class="font-weight-bold col-md-2 offset-md-1" style="display: block">Username</label>
                                         <label id="modalUsername" class="offset-md-1"></label>
                                     </div>
                                 </div>
                                 <div class="row row-form">
-                                    <div class="form-group col-sm offset-md-1">
-                                        <label class="font-weight-bold col-md-2">Email</label>
+                                    <div class="form-group col-sm">
+                                        <label class="font-weight-bold col-md-2 offset-md-1" style="display: block">Email</label>
                                         <label id="modalEmail" class="offset-md-1"></label>
                                     </div>
                                 </div>
